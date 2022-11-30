@@ -10,7 +10,7 @@ They are listed in reverse-alphabetical order.
 
 [Wall-e](https://olincollege.github.io/pie-2022-03/wall-e)
 
-[Untitled.jpg](https://olincollege.github.io/pie-2022-03/untitled-jpg)
+[Untitled.png](https://olincollege.github.io/pie-2022-03/untitled-png)
 
 [Soda Fountain](https://olincollege.github.io/pie-2022-03/soda-fountain)
 
@@ -40,7 +40,7 @@ They are listed in reverse-alphabetical order.
 
 [Crepes](https://olincollege.github.io/pie-2022-03/crepes)
 
-[BigKnit](https://olincollege.github.io/pie-2022-03/bigknit)
+[Big Knit](https://olincollege.github.io/pie-2022-03/big-knit)
 
 [BarBot](https://olincollege.github.io/pie-2022-03/barbot)
 
