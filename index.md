@@ -26,6 +26,8 @@ They are listed in reverse-alphabetical order.
 
 [Mehndi Bot](https://olincollege.github.io/pie-2022-03/mehndi-bot)
 
+[M-O](https://olincollege.github.io/pie-2022-03/m-o)
+
 [Latte Art](https://olincollege.github.io/pie-2022-03/latte-art)
 
 [Hoverbois](https://olincollege.github.io/pie-2022-03/hoverbois)
@@ -37,8 +39,6 @@ They are listed in reverse-alphabetical order.
 [Deskbot](https://olincollege.github.io/pie-2022-03/deskbot)
 
 [Dancing Degas](https://olincollege.github.io/pie-2022-03/dancing-degas)
-
-[Crepes](https://olincollege.github.io/pie-2022-03/crepes)
 
 [Big Knit](https://olincollege.github.io/pie-2022-03/big-knit)
 
