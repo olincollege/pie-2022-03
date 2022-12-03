@@ -6,20 +6,20 @@ main:
 - title: "Implementation"
   url: /implementation/
   children:
-    - title: Sprint 1
+    - title: "Sprint 1"
       url: /sprint1/
-    - title: Sprint 2
+    - title: "Sprint 2"
       url: /sprint2/
-    - title: Sprint 3
+    - title: "Sprint 3"
       url: /sprint3
 - title: "Subsystems"
   url: /subsystems/
   children:
-    - title: Mechanical
+    - title: "Mechanical"
       url: /mechanical/
-    - title: Electrical
+    - title: "Electrical"
       url: /electrical/
-    - title: Firmware
+    - title: "Firmware"
       url: /firmware/
 - title: "About Us"
   url: /aboutus/
