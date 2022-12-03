@@ -41,6 +41,10 @@ header:
 plugins:
   - jekyll-feed
 
+defaults:
+  - values:
+      layout: single
+
 include:
   - _pages
   
