@@ -1,3 +1,8 @@
+---
+title: Context
+permalink: /context/
+---
+
 # Why Barbot?
 
 Ever wanted to make the perfect drink without having to pull out measuring tools to get the right mixture everytime? Unfortunately, not everyone has mixologists in their home bars, so we sought to find a simpler solution to this issue... BARBOT.
