@@ -1,6 +1,6 @@
 ---
 title: Barbot
-permalink: /
+permalink: /barbot/
 ---
 
 ## Revolutionizing Mixology One Drink At A Time

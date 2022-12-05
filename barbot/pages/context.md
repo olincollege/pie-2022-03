@@ -1,6 +1,6 @@
 ---
 title: Context
-permalink: /context/
+permalink: /barbot/context/
 ---
 
 # Why Barbot?

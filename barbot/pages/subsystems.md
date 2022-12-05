@@ -1,6 +1,6 @@
 ---
 title: Subsystems
-permalink: /subsystems/
+permalink: /barbot/subsystems/
 ---
 
 # Divide and Conquer

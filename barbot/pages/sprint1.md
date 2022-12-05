@@ -1,6 +1,6 @@
 ---
 title: Sprint 1
-permalink: /implementation/sprint1/
+permalink: /barbot/implementation/sprint1/
 ---
 # Sprint 1
 

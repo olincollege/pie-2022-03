@@ -1,6 +1,6 @@
 ---
 title: Firmware Subsytem
-permalink: /subsystems/firmware/
+permalink: /barbot/subsystems/firmware/
 ---
 # Firmware Subsytem
 
