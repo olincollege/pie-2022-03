@@ -30,7 +30,7 @@ url: https://arturojoya.github.io/pie-2022-03/barbot/ # the base hostname & prot
 
 # Build settings
 # theme: minima
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 minimal_mistakes_skin: "neon"
 
 markdown: "kramdown"
