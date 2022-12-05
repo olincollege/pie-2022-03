@@ -23,8 +23,8 @@ title: BarBot
 description: >- # this means to ignore newlines until "baseurl:"
   A display of the process taken to ideate and create a drink dispensing 
   robot - BarBot.
-# baseurl: "" # the subpath of your site, e.g. /blog
-url: https://arturojoya.github.io/pie-2022-03/barbot/ # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/pie-2022-03/barbot" # the subpath of your site, e.g. /blog
+url: https://arturojoya.github.io # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 # github_username:  jekyll
 
