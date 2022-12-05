@@ -1,6 +1,6 @@
 ---
 title: Electrical Subsytem
-permalink: /barbot/subsystems/electrical/
+permalink: /subsystems/electrical/
 ---
 # Electrical Subsytem
 

@@ -1,6 +1,6 @@
 ---
 title: Sprint 3
-permalink: /barbot/implementation/sprint3/
+permalink: /implementation/sprint3/
 ---
 # Sprint 3
 

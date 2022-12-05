@@ -1,6 +1,6 @@
 ---
 title: Implementation
-permalink: /barbot/implementation/
+permalink: /implementation/
 ---
 
 # Increment Steps

@@ -23,7 +23,7 @@ title: BarBot
 description: >- # this means to ignore newlines until "baseurl:"
   A display of the process taken to ideate and create a drink dispensing 
   robot - BarBot.
-baseurl: "/barbot/" # the subpath of your site, e.g. /blog
+# baseurl: "" # the subpath of your site, e.g. /blog
 url: https://arturojoya.github.io/pie-2022-03/barbot/ # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 # github_username:  jekyll
@@ -40,7 +40,6 @@ header:
 
 plugins:
   - jekyll-feed
-  - jekyll-include-cache
 
 atom_feed:
   hide: true
@@ -50,7 +49,7 @@ defaults:
       layout: single
 
 include:
-  - pages
+  - _pages
   
 # Exclude from processing.
 # The following items will not be processed, by default.

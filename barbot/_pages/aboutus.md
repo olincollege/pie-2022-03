@@ -1,6 +1,6 @@
 ---
 title: About Us
-permalink: /barbot/aboutus/
+permalink: /aboutus/
 ---
 
 # Meet Our Team!

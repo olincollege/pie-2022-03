@@ -1,6 +1,6 @@
 ---
 title: Mechanical Subsytem
-permalink: /barbot/subsystems/mechanical/
+permalink: /subsystems/mechanical/
 ---
 # Mechanical Subsytem
 
