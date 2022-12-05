@@ -42,6 +42,6 @@ They are listed in reverse-alphabetical order.
 
 [Big Knit](https://olincollege.github.io/pie-2022-03/big-knit)
 
-[BarBot](https://olincollege.github.io/pie-2022-03/barbot)
+[BarBot](https://arturojoya.github.io/pie-2022-03/barbot)
 
 [4 Circle](https://olincollege.github.io/pie-2022-03/4-circle)
