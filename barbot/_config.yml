@@ -40,6 +40,10 @@ header:
 
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
+
+atom_feed:
+  hide: true
 
 defaults:
   - values:
