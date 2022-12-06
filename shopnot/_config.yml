@@ -1,0 +1,18 @@
+theme: jekyll-text-theme
+text_skin: forest
+
+title: "ShopNot"
+subtitle: "Project for PIE FA2022"
+# description:
+# repository:
+
+# plugins:
+#   - jekyll-paginate
+#   - jekyll-sitemap
+#   - jekyll-gist
+#   - jekyll-feed
+#   - jemoji
+#   - jekyll-include-cache
+
+include:
+  - _pages
