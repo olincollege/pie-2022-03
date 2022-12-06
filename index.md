@@ -14,6 +14,8 @@ They are listed in reverse-alphabetical order.
 
 [Soda Fountain](https://olincollege.github.io/pie-2022-03/soda-fountain)
 
+[ShopNot](https://olincollege.github.io/pie-2022-03/shopnot)
+
 [Sand Table](https://olincollege.github.io/pie-2022-03/sand-table)
 
 [Ripple](https://olincollege.github.io/pie-2022-03/ripple)
@@ -21,8 +23,6 @@ They are listed in reverse-alphabetical order.
 [Pumpkin People](https://olincollege.github.io/pie-2022-03/pumpkin-people)
 
 [O A Leg](https://olincollege.github.io/pie-2022-03/o-a-leg)
-
-[Mini Shopbot](https://olincollege.github.io/pie-2022-03/mini-shopbot)
 
 [Mehndi Bot](https://olincollege.github.io/pie-2022-03/mehndi-bot)
 
