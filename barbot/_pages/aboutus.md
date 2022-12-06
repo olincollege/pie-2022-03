@@ -18,3 +18,6 @@ Arturo Joya - Electrical Lead
 Eliyahu Suskind - Firmware Lead
 
 Lauren Armstrong - Mechanical lead
+
+## Underlying Goals
+_TODO: Add section for goals of the project_

@@ -7,13 +7,13 @@ permalink: /subsystems/
 Barbot takes advantage of three very important systems: Mechanical; Electrical; Firmware. In developing the BarBot, we had to make sure that the electrical and firmware architecture was ready to recieve the motor assemblies that would carry our drink dispensing pumps.
 
 Mechanical: In charge of pump assembly development.
-[Mechanical](/subsystems/mechanical)
+[Mechanical](/pie-2022-03/barbot/subsystems/mechanical)
 
 Electrical: In charge of creating and optimizing circuitry.
-[Electrical](/subsystems/electrical)
+[Electrical](/pie-2022-03/barbot/subsystems/electrical)
 
 Firmware: In charge or creating and optimizing the dispensing and user interface.
-[Firmware](/subsystems/firmware)
+[Firmware](/pie-2022-03/barbot/subsystems/firmware)
 
 _TODO: Add images to go next to, if not ontop, the subsystem abstracts_
 

@@ -14,11 +14,11 @@ _TODO: Create the sites for the three sprints and create embedded links to them 
 
 _For now..._
 
-[Sprint 1](/implementation/sprint1)
+[Sprint 1](/pie-2022-03/barbot/implementation/sprint1)
 
-[Sprint 2](/implementation/sprint2)
+[Sprint 2](/pie-2022-03/barbot/implementation/sprint2)
 
-[Sprint 3](/implementation/sprint3)
+[Sprint 3](/pie-2022-03/barbot/implementation/sprint3)
 
 _TODO: Add images that show some progress from Sprint 1 to Sprint 3_
 

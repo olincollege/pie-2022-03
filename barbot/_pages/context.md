@@ -16,5 +16,5 @@ This machine can serve as a perfect gift to a cocktail enthusiast, and can even 
 _TODO: Improve quality of the blurps_
 _TODO: Add images of the final barbot_
 
-## Underlying Goals
-_TODO: Add section for goals of the project_
+## How Barbot Works
+_TODO: Add description of Barbot functionality_
