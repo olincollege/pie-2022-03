@@ -6,6 +6,9 @@ subtitle: "Project for PIE FA2022"
 # description:
 # repository:
 
+url: "https://olincollege.github.io/"
+base_url: "/pie-2022-03/shopnot"
+
 # plugins:
 #   - jekyll-paginate
 #   - jekyll-sitemap
