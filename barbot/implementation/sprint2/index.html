@@ -166,8 +166,6 @@
 
 <h2 id="electrical">Electrical:</h2>
 
-<p><em>motor board expansion, power supply implementation, MEGA2560</em></p>
-
 <p><img src="/pie-2022-03/barbot/images/s2_ee.jpg" alt="Sprint 2 Electronics" />
  <img src="/pie-2022-03/barbot/images/s2_ee2.jpg" alt="Sprint 2 Power Electronics" />
  <em>Figures 2 &amp; 3: Integrated electronics in Sprint 2. || Integrated power supply.</em></p>
@@ -184,13 +182,17 @@
 
 <h4 id="actuation-electronics">Actuation Electronics</h4>
 
-<p>For Sprint 2, we increased the size of our motor board to allow for 4 motor driver. We also chose to get new motor driver modules. Though they were still A4988s, these new ones had a current limiting potentiometer, which is one thing the last motor driver modules lacked. Although the pin out was slightly different, it was still fairly straight forward to implement. We were able to use <a href="https://lastminuteengineers.com/a4988-stepper-motor-driver-arduino-tutorial/">this website</a> to validate our desgin</p>
+<p>For Sprint 2, we increased the size of our motor board to allow for 4 motor driver. We also chose to get new motor driver modules. Though they were still A4988s, these new ones had a current limiting potentiometer, which is one thing the last motor driver modules lacked. Although the pin out was slightly different, it was still fairly straight forward to implement. We were able to use <a href="https://lastminuteengineers.com/a4988-stepper-motor-driver-arduino-tutorial/">this website</a> to validate our desgin.</p>
+
+<p>Since we amped up the amount of motors we are using, we have also decided to upgrade our microcontroller from an arduino UNO to an arduino MEGA2560. This upgrade gives us more digital and PWM pins to allow us to control more motors, continue receiving button signals, and continue using LEDs to represent the state.</p>
 
 <h2 id="firmware">Firmware:</h2>
 
 <p>One of the first firmware updates that occured during sprint 2 was the change from creating the pwm signals using delays to using the AccelStepper library which can be obtained by typing <code class="language-plaintext highlighter-rouge">AccelStepper</code> in Arduino IDE. Due to the way that the library works, we begin by setting a target distance arbitrarily high (1000000 steps), and allow the motors to run in the dispensing / clean / set-up towards that target. Whenever we wanted to stop, we would run the <code class="language-plaintext highlighter-rouge">.stop()</code> method at roughly 17 seconds before the time the motors actually needed to stop running. We would then “reset” the movement by runnning the <code class="language-plaintext highlighter-rouge">.setCurrentPosition(0);</code> method whenever switching out any of these states. More complete notes on the implementation can be found in the <a href="/pie-2022-03/barbot/subsystems/firmware">firmware subsystems</a> webpage.</p>
 
 <p><img src="/pie-2022-03/barbot/images/fw_fsm.PNG" alt="Sprint 2 FSM" /></p>
+
+<p><em>Figure 4: The finite state machine encapsulating both user and maintainance modes</em></p>
 
 <p>This sprint, we introduced a new mode - maintainance mode. Here we created 2 additional finite state machines: The main finite state machine, and the maintainance mode finite state machine.</p>
 
@@ -201,12 +203,26 @@
 <p>The user mode did not change, except that we now made it so that pressing the reset button during the idle state and also implemented the AccelStepper library as stated previously</p>
 
 <h4 id="maintainance-mode">Maintainance Mode</h4>
+
+<p><img src="/pie-2022-03/barbot/images/s2_mmi.png" alt="Maintainance Mode Initiation" /></p>
+
+<p><em>Figure 5: The display when entreing maintainance mode.</em></p>
+
 <p>This mode exists to add maintainance issues. This state machine allows the person running the barbot to “set” the liquids to the tip of the tubes, and to run a cleaning cycle.</p>
 
 <h5 id="idle">Idle</h5>
+
+<p><img src="/pie-2022-03/barbot/images/s2_mmh.png" alt="Idle Screen" /></p>
+
+<p><em>Figure 6: The display while in idle mode</em></p>
+
 <p>The idle mode here acts the same way as the idle in the user mode, but instead of waiting strictly for the select button, it waits for either select, confrim, or reset buttons. In our design, the select button takes the system to the set-up state, the confirm button takes the system to the clean state, and the reset button takes the system back to the user mode.</p>
 
 <h5 id="set-up">Set-Up</h5>
+
+<p><img src="/pie-2022-03/barbot/images/s2_sl.png" alt="Setting Liquids Screen" /></p>
+
+<p><em>Figure 7: The display as Barbot sets the liquids</em></p>
 
 <p>The set-up mode is meant to turn on and run the motors for just enough time to allow the liquids to stop at the end of the tubing. Since we did not have the exact length of tubing determined, we were unable to set an actual time parameter for how long the motors should run. This should not be hard to update, as the value is stored in a variable named <code class="language-plaintext highlighter-rouge">setupdur</code> (short for “set up duration”).</p>
 
