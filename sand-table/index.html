@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            
+            Sand Table - PIE 2022</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/styles/main.css"> 
+<meta name="description" content=""/>
+<link
+rel="canonical" href="/"/> 
+<meta property="og:site_name" content="Sand Table - PIE 2022"/>
+<meta property="og:title" content="Sand Table - PIE 2022"/>
+<meta property="og:description" content=""/>
+<meta property="og:url" content="/"/>
+<meta property="og:locale" content="en_us"/>
+<meta name="twitter:card" content="summary"/>
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    </head>
+    <body>
+        <div class="noselect position-fixed" id="background-container">
+	<div class="marquee">
+		<div class="marquee-inner" aria-hidden="true">
+			<span class="background-text">Principles of Integrated Engineering</span>
+			<span class="background-text">Principles of Integrated Engineering</span>
+			<span class="background-text">Principles of Integrated Engineering</span>
+			<span class="background-text">Principles of Integrated Engineering</span>
+		</div>
+	</div>
+</div>
+
+<section id="hero">
+  <h4 id="hero__minititle" class="position-absolute abs-horizontal-center">PIE Fall 2022</h4>
+  <div id="showreel" class="video-container lazy position-absolute abs-center video-container-background-image" data-src="/assets/images/table.png">
+    <iframe src="https://www.youtube.com/embed/lu5t-XylQH0?controls=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=lu5t-XylQH0&disablekb=1&modestbranding=1"></iframe>
+  </div>
+  <div id="showreel-hider" class="position-absolute abs-center noselect"></div>
+  <h1 id="hero__title"  class="position-absolute abs-center noselect">Sand Table</h1>
+  <a href="#how-it-works" class="position-absolute abs-horizontal-center noselect" id="hero-cta-button">
+    <h4 id="hero-cta-text">Explore</h4>
+    <div class="circle"></div>
+  </a>
+</section>
+
+<section id="intro">
+  <div class="container">
+    <h2>A zen garden that draws itself. A steel ball moves around a flat sand bed via a magnet underneath, drawing different continuous patterns.</h2>
+  </div>
+  <div id="intro__image-gallery" class="horiz-image-gallery">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/1.png">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/2.png">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/3.png">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/4.png">
+  </div>
+</section>
+
+
+<section id="how-it-works">
+  <div class="container">
+    <h4>How It Works</h4>
+    <h3 id="how-it-works__desc">Rotation and extension motors control the position of the ball via magnet. An Arduino board controls the pivot and extension motors to draw patterns.</h3>
+  </div>
+  <div class="collapse-row-container">
+    <div class="collapse-container" data-bs-toggle="collapse" href="#overview" role="button" aria-expanded="false" aria-controls="overview" data-primary-color="#415F54">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Overview</h2>
+        <p>High level overview of the system.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="overview">
+        <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/overview/overview.jpg">
+      </div>
+    </div>
+
+    <div class="collapse-container" data-bs-toggle="collapse" href="#mechanical" role="button" aria-expanded="false" aria-controls="mechanical" data-primary-color="#3B3232">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Mechanical</h2>
+        <p>Uniaxial arm and sand enclosure.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="mechanical">
+        
+<div class="row">
+    <div class="col-md-4">
+        <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/image11.gif">
+    </div>
+    <div class="col-md-4">
+        <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/image2.png">
+    </div>
+    <div class="col-md-4">
+        <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/image13.png">
+    </div>
+</div>
+<p>The mechanical design consists of three main parts: the uniaxial arm, the sand enclosure, and the electrical containment. The goal of the mechanical design is to use a magnet to seamlessly move the ball anywhere within the sand enclosure based on what the software maps it to.</p>
+
+<div class="text__section">
+    <h4>The Uniaxial Arm</h4>
+    <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/uniaxial_arm_white_bg.png">
+    <img class="lazy img-centered" width="60%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/image15.png">
+    <p>The uniaxial arm controls both the rotational motion and the axial motion through a single axis. This, as opposed to an x-y gantry, allows us to keep the enclosure contained to a circle. We used timing belts around the pulleys to control both arms separately. The rotational motion arm and the plates holding the motors are laser cut ¼” MDF. The axial motion arm and the black pulleys are 3D printed. All other parts, including the standoffs, shafts, and metal pulleys are all COTS (Commercial Off the Shelf) parts.</p>
+
+    <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/image14.jpg">
+</div>
+
+<div class="text__section">
+    <h4>Sand Enclosure</h4>
+    <p>To make the walls that enclose the sand, we divided the circle into four parts and used ¼” MDF which was bolted and glued together. In order to save material and create room for LEDs that stuck to the inner walls of the enclosure, the width of the walls varied as shown below.</p>
+    <img class="lazy img-centered" width="40%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/image16.png">
+    <p>On each side of the sand walls, we used 2mm clear acrylic, so that it was see through on the top, and because 2mm was a proper thickness to hold up the sand while still allowing the magnet to work smoothly. In order to keep the sand enclosure at an appropriate height above the magnet in the arm, we 3D printed standoffs.</p>
+    <img class="lazy img-centered" width="40%" src="/assets/images/lazy.jpg" data-src="/assets/images/mechanical/image3.png">
+</div>
+
+<div class="text__section">
+    <h4>The Electrical Containment</h4>
+    <p>To keep the arduino and breadboard contained underneath the sand enclosure and not interfering with the arm, we decided to go simple by using double sided tape to hold the boards down and zip tying the wires to keep them from sticking up.</p>
+</div>
+
+<p><a href="https://cad.onshape.com/documents/36d12ebb5892fe51fbf3a1de/w/937a75d4dbc38e0b3a2188bb/e/54129be8626f3311b9e720e7?renderMode=0&uiState=63979ea4db0a3a4418490201">See the CAD files.</a></p>
+      </div>
+    </div>
+
+    <div class="collapse-container" data-bs-toggle="collapse" href="#Electrical" role="button" aria-expanded="false" aria-controls="Electrical" data-primary-color="#4F3B4B">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Electrical</h2>
+        <p>Wiring diagram and list of components.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="Electrical">
+        <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/electrical/circuit_diagram.png">
+<p>The electrical system of the sand table consists of two main sections. The first part consists of two Nema 17 stepper motors, two A4988 stepper drivers, and an Arduino to control the drivers. We used a 100µF bypass capacitor to smooth out the 12V power supply. The second part is the strip of LEDs, which has a 5V power supply and is controlled by a separate Arduino.</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/electrical/1.jpg">
+    </div>
+    <div class="col-md-6">
+        <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/electrical/2.jpg">
+    </div>
+</div>
+<p>Stepper drivers and Arduino (left) and LED power and Arduino (right).</p>
+      </div>
+    </div>
+
+    <div class="collapse-container" data-bs-toggle="collapse" href="#Software" role="button" aria-expanded="false" aria-controls="Software" data-primary-color="#48372F">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Software</h2>
+        <p>Controlling motors and LEDs via Arduino.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="Software">
+        <p>The software system runs on two Arduinos. One Arduino controls the LED strip and uses the FastLED library to run through a series of default patterns. The other Arduino controls the movement of the arm.</p>
+<p>We use the AccelStepper library to control the two motors. The AccelStepper library provides the MultiStepper class which allows us to manage multiple steppers. The MultiStepper.moveTo() function allows us to move the two steppers at the same time for simultaneous motion. moveTo() calculates the necessary respective speeds at which the two motors need to move to reach their desired respective positions at the same time.</p>
+<p>The way we create patterns in the sand is by moving the ball between points in small, discrete steps. The function that moves our stepper motors takes in the desired radius and angle of the magnet in polar coordinates and uses inverse kinematics to compute the necessary motor steps to reach that point. The inverse kinematics are necessary because both motors are on the same shaft—moving one motor moves the other.</p>
+<img class="lazy img-centered" width="60%" src="/assets/images/lazy.jpg" data-src="/assets/images/software/image7.jpg">
+<p>Rather than storing patterns as an array of points, we increase the angle in small increments of 5 degrees and calculate the resulting radius for the given pattern based on the current angle. A circle will return the same radius regardless of the angle, but a spiral pattern will increase and decrease the radius based on the current angle like so:</p>
+<p>SPIRAL_SCALE * (currentAngle / 360.0) * MAX_RADIUS;</p>
+<p>Where MAX_RADIUS is 165.0 * sqrt(2), and SPIRAL_SCALE is a value from 0 to 1 that determines the size of the spiral.</p>
+<p><a href="https://github.com/oliviachang29/pie-sand-table">See the source code.</a></p>
+      </div>
+    </div>
+
+    <div class="collapse-container" data-bs-toggle="collapse" href="#bom" role="button" aria-expanded="false" aria-controls="bom" data-primary-color="#0D4863">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Bill of Materials</h2>
+        <p>List of all parts and total project costs.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="bom">
+        <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/budget/budget.png">
+<p>We were able to use scrap material we found and already had motors and an Arduino to use for testing in sprint 1 and sprint 2. For the final sprint, we bought materials for the final enclosure, which left us under the $250 budget. This included the MDF for the enclosure, timing belts, shafts, standoffs, bolts, spacers, stepper motors, sand, and magnets. We were able to either find or borrow the arduino, motor drivers, breadboard, and LEDs for the final design, so this didn’t exceed our $250 budget.</p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section id="intro">
+  <div id="intro__image-gallery" class="horiz-image-gallery">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint3/level_view.png">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint1/image5.gif">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint3/level_view.png">
+    <img class="lazy" src="/assets/images/lazy.jpg" data-src="/assets/images/arm_no_enclosure.png">
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <h4>Process</h4>
+    <h3 id="how-it-works__desc">The project came together over the course of six weeks and three sprints.</h3>
+  </div>
+  <div class="collapse-row-container">
+    <div class="collapse-container" data-bs-toggle="collapse" href="#sprint1" role="button" aria-expanded="false" aria-controls="sprint1" data-primary-color="#3F4849">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Sprint 1</h2>
+        <p>Prototyping a magnet movement mechanism and initial circuit with DC motors.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="sprint1">
+        <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint1/image5.gif">
+
+<div class="text__section">
+    <h4>Mechanical</h4>
+    <p>For the mechanical side on our first sprint, we focused on prototyping a magnet movement mechanism. We used existing DC motors and motors controllers for actuation and used a combination of 3d printed and laser cut parts to build the movement arm.</p>
+    <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint1/IMG_3226.jpg">
+    <p>One primary design decision we made at the start was the need for a coaxial mechanism. By having both the actuation for radius extension and rotation on the same axis, we can eliminate the risk of tangled wires and reduce the required weight on the movement arm. The primary disadvantage with the coaxial design is an increase in complexity for the rotation system. We approached this challenge by using timing belts due to their lightweight and ease of construction with 3d printed pulleys. However, for our first iteration we aimed to purchase as few parts as possible, so we ended up making our own continuous timing belts which proved to be challenging.</p>
+    <p>Due to the small belt pitch, using pins to join the ends of the belt resulted in unreliable connections. We found that using CA glue and a piece of flexible cloth on the back of the belt produced the most consistent joins. </p>
+    <p>An additional issue we faced with our mostly printed design was our 3D printed axle bending. Below is a video of our sprint 1 mechanical iteration:</p>
+    <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint1/image9.gif">
+    <p>Much of the instability stemmed from the center axle bending over time causing variable belt tension and inconsistent magnet travel.</p>
+    <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint1/bottom.png">
+</div>
+
+<div class="text__section">
+    <h4>Electrical</h4>
+    <p>We used an Arduino to control our electrical system. However, because the Arduino itself cannot provide enough power to drive the motors, we added a motor shield connected to the Arduino as well as 12V power.</p>
+    <p>In order to have good control over the position of the steel ball within our sand enclosure, we needed to know the position of our two DC motors at all times. We decided the best way to do this would be to use encoders. Encoders are a type of sensor that can tell how much a shaft has rotated in terms of steps. By using the given number of steps per rotation of our encoders, we would be able to determine the distance and angle between the center and the position of the magnet. These encoders could be connected directly to digital pins on the Arduino.</p>
+    <p>Because encoders reset to zero when they are powered, we considered including a limit switch at the center of our enclosure so that we can determine where the zero position is even in the case of not starting in the center. However, this was not an issue we were encountering, and we decided to forgo actually adding one. </p>
+    <img class="lazy img-centered" width="50%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint1/initial_circuit_diagram.jpg">
+</div>
+
+<div class="text__section">
+    <h4>Software</h4>
+    <p>The goal of sprint one was mainly focused on getting our mechanical and electrical system into a place where we could start testing software. We did not have a complete control scheme by this time, but we were able to move the motors independently between encoder positions. We used Arduino’s encoder library to read encoder positions as the motors moved and stop them once the desired value was reached.</p>
+</div>
+      </div>
+    </div>
+
+    <div class="collapse-container" data-bs-toggle="collapse" href="#sprint2" role="button" aria-expanded="false" aria-controls="sprint2" data-primary-color="#2B3242">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Sprint 2</h2>
+        <p>Exploring different methods of programming patterns into the motors.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="sprint2">
+        
+<div class="text__section">
+    <h4>Mechanical</h4>
+    <p>The primary goal of the mechanical work in sprint 2 was to fix all of the sprint 1 mechanical bugs to allow effective software testing. We first addressed the bending axle by using a metal insert surrounded by a 3d printed cover:</p>
+    <img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint2/axel.png">
+    <p>In preparation for the final sprint, we purchased belts, hardware, and MDF.</p>
+</div>
+
+<div class="text__section">
+    <h4>Electrical</h4>
+    <p>The electrical design did not change significantly between our first two sprints. Our plan at the time was to continue using DC motors with encoders.</h4>
+</div>
+
+<div class="text__section">
+    <h4>Software</h4>
+    <p>The main focus of this sprint was on the software. In further testing motor motion, we realized that when changing the angle of the arm, we also changed the magnet’s distance from the sensor because their belt pulleys shared an axle. We had to account for this in the inverse kinematics to determine the necessary motor angles based on the desired location of the magnet.</p>
+    <img class="lazy img-centered" width="50%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint2/image4.png">
+    <p>Our first plan to create patterns was to make a series of close-together points and move the ball between them. The concept worked theoretically, but we were having issues precisely controlling the position. Our motors were relatively fast, and even at the slowest setting we could manage without stalling, they frequently overshot the desired position by a significant number of encoder steps.</p>
+    <p>After realizing that it would be more difficult than expected to create patterns this way, we considered an alternate option of just controlling the speeds of the motors. This would create smoother and more continuous motion without worrying about the encoders but would restrict the kinds of patterns we could create. Using the speeds method, we were able to tune the speeds correctly to create a perfect circle.</p>
+</div>
+
+<img class="lazy img-centered" width="80%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint2/image10.gif">
+
+      </div>
+    </div>
+
+    <div class="collapse-container" data-bs-toggle="collapse" href="#sprint3" role="button" aria-expanded="false" aria-controls="sprint3" data-primary-color="#023C3D">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Sprint 3</h2>
+        <p>Final mechanical design and switching to stepper motors.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="sprint3">
+        <div class="text__section">
+    <h4>Mechanical</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint3/laser_cutting.png">
+        </div>
+        <div class="col-md-6">
+            <img class="lazy column-image" width="100%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint3/assembly.png">
+        </div>
+    </div>
+    <p>For the final sprint, we designed and fabricated the final mechanical enclosure and motor mounting with material that we purchased. Using timing belts that were purchased and made to a custom length fixed the issue of timing belts breaking because of us gluing things together. We changed the mechanical design slightly to adapt to hold stepper motors instead of DC motors. We also made the sand enclosure to hold all of the sand with the ball by gluing and bolting together layers of MDF. The final large change was instead of having a belt that held the ball to control the axial motion, we changed it to being a second arm with the rotation point being the end of the first arm. Previously, the axial motion was limited because the belt couldn’t rotate completely, but this new design allowed us to go to any point without any constraints and use a continuous belt that has a much lower chance of breaking. This resulted in a fully functional and aesthetic mechanical design to allow electrical and software to create patterns in the sand.</p>
+</div>
+
+<div class="text__section">
+    <h4>Electrical</h4>
+    <img class="lazy img-centered" width="60%" src="/assets/images/lazy.jpg" data-src="/assets/images/sprint3/level_view.png">
+    <p>Switching to stepper motors required changes to be made to the electrical design. At first, we had some difficulty determining how to run the motors. We started out trying to use the same motor shield but quickly realized this was not an option after burning it out. Next, we tried to use an L298N motor driver to control each motor. This had some success initially but stopped working at later steps. After extensive debugging, we determined that one of the drivers had broken somehow after our first attempt. Our final method of controlling these motors was with A4988 stepper drivers. These ended up being successful in driving the steppers without burning out. </p>
+    <p>Using the stepper motors eliminated our need for encoders since their position should already be known due to the nature of stepper motors.</p>
+    <p>Our final design included the addition of a strip of LEDs along the ends of the enclosure. These lights need to be powered with a 5V supply and controlled with a digital pin on an Arduino. To work on the LEDs and motors synchronously, we started controlling each on a different Arduino. In the end, there was no reason to consolidate to one device.</p>
+</div>
+
+<div class="text__section">
+    <h4>Software</h4>
+	<p>With the new motors and mechanical design, there were significant changes to be made to the code architecture. For one, we switched from using the encoder and dc motor libraries to using libraries for stepper motors. This meant that instead of running the motors until they reached a specified position, we could instead move them a certain number of steps for a similar and more accurate result.</p>
+	<p>Similar to our previous design, we needed to convert desired polar coordinates into motor positions. However, with the new design, we needed a different set of equations to perform the inverse kinematics, detailed in the software section. With desired angles computed, we use the number of steps per revolution to determine how far to step the motors.</p>
+	<p>We were able to go back to our original plan to make patterns using small motions between points. The only issue with this method is that the stepper motors do not create much torque. There is a lot of friction between the ball and the sand, so the motors sometimes miss steps. However, this has proved to be a manageable issue by slightly increasing our maximum distance to compensate. At the end of this final sprint, we are able to create patterns such as circles and spirals that move inward and out.</p>
+</div>
+
+      </div>
+    </div>
+
+    <div class="collapse-container" data-bs-toggle="collapse" href="#learnings" role="button" aria-expanded="false" aria-controls="learnings" data-primary-color="#0D4863">
+      <div class="container d-flex noselect collapse-shown">
+        <h2>Learnings</h2>
+        <p>What we learned from this process.</p>
+      </div>
+      <div class="collapse collapse-hidden container" id="learnings">
+        <div class="text__section">
+    <h4>Mechanical</h4>
+    <p>In the beginning, we ran into a lot of issues with both parts breaking and interference issues. The issue with parts breaking was mainly because we were doing quick prototyping to give electrical and software a product to start testing with, but because things were breaking it was difficult for them to do real testing. The parts that broke were the timing belts and the shaft bending. We were gluing timing belts together for a while since we had to wait for the ordered continuous timing belts to arrive. In hindsight, it would’ve been better to order the timing belts first and design around the dimensions of the belts that we ordered, that we wouldn’t have to deal with the belts constantly breaking for the first prototype and this would’ve allowed electrical and software to get a lot more done in the beginning. The interference issues were due to not paying close attention to the CAD assembly, so we had to refabricate some parts later on.</p>
+    <p>Another thing we learned was that it’s easy to misjudge how long something will take. In some instances, we planned to have the mechanical side of things done by a certain deadline, but it would take a lot longer than expected so the entire timeline had to be pushed to accommodate. In the end, we learned that it’s better to allocate more time than expected, especially when fabricating and assembling.</p>
+</div>
+
+<div class="text__section">
+    <h4>Electrical</h4>
+    <p>One thing we learned was the importance of using the right parts for the job. We started out with DC motors with too much torque, so they overshot the target more frequently than not, making the encoders less helpful in determining position than we thought they would be. When we switched to using stepper motors, it became a lot easier from a software standpoint since they are more designed to move to specific positions. However, these motors had less torque than anticipated. The accuracy of their positions worsened when they started to lose steps combatting the friction of the ball against the sand. If we could redo this project, we would have specced out the right motors more thoroughly at the start. </p>
+    <p>In a similar vein, we had trouble finding the right drivers for our motors since it was a rushed switch. We burnt out two different types of boards before finding drivers that worked. This is another case where we would have benefited from deciding on the right parts earlier. </p>
+</div>
+
+<div class="text__section">
+    <h4>Software</h4>
+    <p>As a stretch goal, we initially hoped to have a web server that users could input their own patterns to for the sand table to draw. In the end, we ended up with only 3 different patterns: circles, spirals, and roses, without the web server. </p>
+    <p>One of the biggest takeaways from the software development in this project was that no matter how well the code works in theory, it needs to be adjusted to match the constraints of the mechanical and electrical system. For example, in the first two sprints when we were writing code to move the DC motors to certain points using the motor encoders, we found that the motors would overshoot the target position and end up oscillating back and forth even as it attempted to draw a very simple pattern like a circle. Although our algorithm for moving the motors to the right positions was correct, we had to adjust the motor speeds and angle step size because the motors we were using could not handle accuracy when there was abrupt acceleration.</p>
+</div>
+
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<footer class="container">
+  <div class="footer__inner d-flex">
+    <h5>Sand Table</h5>
+    <p>Made by Tara, Miranda, Kenta, Krishna, Olivia '25 for PIE Fall 2022 at Olin College.</p>
+  </div>
+</footer>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.min.js" integrity="sha512-smKadbDZ1g5bsWtP1BuWxgBq1WeP3Se1DLxeeBB+4Wf/HExJsJ3OV6lzravxS0tFd43Tp4x+zlT6/yDTtr+mew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/assets/scripts/main.js"></script>
+    </body>
+</html>
