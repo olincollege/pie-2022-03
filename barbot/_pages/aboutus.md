@@ -24,7 +24,7 @@ Arturo enjoys...
 ![Eliyahu](/pie-2022-03/barbot/images/es_b.PNG)
 Eliyahu Suskind - Firmware Lead
 
-Like many other Israeli-Americans, Seattle-native Eliyahu Suskind has wanted to be an inventor for as long as he could remember. However, instead of creating water drip irrigation for plants like his ancestors, he has helped create cocktail drip irrigation for humans. Aside from his inventing hobby, Eliyahu enjoys hiking, collecting antiques and vinyl, geocaching, and Chinese/Japanese tea ceremony. Thus, next he will create a TeaBot.
+Like many other Israeli-Americans, Seattle-native Eliyahu Suskind has wanted to be an inventor for as long as he could remember. However, instead of creating water drip irrigation for plants like his ancestors, he has helped create cocktail drip irrigation for humans. Aside from his passion for STEM and inventing, Eliyahu enjoys hiking, collecting antiques and vinyl, geocaching, and Chinese/Japanese tea ceremony. Thus, next he will create a TeaBot.
 
 ![Lauren](/pie-2022-03/barbot/images/la_b.PNG)
 Lauren Armstrong - Mechanical Lead
