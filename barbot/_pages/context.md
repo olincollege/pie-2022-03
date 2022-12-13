@@ -6,6 +6,7 @@ permalink: /context/
 # Why Barbot?
 
 Ever wanted to make the perfect drink without having to pull out measuring tools to get the right mixture everytime? Unfortunately, not everyone has mixologists in their home bars, so we sought to find a simpler solution to this issue... BARBOT.
+test
 
 ## What is BarBot?
 BarBot is a machine that can store a combination of 4 ingredients that can be used to create the perfect drink, everytime! You can select a drink using the front dial, then confirm selection to begin dispensing the drink.
