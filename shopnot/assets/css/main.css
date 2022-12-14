@@ -71,6 +71,15 @@ input, select, textarea {
 	appearance: none;
 }
 
+iframe {
+	height: 500px;
+	width: 890px;
+	resize: both;
+	overflow: auto;
+	display: block;
+	margin: 0 auto;
+}
+
 /* Basic */
 
 	@-ms-viewport {
