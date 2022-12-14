@@ -17,13 +17,13 @@
 		<!-- Header -->
 			<header id="header">
 				<a href="index.html" class="title">ShopNot</a>
-				<!-- <nav>
+				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="generic.html" class="active">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
+						<li><a href="mechanical.html">Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="software.html">Software</a></li>
 					</ul>
-				</nav> -->
+				</nav>
 			</header>
 
 		<!-- Wrapper -->
@@ -33,9 +33,8 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Electrical</h1>
+							<p>The gantry's stepper motors and limit switches are controlled by a Protoneer Arduino CNC Shield V3.0 mounted to an Arduino Uno. The three steppers are driven by three DRV8825 stepper driver boards, running as daughter boards on the CNC shield. All 3 driver boards are in half-stepping mode, to mitigate low-speed resonance and increase precision. These steppers drive the movement of the gantry according to g-code commands. The X and Y axes use larger NEMA 23 steppers to support movement of the toolhead through material, while the Z axis uses a smaller NEMA 17 stepper reclaimed from a dead Makerbot Replicator Mini 3D printer. Controlling the high torque NEMA 23 steppers made our X and Y axis stepper drivers run pretty hot. To keep them cool we wired in a 24V fan from a 3D printer to blow across the shield's heatsinks, ensuring the drivers stay cool during use. Our tool head utilizes a Genmitsu GS-775M DC motor. We selected this motor as it already had a collet attached and supported the speeds we were seeking to cut at. To use this motor, we utilized a HiLetgo BTS7960 H-bridge motor controller which is controlled through the spindle control pins on the CNC shield. To power all of these electronics, we used an AVAWO 360W 24V Power Supply. All of our electronics operated at 24V, so wiring our electronics to this rail was simple. For safety, we implemented an Emergency Stop to cut power from the wall to the power supply.</p>
 							<span class="image fit"><img src="images/elecdiagram_v1.png" alt="Electrical Diagram" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
 						</div>
 					</section>
 

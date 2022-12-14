@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Electrical</title>
+		<title>Mechanical</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -16,12 +16,12 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="title">Hyperspace</a>
+				<a href="index.html" class="title">ShopNot</a>
 				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="generic.html" class="active">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
+						<li><a href="mechanical.html">Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="software.html">Software</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -29,16 +29,32 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">Mechanical</h1>
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-						</div>
-					</section>
+			<!-- Main -->
+				<section id="main" class="wrapper">
+					<div class="inner">
+						<h1 class="major">Mechanical</h1>
+						<!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
+						
+						<h2>Frame</h2>
+						<p>The frame of the gantry consists mainly of waterjetted sheet metal and t-slotted extruded aluminum. The base consists of two 80mm 8020 extruded aluminum pieces, each 16 inches, this adds weight to the base of the mechanism and prevents vibrations from moving the entire assembly. All shafts and motors are mounted to waterjetted metal plates. This allowed for a high degree of precision and less error in the tolerances of the core mechanism parts (lead screws and linear rods). There are 4 plates in total: two on the front and back mounting the X axis and one on either side mounting the Y axis. These two plates are connected with two braces of 1in aluminum 8020 for rigidity between them.</p>
+						
+						<h2>Spoilboard</h2>
+						<p>There is a spoilboard mounted to the X axis, it consists of a 1in 8020 frame with mounting holes for the wooden spoilboard or other types of mounting plates for the cutting material. This allows for the spoilboard to be removed and changed out when it gets old by simply removing 4 bolts. This also allows for a variety of clamping attachments to be mounted to the 8020 frame if needed in the future.</p>
 
+						<h2>Electronics Housing</h2>
+						<p>A housing for the electronics is located on one of the side panels. An acrylic box surrounds the mounted electronics to prevent dust from coating and possibly damaging the electronics. This would be especially important if cutting metal, as conductive dust could short the electronics. A fan blows across this enclosure to provide cooling to X and Y stepper drivers. These motors are much higher voltage, causing more load on the drivers. The fan mitigates this issue.</p>
+
+						<h2>Movement Systems</h2>
+						<p>The X, Y, and Z axes all move independently of each other, each with their own lead screw and 2 linear rods (8mm diameter) for stability. The X and Y axes use NEMA 23 steppers which provide a higher holding torque. These are attached to 8mm diameter, 2mm pitch lead screws that convert the rotational movement of the motor into linear movement of the gantry. The Z axis uses a NEMA 17 motor and 6.5mm diameter, 1.5mm pitch lead screw, as it requires less torque to plunge into the material.</p>
+						<p>We opted for a design where the Y axis and Z axis move the spindle whilst the X axis moves the cutting material. This significantly improved the error in tolerances and rigidity of the system. In a preliminary design, a prototype where the spindle moved in every axis. This led to the compounding tolerance error between systems to add up and affect performance. By splitting the axis control, one system is removed: leaving less room for error. Furthermore, this moves the location where the X axis is driven much closer to the cutting area, as it is directly under the spoilboard. This even further increases rigidity.</p>
+
+						<h2>Spindle</h2>
+						<p>Our spindle motor is sold as an upgrade to a commercial desktop cnc router intended to perform similar operations, cutting and engraving woods, plastics, and soft metals. It is compatible with 5mm ER11 collets. Any bit and collet purchased with this specification should function on our router and simply need the speed and feed rate adjusted. Currently, it is equipped with a .125in shank diameter collet and a .125in 4 flute straight cut end mill.</p>
+
+						<h2>Safety</h2>
+						<p>Two sheets of 3/16in polycarbonate are mounted to the sides of the router, shielding the users of the machine from any possible flying debris. The unprotected sides of the gantry are facing perpendicular to the electronics. A large emergency stop button that cuts power to the entire system is mounted on the acrylic siding.</p>
+					</div>
+				</section>
 			</div>
 
 		<!-- Footer -->
