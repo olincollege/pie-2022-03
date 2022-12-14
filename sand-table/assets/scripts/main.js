@@ -15,7 +15,7 @@
   \************************************/
 /***/ (function() {
 
-eval("$(document).ready(function () {\n  setTimeout(function () {\n    $('body').css('opacity', 1);\n  }, 1000);\n\n  function unveilImages() {\n    $('.lazy').unveil(1000, function () {\n      $(this).on('load', function () {\n        this.style.opacity = 1;\n      });\n    });\n  }\n\n  $('#showreel').hover(function (e) {\n    e.preventDefault();\n  });\n  $('#hero-cta-button').click(function () {\n    $('.collapse').collapse();\n  });\n  $('.collapse-container').hover(function () {\n    console.log('collapse container hovered');\n    console.log($(this).attr('data-primary-color'));\n    $('html, body').css('background-color', $(this).attr('data-primary-color'));\n  });\n  unveilImages();\n});\n\n//# sourceURL=webpack://eleventastic/./src/assets/scripts/main.js?");
+eval("$(document).ready(function () {\n  setTimeout(function () {\n    $('body').css('opacity', 1);\n  }, 1000);\n\n  function unveilImages() {\n    $('.lazy').unveil(1000, function () {\n      $(this).on('load', function () {\n        this.style.opacity = 1;\n      });\n    });\n  }\n\n  $('#showreel').hover(function (e) {\n    e.preventDefault();\n  });\n  $('#hero-cta-button').click(function () {\n    $('.collapse').collapse();\n  });\n  $('.collapse-container').hover(function () {\n    console.log('collapse container hovered');\n    console.log($(this).attr('data-primary-color'));\n    $('html').css('background-color', $(this).attr('data-primary-color'));\n  });\n  unveilImages();\n});\n\n//# sourceURL=webpack://eleventastic/./src/assets/scripts/main.js?");
 
 /***/ })
 
