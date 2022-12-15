@@ -1,0 +1,8 @@
+/* Custom CSS styling */
+iframe {
+    display: block;
+    border-style: none;
+    margin: auto;
+    height: 240px;
+    width: 480px;
+}
