@@ -5,249 +5,286 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>	
-		<title>ShopNot - PIE 2022</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">ShopNot</a></li>
-							<li><a href="#systems">Systems</a></li>
-							<li><a href="#process">Process</a></li>
-							<li><a href="#demos">Demos</a></li>
-							<li><a href="#team">Team</a></li>
+<head>
+	<title>ShopNot - PIE 2022</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="#intro">ShopNot</a></li>
+					<li><a href="#systems">Systems</a></li>
+					<li><a href="#process">Process</a></li>
+					<li><a href="#demos">Demos</a></li>
+					<li><a href="#team">Team</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>ShopNot</h1>
+				<p>A 3-axis CNC Router created from scratch in six weeks.</p>
+				<!-- replace with good photo of bot (or gif) -->
+				<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+				<ul class="actions">
+					<li><a href="#systems" class="button scrolly">Meet the ShopNot</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Systems -->
+		<section id="systems" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2>Systems</h2>
+				<p>Read on to learn about the subsystems that make our project work!</p>
+
+				<!--! Add demo video and final photo slideshow here -->
+
+				<div class="features">
+
+					<section>
+						<a href="mechanical.html">
+							<span class="icon solid major fa-cog"></span>
+							<h3>Mechanical</h3>
+							<p>Click to learn about our mechanical systems.</p>
+						</a>
+					</section>
+					<section>
+						<a href="electrical.html">
+							<span class="icon solid major fa-plug"></span>
+							<h3>Electrical</h3>
+							<p>Click to learn about our electrical systems.</p>
+						</a>
+					</section>
+					<section>
+						<a href="software.html">
+							<span class="icon solid major fa-code"></span>
+							<h3>Software</h3>
+							<p>Click to see our software systems.</p>
+						</a>
+					</section>
+					<section>
+						<a href="#demos">
+							<span class="icon solid major fa-camera"></span>
+							<h3>Demos</h3>
+							<p>Click to see our demos!</p>
+						</a>
+					</section>
+				</div>
+			</div>
+		</section>
+
+		<!-- Process -->
+		<section id="process" class="wrapper style2 fade-up">
+			<div class="inner">
+				<h2>Process</h2>
+				<p>Our initial project proposal detailed the goal of creating a functioning cnc router, complete with
+					2.5 dimension Z axis control. A computer would take a two imensional vector graphic and convert it
+					into g.code for the machine to read.
+					Our minimum viable product included a fully working gantry with X, Y, and Z axis control, and the
+					ability to cut basic shapes. </p>
+				<div class="features">
+
+					<section>
+						<a href="sprint1.html">
+							<span class="icon solid major fa-running"></span>
+							<h3>Sprint 1</h3>
+							<p>CNC Drill Press: Z-axis movement with spindle</p>
+						</a>
+					</section>
+					<section>
+						<a href="sprint2.html">
+							<span class="icon solid major fa-expand"></span>
+							<h3>Sprint 2</h3>
+							<p>Gantry: X and Y movement</p>
+						</a>
+					</section>
+					<section>
+						<a href="sprint3.html">
+							<span class="icon solid major fa-crosshairs"></span>
+							<h3>Sprint 3</h3>
+							<p>Integration: X, Y, Z motion with spindle</p>
+						</a>
+					</section>
+					<section>
+						<a href="bom.html">
+							<span class="icon solid major fa-money-bill-alt"></span>
+							<h3>Bill of Materials</h3>
+							<p>What we spent on a 250 dollar budget</p>
+						</a>
+					</section>
+				</div>
+
+			</div>
+		</section>
+
+
+
+		<!-- Demos -->
+		<section id="demos" class="wrapper style4 fade-up">
+			<div class="inner">
+				<h2>Demos</h2>
+				<p>Watch our ShopNot in action! Check out what it's capable of making:</p>
+
+				<!-- Placeholder video, put big summary video here -->
+				<iframe src="https://www.youtube.com/embed/uq4OY-0uLGo" title="Sprint 2 Demo" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+
+				<!--! Maya add photo carousel here -->
+
+				<!-- Render/Photo Slider -->
+				<div class="container">
+					<div class="image before" style="background-image:url('images/renders/isometric-comparison.png');">
+					</div>
+					<div class="image after" style="background-image:url('images/studio/isometric-comparison.JPG');">
+					</div>
+					<input type="range" class="slider" min="1" max="100" value="50" />
+					<div class="slider-button"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Team -->
+		<section id="team" class="wrapper style1 spotlights">
+			<section>
+				<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Brooke Moss</h2>
+						<h3>they/she</h3>
+						<p>Brooke is a sophomore studying Engineering with Sustainable Robotics. On this project, they
+							focused on the software systems and electrical design of the CNC router, along with taking
+							on a de facto project manager role. She spent much of her efforts learning the open source
+							software & firmware used on the project and figuring out how to build electrical systems to
+							integrate with it. In their personal life, she enjoys rowing, singing, photography, and
+							fixing all manner of things.</p>
+						<ul class="actions">
+							<li><a href="https://github.com/EarlJr53" class="icon brands fa-github"><span
+										class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/brooke-moss/"
+									class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.brookem.dev" class="icon brands fa-portrait"><span
+										class="label">Portfolio</span></a></li>
 						</ul>
-					</nav>
+					</div>
 				</div>
 			</section>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>ShopNot</h1>
-							<p>A 3-axis CNC Router created from scratch in six weeks.</p>
-							<!-- replace with good photo of bot (or gif) -->
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<ul class="actions">
-								<li><a href="#systems" class="button scrolly">Meet the ShopNot</a></li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- Systems -->
-					<section id="systems" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>Systems</h2>
-							<p>Read on to learn about the subsystems that make our project work!</p>
-
-							<!--! Add demo video and final photo slideshow here -->
-
-							<div class="features">
-					
-								<section>
-									<a href="mechanical.html">
-										<span class="icon solid major fa-cog"></span>
-										<h3>Mechanical</h3>
-										<p>Click to learn about our mechanical systems.</p>
-									</a>
-								</section>
-								<section>
-									<a href="electrical.html">
-										<span class="icon solid major fa-plug"></span>
-										<h3>Electrical</h3>
-										<p>Click to learn about our electrical systems.</p>
-									</a>
-								</section>
-								<section>
-									<a href="software.html">
-										<span class="icon solid major fa-code"></span>
-										<h3>Software</h3>
-										<p>Click to see our software systems.</p>
-									</a>
-								</section>
-								<section>
-									<a href="#demos">
-										<span class="icon solid major fa-camera"></span>
-										<h3>Demos</h3>
-										<p>Click to see our demos!</p>
-									</a>
-								</section>
-							</div>
-						</div>
-					</section>
-
-				<!-- Process -->
-					<section id="process" class="wrapper style2 fade-up">
-						<div class="inner">
-							<h2>Process</h2>
-							<p>Our initial project proposal detailed the goal of creating a functioning cnc router, complete with 2.5 dimension Z axis control. A computer would take a two imensional vector graphic and convert it into g.code for the machine to read. 
-							Our minimum viable product included a fully working gantry with X, Y, and Z axis control, and the ability to cut basic shapes. </p>
-							<div class="features">
-
-								<section>
-									<a href="sprint1.html">
-										<span class="icon solid major fa-running"></span>
-										<h3>Sprint 1</h3>
-										<p>CNC Drill Press: Z-axis movement with spindle</p>
-									</a>
-								</section>
-								<section>
-									<a href="sprint2.html">
-										<span class="icon solid major fa-expand"></span>
-										<h3>Sprint 2</h3>
-										<p>Gantry: X and Y movement</p>
-									</a>
-								</section>
-								<section>
-									<a href="sprint3.html">
-										<span class="icon solid major fa-crosshairs"></span>
-										<h3>Sprint 3</h3>
-										<p>Integration: X, Y, Z motion with spindle</p>
-									</a>
-								</section>
-								<section>
-									<a href="bom.html">
-										<span class="icon solid major fa-money-bill-alt"></span>
-										<h3>Bill of Materials</h3>
-										<p>What we spent on a 250 dollar budget</p>
-									</a>
-								</section>
-							</div>
-
-						</div>
-					</section>
-				
-								
-
-				<!-- Demos -->
-				<section id="demos" class="wrapper style4 fade-up">
+			<section>
+				<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
+				<div class="content">
 					<div class="inner">
-						<h2>Demos</h2>
-						<p>Watch our ShopNot in action! Check out what it's capable of making:</p>
-						<div class="features">
-							<section>
-								<span class="icon solid major fa-code"></span>
-								<h3>photo 1</h3>
-								<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-							</section>
-							<section>
-								<span class="icon solid major fa-lock"></span>
-								<h3>photo 2</h3>
-								<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-							</section>
-							<section>
-								<span class="icon solid major fa-cog"></span>
-								<h3>photo 3</h3>
-								<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-							</section>
-						
-						</div>
+						<h2>Kelly Stellmacher</h2>
+						<h3>they/them</h3>
+						<p>Kelly is a sophomore studying Mechanical Engineering. For this project, they primarily
+							assisted in manufacturing, designing custom components needed for mounting, and worked as a
+							consultant for designing the structures of the overall assembly. They learned a great amount
+							about designing and manufacturing techniques as well as methods for increasing the overall
+							quality of a project’s build. When not doing school work, they can often be found outside,
+							making art, fire spinning, writing, and asking friends about why life still has meaning in
+							this infinite universe of ours. </p>
+						<ul class="actions">
+							<li><a href="https://www.linkedin.com/in/kelly-stellmacher-0a3011221/"
+									class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						</ul>
 					</div>
-				</section>
-
-				<!-- Team -->
-					<section id="team" class="wrapper style1 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Brooke Moss</h2>
-									<h3>they/she</h3>
-									<p>Brooke is a sophomore studying Engineering with Sustainable Robotics. On this project, they focused on the software systems and electrical design of the CNC router, along with taking on a de facto project manager role. She spent much of her efforts learning the open source software & firmware used on the project and figuring out how to build electrical systems to integrate with it. In their personal life, she enjoys rowing, singing, photography, and fixing all manner of things.</p>
-									<ul class="actions">
-										<li><a href="https://github.com/EarlJr53" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="https://www.linkedin.com/in/brooke-moss/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-										<li><a href="https://www.brookem.dev" class="icon brands fa-portrait"><span class="label">Portfolio</span></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Kelly Stellmacher</h2>
-									<h3>they/them</h3>
-									<p>Kelly is a sophomore studying Mechanical Engineering. For this project, they primarily assisted in manufacturing, designing custom components needed for mounting, and worked as a consultant for designing the structures of the overall assembly. They learned a great amount about designing and manufacturing techniques as well as methods for increasing the overall quality of a project’s build. When not doing school work, they can often be found outside, making art, fire spinning, writing, and asking friends about why life still has meaning in this infinite universe of ours. </p>
-									<ul class="actions">
-										<li><a href="https://www.linkedin.com/in/kelly-stellmacher-0a3011221/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Maya Cranor</h2>
-									<h3>she/her</h3>
-									<p>Maya is a sophomore studying Engineering with Computer Science. For this project, she worked on creating and integrating the software and electrical system into the gantry. When she’s not working, she can be found on stage performing in musicals, creating art, spinning fire, and running a cafe out of her dorm room.</p>
-									<ul class="actions">
-										<li><a href="https://github.com/crane919" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="https://www.linkedin.com/in/maya-cranor/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Andrew Phillips</h2>
-									<h3>he/him</h3>
-									<p>Andrew is a sophomore studying Electrical & Computer Engineering. On ShopNot, he focused on developing the electrical systems that control the gantry and integrating those systems onto the final gantry. Outside of engineering, he enjoys playing video games, going to metal concerts, and hanging out with his dogs.</p>
-									<ul class="actions">
-										<li><a href="https://github.com/adp1030" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="https://www.linkedin.com/in/andrew-d-phillips/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Bryce Ferguson</h2>
-									<h3>he/him</h3>
-									<p>Bryce is a sophomore studying Mechanical Engineering. On the ShopNot team he worked largely on designing and manufacturing the mechanical systems within it. He worked hard to ensure mechanical systems worked as intended and to ensure a high build quality. Outside of work, he spends a lot of time playing video games, enjoys working with computers, and spends a lot of time with his two cats: Tales & Pippi.</p>
-									<ul class="actions">
-										<li><a href="https://www.linkedin.com/in/bryce-ferguson-30983425a/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; ShopNot Team. All rights reserved.</li>
-						<li>Principles of Integrated Engineering Fall 2022</li>
-						<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
 				</div>
-			</footer>
+			</section>
+			<section>
+				<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Maya Cranor</h2>
+						<h3>she/her</h3>
+						<p>Maya is a sophomore studying Engineering with Computer Science. For this project, she worked
+							on creating and integrating the software and electrical system into the gantry. When she’s
+							not working, she can be found on stage performing in musicals, creating art, spinning fire,
+							and running a cafe out of her dorm room.</p>
+						<ul class="actions">
+							<li><a href="https://github.com/crane919" class="icon brands fa-github"><span
+										class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/maya-cranor/"
+									class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section>
+				<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Andrew Phillips</h2>
+						<h3>he/him</h3>
+						<p>Andrew is a sophomore studying Electrical & Computer Engineering. On ShopNot, he focused on
+							developing the electrical systems that control the gantry and integrating those systems onto
+							the final gantry. Outside of engineering, he enjoys playing video games, going to metal
+							concerts, and hanging out with his dogs.</p>
+						<ul class="actions">
+							<li><a href="https://github.com/adp1030" class="icon brands fa-github"><span
+										class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/andrew-d-phillips/"
+									class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section>
+				<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
+				<div class="content">
+					<div class="inner">
+						<h2>Bryce Ferguson</h2>
+						<h3>he/him</h3>
+						<p>Bryce is a sophomore studying Mechanical Engineering. On the ShopNot team he worked largely
+							on designing and manufacturing the mechanical systems within it. He worked hard to ensure
+							mechanical systems worked as intended and to ensure a high build quality. Outside of work,
+							he spends a lot of time playing video games, enjoys working with computers, and spends a lot
+							of time with his two cats: Tales & Pippi.</p>
+						<ul class="actions">
+							<li><a href="https://www.linkedin.com/in/bryce-ferguson-30983425a/"
+									class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</section>
+	</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; ShopNot Team. All rights reserved.</li>
+				<li>Principles of Integrated Engineering Fall 2022</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</footer>
 
-	</body>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
