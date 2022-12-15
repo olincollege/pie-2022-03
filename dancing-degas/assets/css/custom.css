@@ -13,3 +13,37 @@ iframe {
     margin-right: auto;
     width: 50%;
 }
+
+.headshots {
+    border-radius: 50%;
+}
+
+
+#banner-about-us {
+    background-attachment: scroll, fixed;
+    background-color: #666;
+    background-image: url("images/overlay.png"), url("../../images/group-photo-banner.jpg");
+    background-position: top left, center center;
+    background-repeat: repeat, no-repeat;
+    background-size: auto, cover;
+    color: #fff;
+    padding: 22em 0 20em 0;
+    text-align: center;
+}
+
+
+#banner-about-us :last-child {
+    margin-bottom: 0;
+}
+
+#banner-about-us h2,
+p {
+    color: #000;
+}
+
+#banner h2 {
+    font-size: 3.5em;
+    line-height: 1em;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}

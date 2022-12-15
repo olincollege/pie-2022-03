@@ -50,111 +50,55 @@
         </header>
 
         <!-- Main -->
-        <section id="main" class="container">
+        <section id="banner-about-us">
             <header>
-                <h2>Software</h2>
-                <p>An overview of our software system.</p>
+                <h2>About Us</h2>
+                <p>Meet our team!</p>
             </header>
+        </section>
+
+        <section class="box special features">
             <div class="box">
-                <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
-                <h3>Code Structure</h3>
-                <h4>Software Flow</h4>
-                <p>Interface → spotify search API → interface → spotify analysis API → spirograph → GCode generator →
-                    GRBL interface</p>
-                <div class="row">
-                    <div class="row-6 row-12-mobilep">
-                        <h4>External Software Dependencies</h4>
-
-                        <h5>pyserial</h5>
-                        <ul>
-                            <li>Used for serial communication with the arduino and CNC motorshield.</li>
-                        </ul>
-                        <h5>spotipy</h5>
-                        <ul>
-                            <li>Python library for the Spotify Web API.</li>
-                            <li>Used to search the name of the song that the user enters and to determine the audio
-                                features of the chosen song.</li>
-                        </ul>
-                        <h5>ttkthemes</h5>
-                        <ul>
-                            <li>Used to style the graphical user interface with a predefined theme.</li>
-                        </ul>
-
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Code Structure</h3>
-                        <p>The code for this project is split into the following three files:</p>
-                        <h5>interface.py</h5>
-                        <ul>
-                            <li>Generates the user interface</li>
-                            <li>Calls functions in controlGrbl.py on user input</li>
-                        </ul>
-                        <h5>controlGrbl.py</h5>
-                        <ul>
-                            <li>Calls functions in prerecorded.py to determine positions for spirals</li>
-                            <li>Creates GCode file with generated relative positions</li>
-                            <li>Sends the GCode commands to GRBL</li>
-                        </ul>
-                        <h5>prerecorded.py</h5>
-                        <ul>
-                            <li>Uses an equation to generate points along the spirograph</li>
-                        </ul>
-                    </div>
+                <div class="features-row">
+                    <section>
+                        <span class="headshots"><img src="images/malvina.jpg" alt="Malvina Image"></span>
+                        <h3>Malvina Clavering</h3>
+                        <p>Malvina is a sophomore studying engineering with a concentration in design. For this project
+                            she enjoyed the challenge of building a gantry with minimal complexity while maximizing
+                            precision. There were many fun times with lasers and 3D printers, and the occasional pun
+                            about fasteners. They’re just so fastenating!</p>
+                    </section>
+                    <section>
+                        <span class="headshots"><img src="images/stephanie.jpg" alt="Stephanie Image"></span>
+                        <h3>Stephanie Cho</h3>
+                        <p>Stephanie is studying mechanical engineering at Olin and worked on the X-Y gantry. She loves
+                            making her CAD come to life! Researching and ordering parts taught her so much about belts,
+                            pulleys, stepper motors, v rails and wheels, etc. Lastly, she enjoyed trying to guess the
+                            song from the spiral art. </p>
+                    </section>
+                </div>
+                <div class="features-row">
+                    <section>
+                        <span class="headshots"><img src="images/lili.jpg" alt="Lili Image"></span>
+                        <h3>Lili Baker</h3>
+                        <p></p>
+                    </section>
+                    <section>
+                        <span class="headshots"><img src="images/jiayuan.jpg" alt="Jiayuan Image"></span>
+                        <h3>Jiayuan Liu</h3>
+                        <p></p>
+                    </section>
+                </div>
+                <div class="features-row">
+                    <section class="center">
+                        <span class="headshots"><img src="images/anthony.jpg" alt="Anthony Image"></span>
+                        <h3>Anthony Costarelli</h3>
+                        <p></p>
+                    </section>
                 </div>
             </div>
 
-            <div class="box">
-                <h3>Interface</h3>
-
-                <p>In order to incorporate user interaction with the system, we chose to use Tkinter and Python to
-                    create a simple graphical user interface. We decided that a Tkinter window was a sufficient
-                    interface for our goal of allowing the user to choose the song they wanted to visualize as the user
-                    only needs to enter a song and then choose an option from a dropdown. Additionally, we decided to
-                    use the package `ttkthemes` in order to style the simple Tkinter window.
-                </p>
-                <p>When the window is open, the user is able to type into a text box the name of the song they wish to
-                    visualize. After entering the name of the song, the user is able to click a button that uses the
-                    spotify search API to populate a dropdown with the top 5 songs with similar names from spotify.
-                    After selecting the correct song from the dropdown, the user is able to click the “Done” button,
-                    which then triggers the visualization of the song. After clicking the aforementioned button, the
-                    audio features of the song are obtained from the spotify analysis API and this data is sent to the
-                    controlling GRBL file to generate a GCode file for movement of the gantry.</p>
-
-            </div>
-
-            <div class="box">
-                <h3>Spotify API</h3>
-
-                <p>
-                </p>
-
-            </div>
-
-            <div class="box">
-                <h3>Spirograph</h3>
-
-                <p>
-                </p>
-
-            </div>
-
-            <div class="box">
-                <h3>GRBL</h3>
-
-                <p>
-                </p>
-
-            </div>
-
-            <div class="box">
-                <h3>Logistics</h3>
-
-                <p>
-                </p>
-
-            </div>
         </section>
-
 
         <!-- Footer -->
         <footer id="footer">
