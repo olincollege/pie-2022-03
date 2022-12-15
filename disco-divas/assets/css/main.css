@@ -180,6 +180,14 @@ input, select, textarea {
 		font-style: italic;
 	}
 
+	pre code {
+		background-color: rgb(238, 247, 247);
+		border: 1px solid #999;
+		display: block;
+		padding: 20px;
+		font: 0.9em 'Source Code Pro', monospace;
+	  }
+
 	p, ul, ol, dl, table {
 		margin-bottom: 1em;
 	}
