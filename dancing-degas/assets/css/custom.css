@@ -6,3 +6,10 @@ iframe {
     height: 240px;
     width: 480px;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

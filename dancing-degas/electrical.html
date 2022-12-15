@@ -11,6 +11,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
 </head>
 
 <body class="is-preload">
@@ -23,14 +24,15 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li>
-                        <a href="#" class="icon solid fa-angle-down">Layouts</a>
+                        <a href="#" class="icon solid fa-angle-down">Menu</a>
                         <ul>
                             <li><a href="system_diagram.html">System Diagram</a></li>
                             <li><a href="process.html">Process</a></li>
-                            <li><a href="bill_of_materials.html">Bill of Materials</a></li>
                             <li><a href="mechanical.html">Mechanical</a></li>
                             <li><a href="electrical.html">Electrical</a></li>
                             <li><a href="software.html">Software</a></li>
+                            <li><a href="bill_of_materials.html">Bill of Materials</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
                             <li>
                                 <a href="#">Submenu</a>
                                 <ul>
@@ -53,33 +55,32 @@
                 <p>An overview of our electrical subsystem.</p>
             </header>
             <div class="box">
-                <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
-                <h3>This is a subheading</h3>
-                <p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus nunc placerat. Tempus adipiscing
-                    turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut
-                    praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae
-                    ante vestibulum ante. Blandit. Ante accumsan nisi eu placerat gravida placerat adipiscing in risus
-                    fusce vitae ac mi accumsan nunc in accumsan tempor blandit aliquet aliquet lobortis. Ultricies
-                    blandit lobortis praesent turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep. Orci
-                    blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio vis praesent nunc lorem mi. Erat.
-                    Tempus sem faucibus ac id. Vis in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan mi
-                    eget adipiscing nulla. Non vestibulum ac interdum condimentum semper commodo massa arcu.</p>
-                <div class="row">
-                    <div class="row-6 row-12-mobilep">
-                        <h3>And now a subheading</h3>
-                        <p>Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia
-                            nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi.
-                            Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae lorem ipsum adipiscing ac.
-                            Vivamus ornare laoreet odio vis praesent.</p>
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>And another subheading</h3>
-                        <p>Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia
-                            nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi.
-                            Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae lorem ipsum adipiscing ac.
-                            Vivamus ornare laoreet odio vis praesent.</p>
-                    </div>
-                </div>
+
+                <h3>Electrical Components</h3>
+                <ul>
+                    <li>Arduino Uno</li>
+                    <li>CNC Motor Shield</li>
+                    <li>A4988 Motor Driver x 3</li>
+                    <li>NEMA 17 Stepper Motors x 3</li>
+                </ul>
+                <span class="image featured"><img src="images/electrical_components.jpg" alt="" /></span>
+            </div>
+            <div class="box">
+                <span class="image featured"><img src="" alt="" /></span>
+                <h3>Schematic</h3>
+                <p></p>
+            </div>
+            <div class="box">
+                <span class="image featured"><img src="" alt="" /></span>
+                <h3>Firmware Design</h3>
+                <p>
+                    Grbl v1.1 is installed on the Arduino, which is connected to the user’s computer with a USB cable.
+                    For testing purposes, we used Universal Gcode Sender (UGS) as the GUI for streaming G-code and
+                    controlling motor movements. This helped us to eliminate software defects as a potential cause to
+                    any unexpected motor movement. Later, we created a python script that integrates functions for
+                    generating G-code based on coordinates of spirograph points and streaming G-code to Grbl on the
+                    Arduino.
+                </p>
             </div>
         </section>
 

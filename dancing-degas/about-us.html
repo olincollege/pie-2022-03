@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Dancing Degas</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+</head>
+
+<body class="is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="index.html">Dancing Degas</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="#" class="icon solid fa-angle-down">Menu</a>
+                        <ul>
+                            <li><a href="system_diagram.html">System Diagram</a></li>
+                            <li><a href="process.html">Process</a></li>
+                            <li><a href="mechanical.html">Mechanical</a></li>
+                            <li><a href="electrical.html">Electrical</a></li>
+                            <li><a href="software.html">Software</a></li>
+                            <li><a href="bill_of_materials.html">Bill of Materials</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li>
+                                <a href="#">Submenu</a>
+                                <ul>
+                                    <li><a href="#">Option One</a></li>
+                                    <li><a href="#">Option Two</a></li>
+                                    <li><a href="#">Option Three</a></li>
+                                    <li><a href="#">Option Four</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <section id="main" class="container">
+            <header>
+                <h2>Software</h2>
+                <p>An overview of our software system.</p>
+            </header>
+            <div class="box">
+                <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+                <h3>Code Structure</h3>
+                <h4>Software Flow</h4>
+                <p>Interface → spotify search API → interface → spotify analysis API → spirograph → GCode generator →
+                    GRBL interface</p>
+                <div class="row">
+                    <div class="row-6 row-12-mobilep">
+                        <h4>External Software Dependencies</h4>
+
+                        <h5>pyserial</h5>
+                        <ul>
+                            <li>Used for serial communication with the arduino and CNC motorshield.</li>
+                        </ul>
+                        <h5>spotipy</h5>
+                        <ul>
+                            <li>Python library for the Spotify Web API.</li>
+                            <li>Used to search the name of the song that the user enters and to determine the audio
+                                features of the chosen song.</li>
+                        </ul>
+                        <h5>ttkthemes</h5>
+                        <ul>
+                            <li>Used to style the graphical user interface with a predefined theme.</li>
+                        </ul>
+
+                    </div>
+                    <div class="row-6 row-12-mobilep">
+                        <h3>Code Structure</h3>
+                        <p>The code for this project is split into the following three files:</p>
+                        <h5>interface.py</h5>
+                        <ul>
+                            <li>Generates the user interface</li>
+                            <li>Calls functions in controlGrbl.py on user input</li>
+                        </ul>
+                        <h5>controlGrbl.py</h5>
+                        <ul>
+                            <li>Calls functions in prerecorded.py to determine positions for spirals</li>
+                            <li>Creates GCode file with generated relative positions</li>
+                            <li>Sends the GCode commands to GRBL</li>
+                        </ul>
+                        <h5>prerecorded.py</h5>
+                        <ul>
+                            <li>Uses an equation to generate points along the spirograph</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Interface</h3>
+
+                <p>In order to incorporate user interaction with the system, we chose to use Tkinter and Python to
+                    create a simple graphical user interface. We decided that a Tkinter window was a sufficient
+                    interface for our goal of allowing the user to choose the song they wanted to visualize as the user
+                    only needs to enter a song and then choose an option from a dropdown. Additionally, we decided to
+                    use the package `ttkthemes` in order to style the simple Tkinter window.
+                </p>
+                <p>When the window is open, the user is able to type into a text box the name of the song they wish to
+                    visualize. After entering the name of the song, the user is able to click a button that uses the
+                    spotify search API to populate a dropdown with the top 5 songs with similar names from spotify.
+                    After selecting the correct song from the dropdown, the user is able to click the “Done” button,
+                    which then triggers the visualization of the song. After clicking the aforementioned button, the
+                    audio features of the song are obtained from the spotify analysis API and this data is sent to the
+                    controlling GRBL file to generate a GCode file for movement of the gantry.</p>
+
+            </div>
+
+            <div class="box">
+                <h3>Spotify API</h3>
+
+                <p>
+                </p>
+
+            </div>
+
+            <div class="box">
+                <h3>Spirograph</h3>
+
+                <p>
+                </p>
+
+            </div>
+
+            <div class="box">
+                <h3>GRBL</h3>
+
+                <p>
+                </p>
+
+            </div>
+
+            <div class="box">
+                <h3>Logistics</h3>
+
+                <p>
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon brands fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
