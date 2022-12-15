@@ -53,14 +53,31 @@
     <div class="wrapper style2">
 
         <article id="main" class="container special">
-            <a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
             <header>
                 <h2><a href="#">Electrical Design</a></h2>
 
             </header>
-            <p>
-                MAIN TEXT HERE
-            </p>
+
+
+            <p>This project centered around an Arduino Uno used to control three stepper motors (Nema 17s) and a DC
+                motor. We used a 12V AC/DC wall adapter to power all four motors. We connected the DC motor with a
+                standard <a href="https://www.geeetech.com/wiki/index.php/L298N_Motor_Driver_Board">l298n</a> motor
+                driver. Since we weren&#39;t sure if we would want to implement microstepping or not at the beginning,
+                we decided to use <a href="https://www.pololu.com/product/2133">DRV8825</a> stepper drivers since they
+                offer a range of options for precise control and are well documented online. We set these up on a
+                breadboard and used 10 μF Capacitors to connect to 12 V. Smaller 1 μF capacitors were placed around the
+                circuit to smooth out current blimps caused by the DC motor&#39;s field.</p>
+            <br></br>
+            <a href="#" class="image featured"><img src="images\schematic_final.png" alt="Schematic" /></a>
+            <p>Although Limit switches were considered, they weren&#39;t deemed necessary and the overall system
+                didn&#39;t have any sensor input. </p>
+            <p>We used a <a href="https://www.sparkfun.com/products/16397">Sparkfun 16x2 SerLCD</a> for displaying
+                messages from the headless Raspberry Pi 4. This was connected
+                directly to the Raspberry Pi GPIO. </p>
+            <a href="#" class="image featured"><img src="images\IMG_5654.JPG" alt="Screen" /></a>
+            <p>All electronics were mounted on a sliding shelf under the main structure.</p>
+            <a href="#" class="image featured"><img src="images\IMG_4308.jpg" alt="Electronics Shelf" /></a>
+
             <!-- everything else in main text goes here-->
         </article>
 
