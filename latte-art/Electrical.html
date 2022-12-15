@@ -59,6 +59,16 @@
 										<li>1 ESV ½” plastic zero differential solenoid valve</li>
 										<li>1 Henxlco 12V 20A Power Supply</li>
 									</ul>
+								<h2>Three Axis Gantry Control System</h2>
+								<div class="image fit"><img src="images/Electrical/3AxisGauntry.png" alt="" /></div>
+								<div class="image fit"><img src="images/Electrical/stepperDrivers.png" alt="" /></div>
+								<p>We use the <a href="https://github.com/laurb9/StepperDriver">StepperDriver library</a> from the Arduino IDE, as the Arduino provides easy-to-use firmware libraries to control the motor movements. The StepperDriver library contains a MultiDriver library that moves the motors simultaneously. We also use a Ramps 1.4 shield in to connect the stepper motors, where we refer to <a href = "https://reprap.org/wiki/RAMPS_1.4">this link</a>for pin connections.</p>
+								<h2>Milk Extrusion</h2>
+								<div class="image fit"><img src="images/Electrical/valve.png" alt="" /></div>
+								<p>A solenoid valve is used to extrude the milk. The milk is poured from the funnel into a plastic tubing that connects the end of the funnel to the top of the valve. The valve is made of stainless steel, which is food safe. We soldered the valve connections on a board, where it is also connected to a MOSFET transistor and a diode as shown in the schematic below. The valve is connected to PIN17 on the Arduino Mega.</p>
+								<h2>Higher Voltage Power Connection</h2>
+								<p>We bought a 12V, 20A power supply in order to power our system. The e-stop allows a maximum 6A of current to run through the system. We used barrel jack connectors to connect the Ramps 1.4 shield to the e-stop, then another one to connect the e-stop to the power supply. The 3-wire power cord then connects the power supply to the wall plug.</p>
+								<div class="image fit"><img src="images/Electrical/power.png" alt="" /></div>
 							</section>
 
 					</div>

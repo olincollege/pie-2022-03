@@ -55,7 +55,7 @@
 								</ul>
 								<p>The parser reads the number after the letter ‘G’ or ‘M’ in order to determine which function to run. The functions were written in a switch-case format, where the case number is synonymous with the number for the GCode command, which is the number right after the letter ‘G’ or ‘M’.</p>
 								<p>The GCode that is sent is in terms of millimeters, which we convert to degrees based on our calibration of the stepper motors. We also edited the Stepper Driver library to run five stepper motors simultaneously since it could only run three at the same time previously. </p>
-								<p>Since our GCode commands are in terms of absolute coordinates, we created global variables to keep track of the motors’ positions. The GCode contains basic functions that enables and disables motors, moves motors, sets motor speeds, and switches the solenoid on and off. A complete list of the G-code created is listed in the table below. </p>
+								<p>Since our GCode commands are in terms of absolute coordinates, we created global variables to keep track of the motors’ positions. The GCode contains basic functions that enable and disable motors, move motors, set motor speeds, and switch the solenoid on and off.</p>
 								<h2>G-Code commands</h2>
 									<div class="table-wrapper">
 										<table>
