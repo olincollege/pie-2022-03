@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Software</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">BaristaBot</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">BaristaBot</a></li>
+							<li><a href="System.html">System</a></li>
+							<li><a href="Mechanical.html">Mechanical</a></li>
+							<li><a href="Electrical.html">Electrical</a></li>
+							<li><a href="Firmware.html">Firmware</a></li>
+							<li class="active"><a href="Software.html">Software</a></li>
+							<li><a href="Materials.html">Materials</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Software</h1>
+								</header>
+								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<p>The software is written in Python and is responsible for communicating with the firmware, generating latte art paths as well as creating an aesthetic and user-friendly interface for customers to choose their latte art. </p>
+								<h3>Learn more about the specifics:</h3>
+											<ul>
+												<li><a href="#Communication">Communication</a></li>
+												<li><a href="#GCode">G-Code</a></li>
+												<li><a href="#Path">Path Planning</a></li>
+												<li><a href="#GUI">GUI</a></li>
+												<li><a href="#Architecture">Architecture </a></li>
+												<li><a href="#Dependencies">Dependencies</a></li>
+											</ul>
+								<div id="Communication">
+									<h2>Communication</h2>
+									<p>Communication is done between Python and Audriono through a serial connection using a USB cord. In order to successfully communicate, the port name and baud rate on the Arduino must match the port and baud rate names in GCodeCommands. As shown in the figure below, The Arduino initially sends “<” over the serial connection signaling to the Python script that it is ready to receive a command. Python functions wait to receive “<” before sending a single G-Code over serial to the Arduino. Arduino then reads and parses the G-Code, and executes the command. After completing the command, Arduino sends “<” showing it is ready for the next command.</p>
+									<span class="image fit"><img src="images/software/communication.png" alt="" /></span>
+									<span<p><i>Diagram of communication between software and firmware</i></p></span>
+								</div>
+								<div id="GCode">
+									<h2>G-Code</h2>
+									<p>We used G-Code to send commands from Python to Aurdino. G-code is a programming language that can communicate with CNC machines. There is a table of the G-Code commands we programmed in the firmware section below. Then, each python function reads the ready “<” signal from serial and sends a single G-Code print statement. The python functions are named to indicate their function rather than their G-Code to make the code and writing paths easier for a user and human to read while all serial communication is done using G-code. The G-code commands and serial communication is done in the GCodeCommands.py file.</p>
+									<h3>G-Code commands</h3>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>G-Code</th>
+													<th>Description</th>
+													<th>Python Command</th>
+													<th>Arduino Command</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>G1 X_Y_Z_T_</td>
+													<td>Move to a given position on the global axis system with X,Y,Z set in mm and tilt set in degrees.</td>
+													<td>move_controller(xpos, ypos, zpos, angle)</td>
+													<td>move_motors(X,Y,Z,T);</td>
+												</tr>
+												<tr>
+													<td>G27</td>
+													<td>"Zero" and recalibrate each axis by moving all the motors to hit the limit switches</td>
+													<td>go_home()</td>
+													<td>go_home();</td>
+												</tr>
+												<tr>
+													<td>G28</td>
+													<td>Move to the center of the coffee cup</td>
+													<td>go_cup_orgin()</td>
+													<td>cup_origin();</td>
+												</tr>
+												<tr>
+													<td>M6 S_</td>
+													<td>Pause the machine for a given amount of time in milliseconds </td>
+													<td>delay(ms)</td>
+													<td>wait(S);</td>
+												</tr>
+												<tr>
+													<td>M10</td>
+													<td>Enable Z axis motor</td>
+													<td>enable_Z()</td>
+													<td>enable_Z();</td>
+												</tr>
+												<tr>
+													<td>M11</td>
+													<td>Disable Z axis motor</td>
+													<td>disable_Z()</td>
+													<td>disable_Z();</td>
+												</tr>
+												<tr>
+													<td>M12</td>
+													<td>Enable tilt motor</td>
+													<td>enable_T()</td>
+													<td>enable_T();</td>
+												</tr>
+												<tr>
+													<td>M13</td>
+													<td>Disable tilt motor</td>
+													<td>disable_T()</td>
+													<td>disable_T();</td>
+												</tr>
+												<tr>
+													<td>M14</td>
+													<td>Enable X axis motor</td>
+													<td>enable_X()</td>
+													<td>enable_X();</td>
+												</tr>
+												<tr>
+													<td>M15</td>
+													<td>Disable X axis motor</td>
+													<td>disable_X()</td>
+													<td>disable_X();</td>
+												</tr>
+												<tr>
+													<td>M16</td>
+													<td>Enable Y axis motors</td>
+													<td>enable_Y()</td>
+													<td>enable_Y();</td>
+												</tr>
+												<tr>
+													<td>M17</td>
+													<td>Disable Y axis motors</td>
+													<td>disable_Y()</td>
+													<td>disable_Y();</td>
+												</tr>
+												<tr>
+													<td>M220 S_</td>
+													<td>Change speed of X and Y axis motors</td>
+													<td>set_speed(speed)</td>
+													<td>set_speed(S);;</td>
+												</tr>
+												<tr>
+													<td>M221 S_</td>
+													<td>Change speed of tilt motor</td>
+													<td>set_speed_T(speed)</td>
+													<td>set_speed_T(S);</td>
+												</tr>
+												<tr>
+													<td>M222 S_</td>
+													<td>Change speed of z axis motor</td>
+													<td>set_speed_Z(speed)</td>
+													<td>set_speed_Z(S);</td>
+												</tr>
+												<tr>
+													<td>M380</td>
+													<td>Enable the solenoid(valve) enabling liquid flow</td>
+													<td>enable_solenoid()</td>
+													<td>enable_solenoid();</td>
+												</tr>
+												<tr>
+													<td>M81</td>
+													<td>Disable the solenoid(valve) disabling liquid flow</td>
+													<td>disable_solenoid()</td>
+													<td>disable_solenoid();</td>
+												</tr>
+												<tr>
+													<td>M100</td>
+													<td>A list of G-Code commands printed in the serial terminal when the program starts up</td>
+													<td></td>
+													<td>help();</td>
+												</tr>
+											</tbody>
+										</table>
+								</div>
+								<div id="Path">
+									<h2>Path Planning</h2>
+									<p>Path planning for each design is done in separate files with a list of python functions that send G-Code which ultimately creates the entire design. The python functions that send G-Code are imported from GCodeCommands.py to three design files:</p>
+									<ul>
+										<li>Base.py: every design calls Base first to add a layer of milk and create a blank canvas to put latte art on</li>
+										<li>Heart.py: a design that creates a heart pattern in the latte</li>
+										<li>Rosseta.py: which creates a rosetta pattern in the latte </li>
+									</ul>
+									<p>For simple 2D movement in the X and Y plan, G-Code was automatically generated using functions like make_circle(radius, points) and make_sine(amplitude, frequency distance, points) which generate x and y coordinates based on the inputs. The coordinates of the shape are then added into the move_controller(xpos, ypos, zpos, angle) function which sends G-code for those positions.</p>
+									<p>At the beginning and end of the script, we enable and disable motors based on whether they are currently using them. This helps prevent the motors from overheating. The majority of G-Code was written by hand due to the complexity of latte art motions. Moreover, each function was finetuned through numerous rounds of testing.</p>
+
+								</div>
+								<div id="GUI">
+									<h2>GUI</h2>
+									<p>A goal of the project was to create an aesthetic and easy to operate graphical user interface. The design including colors, buttons, font, and background were created using Canva, and the implementation was done in Python using pygame.</p>
+									<h3>Code Architecture for GUI</h3>
+									<span class="image fit"><img src="images/software/GUIClasses.png" alt="" /></span>
+									<p>In total, there are four classes that were made for the latte art user interface. In the diagram, the boxes in green represent the classes made for the buttons. The parent class, Button(), contains functions that are universal for all the button objects, such as positioning the button on the screen and displaying the button on the screen. One of the child classes, NavigationButton(), contains all the navigation buttons that the user can interact with to switch between different pages when clicked. These buttons include a start button, next button, and back button. The other child class, DesignButton(), contains buttons that are meant for design purposes. For example, when a button is clicked, a border will encapsulate it to indicate the user has clicked that button. 									</p>
+									<p>The fourth class is Background(), which loads all the different background images for the interface. This class also has a display function that displays the correct background image on the screen. </p>
+									<p>GCode-Python is the name of the folder that contains the GCode commands to create different latte patterns. Heart.py and Rosetta.py contain the GCode commands on how to draw the heart and the rosetta respectively.</p>
+									<p>The button classes, the background class, and the GCode-Python files are all imported into another class called Menu(). The menu class contains all the different pages of the user interface, such as the home page, choose your design page, and done page. Each page is represented by a function, where the appropriate background image and buttons are displayed on the screen. If a navigation button is clicked, the function for the page the user is being navigated to is called. The menu class also takes note of which latte art the user chooses to have the machine draw, then calls the appropriate function from one of the GCode-Python files. </p>
+									<p>Finally, the menu class is imported into the LatteUI.py file, which represents the main file where the menu object is created. The LatteUI.py file is where the code is run from. </p>
+									<h3>GUI Architecture</h3>
+									<span class="image fit"><img src="images/software/GUIArc.png" alt="" /></span>
+									<p>Add In</p>
+									<h3>UI INTERFACE PAGES</h3>
+									<p>The user can interact with the latte art machine through a user interface that was created using pygame. A parent class called Button() was created to create buttons for the user to interact with, along with subclasses called NavigationButton() and DesignButton() to differentiate between buttons meant to navigate and buttons meant for design purposes. A class called Menu() was created in order to switch between pages if certain buttons are clicked. </p>
+									<p>The user is first taken to the home page by calling a function named home() within the Menu() class. The home page has the name of our robot and a short description.</p>
+									<span class="image fit"><img src="images/software/GUIHome.png" alt="" /></span>
+									<p>The start button is an object of the NavigationButton() subclass. When clicked, the user will be taken to the choose page by calling a function named choose() within the Menu() class.</p>
+									<span class="image fit"><img src="images/software/Choose0.png" alt="" /></span>
+									<p>The user can choose a latte pattern by selecting one of the latte images below. Each latte image is actually a button created within the DesignButton() subclass. When one of the latte buttons is clicked, a border shows up around the selected latte.</p>
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-4"><span class="image fit"><img src="images/software/Choice1.png" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/software/Choose2.png" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/software/Choose3.png" alt="" /></span></div>
+									</div>
+									<p>The back button is an object of the NavigationButton() subclass, which will take the user back to the home page. The next button is another object of the NavigationButton() subclass, which only displays if the user chose one of the latte buttons. After clicking next, the user is then taken to the checklist page by calling the checklist() function within the Menu() class.</p>
+									<span class="image fit"><img src="images/software/Check0.png" alt="" /></span>
+									<p>The back button is an object of the NavigationButton() subclass, which will take the user back to the choose page. The user can interact with the checklist by clicking the checkboxes. Each check mark is an object of the DesignButton() subclass. When clicked, the checkmark will display itself.</p>
+									<span class="image fit"><img src="images/software/Check1.png" alt="" /></span>
+									<p>The start button will only display if all three boxes are checked. The start button is another object of the NavigationButton() class, which will take the user to the waiting page by calling the waiting() function within the Menu() class when clicked.</p>
+									<span class="image fit"><img src="images/software/waiting.png" alt="" /></span>
+									<p>The waiting page is the only page the user can’t navigate out of. This is because this is when the user’s choice of latte art is sent to our robot, which draws out the chosen design. When the robot is done drawing the latte art, the user will automatically be taken to the done page by calling the done() function within the Menu() class.</p>
+									<span class="image fit"><img src="images/software/done.png" alt="" /></span>
+									<p>The home button is an object of the NavigationButton() class, which will navigate the user back to the home page when clicked so the user can use the machine again.</p>
+								</div>
+								<div id="Architecture">
+									<h2>Code Architecture</h2>
+									<span class="image fit"><img src="images/software/CodeArc.png" alt="" /></span>
+									<p>Add In</p>
+
+								</div>
+								<div id="Dependencies">
+									<h2>Dependencies</h2>
+									<p>The software requires <a href="https://www.python.org/downloads/">Python</a> to be downloaded as well as additional Python libraries listed below.</p>
+									<h3>Python Library Dependencies</h3>
+									<ul>
+										<li><a href="https://pyserial.readthedocs.io/en/latest/">pyserial</a></li>
+										<li><a href="https://www.pygame.org/download.shtml">pygame</a></li>
+										<li><a href="https://numpy.org">numpy</a></li>
+										<li><a href="https://docs.python.org/3/library/sys.html">sys</a></li>
+										<li><a href="https://docs.python.org/3/library/time.html">time</a></li>
+										<li><a href="https://docs.python.org/3/library/math.html">math</a></li>
+										<li><a href="https://docs.python.org/3/library/random.html">random</a></li>
+									</ul>
+								</div>
+								<!-- Footer -->
+							<footer>
+							
+								<div class="pagination">
+									<span class="label"><a href="Software.html">Top</a></span>
+								</div>
+							
+							</footer>
+							</section>
+					</div>
+						
+					
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
