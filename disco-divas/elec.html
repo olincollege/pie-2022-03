@@ -66,17 +66,29 @@
                 we decided to use <a href="https://www.pololu.com/product/2133">DRV8825</a> stepper drivers since they
                 offer a range of options for precise control and are well documented online. We set these up on a
                 breadboard and used 10 μF Capacitors to connect to 12 V. Smaller 1 μF capacitors were placed around the
-                circuit to smooth out current blimps caused by the DC motor&#39;s field.</p>
+                circuit to smooth out current blips caused by the DC motor&#39;s field.</p>
             <br></br>
             <a href="#" class="image featured"><img src="images\schematic_final.png" alt="Schematic" /></a>
             <p>Although Limit switches were considered, they weren&#39;t deemed necessary and the overall system
                 didn&#39;t have any sensor input. </p>
             <p>We used a <a href="https://www.sparkfun.com/products/16397">Sparkfun 16x2 SerLCD</a> for displaying
                 messages from the headless Raspberry Pi 4. This was connected
-                directly to the Raspberry Pi GPIO. </p>
-            <a href="#" class="image featured"><img src="images\IMG_5654.JPG" alt="Screen" /></a>
+                directly to the Raspberry Pi I2C pins. </p>
             <p>All electronics were mounted on a sliding shelf under the main structure.</p>
-            <a href="#" class="image featured"><img src="images\IMG_4308.jpg" alt="Electronics Shelf" /></a>
+
+            <section id="features" class="container special">
+                <div class="row">
+                    <article class="col-4 col-12-mobile special">
+                        <a href="#" class="image featured"><img src="images\IMG_5667.JPG" alt="breadboard" /></a>
+                    </article>
+                    <article class="col-4 col-12-mobile special">
+                        <a href="#" class="image featured"><img src="images\IMG_5654.JPG" alt="Screen" /></a>
+                    </article>
+                    <article class="col-4 col-12-mobile special">
+                        <a href="#" class="image featured"><img
+                        src="images\IMG_4308.jpg" alt="Electronics Shelf" /></a>
+                    </article>
+                </div>
 
             <!-- everything else in main text goes here-->
         </article>
