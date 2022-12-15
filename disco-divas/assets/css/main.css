@@ -188,6 +188,11 @@ input, select, textarea {
 		font: 0.9em 'Source Code Pro', monospace;
 	  }
 
+	code{
+		font: 0.9em 'Source Code Pro', monospace;
+		background-color:  rgb(238, 247, 247);
+	}
+
 	p, ul, ol, dl, table {
 		margin-bottom: 1em;
 	}
