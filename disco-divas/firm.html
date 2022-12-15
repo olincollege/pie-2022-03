@@ -91,7 +91,7 @@ commandMove(stepperA, steps, 0);
 }
 </code>
 </pre>
-            <p>If the event of a stepper motor command, <code>commandMove</code> is called which checks if the stepper
+            <p>If the event of a stepper motor command, <code>commandMove()</code> is called which checks if the stepper
                 is currently moving (as determined by speed = 0, which only happens when a target destination is reached
                 as will be explained shortly) and, if it&#39;s not, runs <code>stepper.move(steps)</code> which sets the
                 step number from the command as the motor&#39;s target destination and
@@ -113,8 +113,8 @@ next_target[index] = steps;
             <p>The AccelStepper library allows for three steppers to run simultaneously by moving each motor one step
                 per Arduino loop. More about how this works can be found <a
                     href="https://hackaday.io/project/183279-accelstepper-the-missing-manual">here</a>. Within the
-                <code>loop()</code> function, <code>stepperEachLoop</code> is called for each stepper motor. This first
-                calls <code>runSpeedToPosition</code> which advances the motor one step towards it&#39;s target. It then
+                <code>loop()</code> function, <code>stepperEachLoop()</code> is called for each stepper motor. This first
+                calls <code>runSpeedToPosition()</code> which advances the motor one step towards it&#39;s target. It then
                 checks if the current position of the stepper is equal to the target position and, if it is, sets the
                 motor speed to 0.
             </p>
