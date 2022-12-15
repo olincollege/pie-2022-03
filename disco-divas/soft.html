@@ -68,10 +68,10 @@
                 <h3>Getting Frequencies from Song</h3>
                 </p>
                 <p>
-                Once loading the .wav file, we first turned the song into a series of samples using a linspace. Then, we separated it into all of its constituent frequencies by taking the Fast Fourier Transform. Although we originally wanted to use an intelligent audio processing library to do that, it ended up being much easier to (manually) take the FFT. 
+                Once loading the .wav file, we first turned the song into a series of samples using a linspace. Then, we separated it into all of its constituent frequencies by taking the Fast Fourier Transform. Although we originally wanted to use an intelligent audio processing library to do that, it ended up being much easier to (manually) take the FFT. We put all of the data into a Pandas Dataframe with samples (time) along the columns and the frequencies along the rows.
                 </p>
                 <p>
-                [img 14 - spreadsheet]
+                <img src="images/all_freq_data.png" alt="" style="width:80%">
                 </p>
                 <p>
                 <h3>Splitting Frequencies and Computing Volumes</h3>
