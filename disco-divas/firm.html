@@ -53,14 +53,283 @@
     <div class="wrapper style2">
 
         <article id="main" class="container special">
-            <a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
             <header>
                 <h2><a href="#">Firmware Design</a></h2>
 
             </header>
-            <p>
-                MAIN TEXT HERE
+            <p>We used a headless Raspberry Pi connected over serial to an Arduino Uno to control all of our
+                electronics, three stepper motors and a DC motor (plus a 16x2 LCD screen connected directly to the Pi).
+                See more about how this works under Electrical Design.</p>
+            <br></br>
+            <h3 id="arduino">Arduino</h3>
+            <p>We used the L298N library to control the DC motor and the AccelStepper library to control the stepper
+                motors with non-blocking functions (which is essential considering our design requires running three
+                steppers simultaneously). The Arduino sketch is explained here step-by-step and the entire script is
+                available at the bottom of the page.</p>
+            <p>The Arduino receives all instructions via a serial connection. To eliminate buffer characters, each
+                command is contained between a pair of parenthesis. One of the steps of the <code>loop()</code> function
+                is to check if there&#39;s any data that needs to be read from serial. If there is then it executes the
+                <code>SerialRead()</code> function which parses which motor to move, encoded in the first two
+                characters, and how many steps/ the speed at which to move it. The commands follow the pattern
+                <code>sa</code>, <code>sb</code>, <code>sc</code>, and <code>dr</code> for steppers A-B, as determined
+                by the input pins at the top of the sketch, and the DC motor. Stepper motors then take any long number
+                as the number of steps such as<code>(sa500)</code>. The DC motor takes a speed int from 0-255 such as
+                <code>dr200</code>. The final function, <code>ds</code>, stops the DC motor and requires no argument.
+                This is equivalent to <code>dr0</code>. While the DC motor is capable of running in both directions,
+                it&#39;s hard-coded as forward here for convenience.
             </p>
+            <pre><code>if (Serial.read() == &#39;(&#39;) {
+command = Serial.readStringUntil(&#39;)&#39;);
+Serial.println(command);
+
+// parse steps (always starts at index 2)
+long steps = command.substring(2, command.length()).toInt();
+
+// A stepper
+if (command.startsWith(&quot;sa&quot;)) {
+commandMove(stepperA, steps, 0);
+}
+</code>
+</pre>
+            <p>If the event of a stepper motor command, <code>commandMove</code> is called which checks if the stepper
+                is currently moving (as determined by speed = 0, which only happens when a target destination is reached
+                as will be explained shortly) and, if it&#39;s not, runs <code>stepper.move(steps)</code> which sets the
+                step number from the command as the motor&#39;s target destination and
+                <code>stepper.setSpeed(1100)</code> which has the effect of setting the max consistent speed and
+                overriding the acceleration functions.
+            </p>
+            <pre><code>void  commandMove(AccelStepper &amp;stepper, long steps, int index) {
+// determine movement based on command and current motor state
+if (stepper.speed() == 0) {
+// move stepper `steps` steps
+stepper.move(steps); // set relative target position
+stepper.setSpeed(1100); // must set speed after moveTo to get rid of accl
+} else { // if stepper is currently moving
+next_target[index] = steps;
+}
+}
+</code>
+</pre>
+            <p>The AccelStepper library allows for three steppers to run simultaneously by moving each motor one step
+                per Arduino loop. More about how this works can be found <a
+                    href="https://hackaday.io/project/183279-accelstepper-the-missing-manual">here</a>. Within the
+                <code>loop()</code> function, <code>stepperEachLoop</code> is called for each stepper motor. This first
+                calls <code>runSpeedToPosition</code> which advances the motor one step towards it&#39;s target. It then
+                checks if the current position of the stepper is equal to the target position and, if it is, sets the
+                motor speed to 0.
+            </p>
+            <pre><code>void  stepperEachLoop(AccelStepper &amp;stepper, int index) {
+// things that have to happen or be checked for each stepper in each loop
+
+// if steps remaining until target step 1 step
+stepper.runSpeedToPosition();
+
+if (stepper.targetPosition() == stepper.currentPosition()) {
+stepper.setSpeed(0);
+}
+...
+</code>
+</pre>
+
+            <p>This is why <code>commandMove()</code> checks if <code>stepper.speed() == 0</code> before setting a new
+                target, to check if the motor is currently working towards a target destination.</p>
+            <p>At the beginning of the sketch, an array called <code>next_target</code> is filled with three 0s. Index
+                0-2 correspond to steppers A-B and represents the next target for a motor if a command is sent before it
+                reaches its first target destination, creating a buffer of one command. When the stepper speed is not 0
+                in <code>commandMove()</code>, it sets the next target position for the motor.</p>
+            <p>returning to <code>stepperEachLoop()</code>, if the speed is 0 and the next target is a value other than
+                0, it sets the new target position, motor speed, and resets the next target to 0. Essentially, it waits
+                until the motor has reached the previous target before passing through the next position changing
+                command.</p>
+            <pre><code>...
+// check if stepper has stopped and needs to set a new target
+if (stepper.speed() == 0 &amp; next_target[index] != 0) {
+stepper.move(next_target[index]); // set target as next target
+stepper.setSpeed(1100);
+next_target[index] = 0; // reset next target
+}
+}
+</code>
+</pre>
+            <br></br>
+            <h3 id="raspberry-pi">Raspberry Pi</h3>
+            <p>Since the Raspberry Pi was headless we needed a convenient way to get the IP so we could connect
+                remotely. We used the Raspberry Pi (with I2C enabled) to control the 16x2 LCD with the socket, board,
+                and <a href="https://sparkfun-circuitpython-serlcd.readthedocs.io/en/latest/">Sparkfun serLCD
+                    circuit-python</a> libraries. A script called <code>on_startup.py</code> (<a
+                    href="https://github.com/richardli03/record-music-visualizer/blob/main/drivers/RPI-I2C-LCD/on_startup.py">source
+                    on GitHub</a>) ran immediately after the Pi booted by making it executable and adding the path to <a
+                    href="https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup#method-1-rclocal">rc.local</a>.
+                This script simply got the current IP and wrote it to the
+                screen.</p>
+            <pre><code>def  get_ip_address():
+    ip_address =  &#39;&#39;
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect((&quot;8.8.8.8&quot;, 80))
+    ip_address = s.getsockname()[0]
+    s.close()
+    return ip_address
+
+    serlcd.write(&#39;Ready to Disco?\n&#39;)
+    serlcd.write(get_ip_address())
+    </code>
+</pre>
+            <p>A small addition was added in the <code>main.py</code> software as well which simply write
+                <code>Disco Diva</code> to the screen when the program starts. This functionality could easily be
+                expanded to display the name of the current song if we had
+                more time.
+            </p>
+            <br></br>
+            <h3 id="the-entire-arduino-sketch">The entire Arduino sketch</h3>
+            <p>Can also be found on our project <a
+                    href="https://github.com/richardli03/record-music-visualizer/blob/main/firmware/arduino_firmware/arduino_firmware.ino">GitHub</a>.
+            </p>
+            <pre><code>/* Arduino-side firmware for GPIO motor control
+using DRV8825 stepper drivers and a L298N H-bridge for the DC motor.
+pins listed below for sanity:
+
+Stepper Motor A:
+DIR (blue) -&gt; pin 8
+STP (green) -&gt; pin 9
+
+Stepper Motor B:
+DIR (blue) -&gt; pin 10
+STP (green) -&gt; pin 11
+
+Stepper Motor C:
+DIR (blue) -&gt; pin 12
+STP (green) -&gt; pin 13
+
+DC Motor
+IN 1 (mark) -&gt; pin 4
+IN 2 (blue) -&gt; pin 2
+ENB (black) -&gt; pin 3 (pwm)
+*/
+
+#include  &lt;Arduino.h&gt;
+#include  &lt;L298N.h&gt;
+#include  &lt;AccelStepper.h&gt;
+
+// *** DC motor setup ***
+const  unsigned  int IN1 = 4;
+const  unsigned  int IN2 = 2;
+const  unsigned  int EN = 3;
+L298N DCmotor(EN, IN1, IN2);
+
+// *** stepper motor setup ***
+AccelStepper stepperA(AccelStepper::DRIVER, 9, 8); // stp = 9, dir = 8
+AccelStepper stepperB(AccelStepper::DRIVER, 11, 10); // stp = 11, dir = 10
+AccelStepper stepperC(AccelStepper::DRIVER, 13, 12); // stp = 13, dir = 12
+  
+// buffer for target position-change before initial target reached
+long  next_target[3] = { 0, 0, 0 };
+  
+// *** START CODE ***
+
+
+void  setup() {
+
+// initialize serial communication
+Serial.begin(115200);
+
+// maximum speed in steps per second
+stepperA.setMaxSpeed(1100);
+stepperB.setMaxSpeed(1100);
+stepperC.setMaxSpeed(1100);
+}
+
+ 
+void  loop() {
+
+// steppers need to take a step each loop and potentially update state
+stepperEachLoop(stepperA, 0);
+stepperEachLoop(stepperB, 1);
+stepperEachLoop(stepperC, 2);
+
+// check and process serial command if needed
+if (Serial.available() != 0) {
+// doesn&#39;t need to be a separate function but nice for organization
+SerialRead();
+}
+}
+
+
+void  stepperEachLoop(AccelStepper &amp;stepper, int index) {
+// things that have to happen or be checked for each stepper in each loop
+// if steps remaining until target step 1 step
+stepper.runSpeedToPosition();  
+
+/* set speed to 0 when target position reached (accelstepper doesn&#39;t do this
+automatically,setting the speed to 0 doesn&#39;t physically do anything but it
+forces the program to agree that the motor is stopped). Using setSpeed(0)
+instead of stop() because not using acceleration
+*/
+
+if (stepper.targetPosition() == stepper.currentPosition()) {
+stepper.setSpeed(0);
+}
+
+// check if stepper has stopped and needs to set a new target
+if (stepper.speed() == 0 &amp; next_target[index] != 0) {
+stepper.move(next_target[index]); // set target as next target
+stepper.setSpeed(1100);
+next_target[index] = 0; // reset next target
+}
+}
+
+
+void  SerialRead() {
+String command;
+// commands start with &#39;(&#39; and end with &#39;)&#39; to avoid garbage characters
+if (Serial.read() == &#39;(&#39;) {
+command = Serial.readStringUntil(&#39;)&#39;);
+Serial.println(command);
+// parse steps (always starts at index 2)
+long steps = command.substring(2, command.length()).toInt();
+
+// A stepper
+if (command.startsWith(&quot;sa&quot;)) {
+commandMove(stepperA, steps, 0);
+}
+
+// B stepper
+else  if (command.startsWith(&quot;sb&quot;)) {
+commandMove(stepperB, steps, 1);
+}
+
+// C stepper
+else  if (command.startsWith(&quot;sc&quot;)) {
+commandMove(stepperC, steps, 2);
+}
+
+// DC motor run with `drN` where N is speed between 0-255
+else  if (command.startsWith(&quot;dr&quot;)) {
+unsigned  short speed = command.substring(2, command.length()).toInt();
+DCmotor.setSpeed(speed);
+DCmotor.forward();
+}
+
+// stop DC motor with `ds`
+else  if (command == &quot;ds&quot;) {
+DCmotor.setSpeed(0);
+DCmotor.forward();
+}
+}
+}
+
+
+void  commandMove(AccelStepper &amp;stepper, long steps, int index) {
+// determine movement based on command and current motor state
+if (stepper.speed() == 0) {
+// move stepper `steps` steps
+stepper.move(steps);    // set relative target position
+stepper.setSpeed(1100); // must set speed after moveTo to get rid of accl
+} else {                // if stepper is currently moving
+next_target[index] = steps;
+}
+}
+</code></pre>
+
             <!-- everything else in main text goes here-->
         </article>
 
