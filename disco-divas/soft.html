@@ -68,10 +68,13 @@
                 <h3>Getting Frequencies from Song</h3>
                 </p>
                 <p>
-                Once loading the .wav file, we first turned the song into a series of samples using a linspace. Then, we separated it into all of its constituent frequencies by taking the Fast Fourier Transform. Although we originally wanted to use an intelligent audio processing library to do that, it ended up being much easier to (manually) take the FFT. We put all of the data into a Pandas Dataframe with samples (time) along the columns and the frequencies along the rows.
+                Once loading the .wav file, we first turned the song into a series of samples using a linspace. Then, we separated it into all of its constituent frequencies by taking the Fast Fourier Transform. Although we originally wanted to use an intelligent audio processing library to do that, it ended up being much easier to (manually) take the FFT. We put all of the data into a Pandas Dataframe with samples (time) along the columns and the frequencies along the rows. The values go from 0 to -100, where 0 is the loudest and -100 means there’s none of that signal (it’s silent).
                 </p>
                 <p>
-                <img src="images/all_freq_data.png" alt="" style="width:80%">
+                <figure>
+                <img src="images/all_freq_data.png" alt="">
+                <figcaption>Fig. "all_freq_data" dataframe</figcaption>
+                </figure>
                 </p>
                 <p>
                 <h3>Splitting Frequencies and Computing Volumes</h3>
@@ -80,7 +83,10 @@
                 We wanted to get three frequency ranges—bass, mid, and treble. We first split the data in half, because the FFT gave us two sets of identical data (symmetric about 0). We then logarithmically split the frequencies into the three groups. Since we were trying to plot volume over time, we took a weighted average of all the frequency signals at a specific time sample to filter out noise (everything lower than -75) and weight real signals. That left us with a volume for each range at each time point we sampled.
                 </p>
                 <p>
-                [img 16 - graph]
+                    <figure>
+                        <img src="images/frequency_plot_2.png" alt="">
+                        <figcaption>Fig. volumes of frequency buckets over time</figcaption>
+                    </figure>
                 </p>
                 <p>
                 <h3>The Record Player Visual</h3>
@@ -89,7 +95,11 @@
                 Since we wanted our visualizer to invoke a record player, we made our visualizations round, like a record. We found the deviation of each point from the average of the category, which we used as a zero point. Once we set each category to have a different baseline radius, we were able to plot the changes in volume on a polar graph to get our first visualizations. 
                 </p>
                 <p>
-                [img 17 - round visuals]
+                    <figure>
+                        <img src="images/circular_visual_1.png" alt="" style="width:30%">
+                        <img src="images/circular_visual_2.png" alt="" style="width:30%">
+                        <figcaption>Fig. first iteration of circular visuals</figcaption>
+                    </figure>
                 </p>
                 <p>
                 <h3>Packaging A CSV</h3>
@@ -98,7 +108,10 @@
                 At that point we had the positions we wanted each pen to be at different angles on the circle, which correspond to different points in time. We wanted to package that in a format that the firmware team could use. We decided to make a CSV that held the motor position, in the form of positive or negative inches away from the baseline radius for each pen, versus the angle the disk was at. We decided to do it this way because then we could separate the two parts of the flow a little bit and easily intercept it while doing integration.
                 </p>
                 <p>
-                [img18 - table]
+                    <figure>
+                        <img src="images/position_csv.png" alt="">
+                        <figcaption>Fig. example CSV passed to firmware</figcaption>
+                    </figure>
                 </p>
                 <p>
                 <h3>Oscillations</h3>
@@ -110,7 +123,10 @@
                 To create the oscillations, we created a point between every two data points we had and defined a baseline oscillation size. If the data points were within some margin of 0, the new points would oscillate at the baseline size (around 0.2 inches). Any changes from there would be plotted as a larger spike or as a lack of oscillation. This process did indeed make the visualizations much more interesting and artistic.
                 </p>
                 <p>
-                [img 21]
+                    <figure>
+                        <img src="images/oscillations_1.png" alt="">
+                        <figcaption>Fig. first circular visual with oscillations added in</figcaption>
+                    </figure>
                 </p>
                 <p>
                 <h3>Fine Tuning</h3>
@@ -122,7 +138,12 @@
                 Here are some of the final visuals we got:
                 </p>
                 <p>
-                [img24 - visuals]
+                    <figure>
+                        <img src="images/osc_little_night.png" alt="" style="width:31%">
+                        <img src="images/osc_love_story.png" alt="" style="width:30%">
+                        <img src="images/osc_miz_biz.png" alt="" style="width:30%">
+                        <figcaption>Fig. examples of some final visuals</figcaption>
+                    </figure>
                 </p>
             <!-- everything else in main text goes here-->
         </article>
