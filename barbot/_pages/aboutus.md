@@ -5,21 +5,15 @@ permalink: /aboutus/
 
 # Meet Our Team!
 
-_TODO: insert pictures of everyone_
-
-_TODO: insert bios of everyone_
-
-_TODO: also insert learning goals_
-
 ![Albert](/pie-2022-03/barbot/images/am_b.PNG)
 Albert Manrique - Project Manager
 
-Albert enjoys...
+Albert is majoring in electrical and computer engineering. Their interests include mycology, hydroponics, and rapid prototypes. Their role in this project was of project manager and work on pump design.
 
 ![Arturo](/pie-2022-03/barbot/images/aj_b.PNG)
 Arturo Joya - Electrical Lead
 
-Arturo enjoys...
+An enthusiastic billiards player and hardware fanatic, Arturo focused on configuring Barbot's electrical system, including but not limited to the wiring, circuit design, and circuit prototyping. He is studying to become an electrical and computer engineer. Did I mention he loves billiards? Yes? Well, he loves billiards.
 
 ![Eliyahu](/pie-2022-03/barbot/images/es_b.PNG)
 Eliyahu Suskind - Firmware Lead
@@ -29,7 +23,7 @@ Like many other Israeli-Americans, Seattle-native Eliyahu Suskind has wanted to 
 ![Lauren](/pie-2022-03/barbot/images/la_b.PNG)
 Lauren Armstrong - Mechanical Lead
 
-Lauren enjoys...
+Lauren is majoring in Mechanical Engineering with an interest in design. She enjoys biology, clothing design, and industrial manufacturing. In this project, she as the lead mechanical engineer responsibble for housing and pump design.
 
 ## Learning Goals
 
