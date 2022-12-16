@@ -15,10 +15,12 @@ For our mechanical system, we created a chip dispensing mechanism that was mount
 ![Side View](/images/sideView.png)
 
 ## Chip Dispensing:
-To hold the chips prior to their dispensing, we 3-D printed a PLA tube that was mounted above the chute. The connect 4 chips were stacked on top of each other and the tube was mounted close enough to the baseboard such that only 1 chip was out of the tube at a time and thus only one chip could be dispensed into the chute at a time. 
+To hold the chips prior to their dispensing, we 3-D printed a PLA tube that was mounted above the chute. The connect 4 chips were stacked on top of each other and the tube was mounted close enough to the baseboard such that only 1 chip was out of the tube at a time and thus only one chip could be dispensed into the chute at a time.
+
 ![Trimetric View of Chute](/images/chuteTrimetric.png)
 
 When the chips came out of the tube they were not aligned correctly as they were horizontal instead of vertical, and thus we needed to realign them such that they could go into the game board. Our solution to that was creating a chute that would realign the chip and dispense it into the game board. There were a couple of things that were took into consideration while creating the chute. 
+
 ![Side View of Chute](/images/chuteSlide.png)
 
 The first thing we considered was chute length. If the horizontal portion of the chute was too long, the chip would get stuck right before the chute became vertical. The second thing we considered was servo arm length. Since our servo arm was longer than the distance between the chip and the chute, we needed to add slits within the chute sides so that the servo arm would not get stuck. 
