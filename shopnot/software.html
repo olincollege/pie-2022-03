@@ -49,12 +49,12 @@
 					based on an existing open-source firmware, as opposed to writing a g-code interpreter from scratch.
 					Although it meant we wrote less code for this project, not reinventing the wheel allowed us to focus
 					on rock-solid integration of our CNC router.
-				<p></p>
 				<p>We did have to change some of the pre-configuration options of our GRBL source code to allow our DC
 					motor driver access to the hardware PWM capabilities of pin 11 on the Arduino.</p>
 
 				<h2>Software</h2>
-				<p>Once we decided to use GRBL, we searched for a piece of open-source software that would allow us to
+				<p><span class="image right"><img src="images/screenshots/ugs-cutfile.png" alt="" /></span>Once we
+					decided to use GRBL, we searched for a piece of open-source software that would allow us to
 					generate and send basic g-code commands to our Arduino. We settled on <a
 						href="https://winder.github.io/ugs_website/">Universal G-code Sender</a> as our sender of
 					choice. We used UGS to jog the gantry, testing our steppers and gantry. We were also able to use UGS
@@ -62,7 +62,8 @@
 					initializing our limit switches.</p>
 				<p>Once we got experience working with UGS, we were able to calibrate our limit switches at the positive
 					end of each axis, adding soft limits at the negative extremes. We also added a homing routing to all
-					3 limit switches, activated by sending the `$H` command. We also developed a standard setup
+					3 limit switches, activated by sending the <code>$H</code> command. We also developed a standard
+					setup
 					procedure to zero all three axes and get the machine ready to cut.</p>
 				<p>Once we progressed past configuration and jogging, we wanted to be able to design and generate g-code
 					for simple patterns and shapes. This was easy, since UGS has this functionality built-in. However,
@@ -70,15 +71,25 @@
 					with the 3D CAM capabilities of Fusion 360 and/or HSMWorks to generate much more complex 3D
 					toolpaths.</p>
 
+				<h2>Cut Setup</h2>
+				<p><span class="image right"><img src="images/screenshots/ugs-setup.png" alt="" /></span>The process of
+					setting up a cut is rather simple, and is demonstrated in the below video. Once the
+					piece has been screwed to the spoilboard, the <code>$H</code> command is sent, and the router goes
+					to all 3 positive axes to home itself. Then, the machine is manually jogged to the desired cut start
+					point and all 3 axes are zeroed. Once the axes are zeroed correctly, the cut file can be sent. The
+					zero positions persist after the end of a cut, but the home and zero should periodically be reset to
+					mitigate possible drift.</p>
+
 				<h2>GitHub</h2>
 				<p>Although we did not end up writing any code in the final version of the machine, our GitHub includes
 					our sprint 1 code, wiring diagram, demo cut files, and GRBL files necessary to recompile and flash
 					our configuration of GRBL to the CNC router.</p>
 
 				<ul class="actions fit">
-					<li><a href="https://github.com/EarlJr53/mini-cnc-router" class="button fit">GitHub</a></li>
-					<li><a href="https://github.com/gnea/grbl" class="button fit">GRBL</a></li>
-					<li><a href="https://winder.github.io/ugs_website/" class="button fit">UGS</a></li>
+					<li><a href="https://github.com/EarlJr53/mini-cnc-router"
+							class="button fit icon brands fa-github">GitHub</a></li>
+					<li><a href="https://github.com/gnea/grbl" class="button fit fa fa-code"> GRBL</a></li>
+					<li><a href="https://winder.github.io/ugs_website/" class="button fit fa fa-upload"> UGS</a></li>
 				</ul>
 
 				<iframe src="https://www.youtube.com/embed/hN5snobl0MU" title="Homing and Zeroing for a cut"
