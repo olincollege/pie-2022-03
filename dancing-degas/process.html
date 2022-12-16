@@ -12,6 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/custom.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets\favicon\apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets\favicon\favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets\favicon\favicon-16x16.png">
+    <link rel="manifest" href="assets\favicon\site.webmanifest">
 </head>
 
 <body class="is-preload">
@@ -24,23 +28,16 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li>
-                        <a href="#" class="icon solid fa-angle-down">Layouts</a>
+                        <a href="#" class="icon solid fa-angle-down">Menu</a>
                         <ul>
                             <li><a href="system_diagram.html">System Diagram</a></li>
                             <li><a href="process.html">Process</a></li>
-                            <li><a href="bill_of_materials.html">Bill of Materials</a></li>
                             <li><a href="mechanical.html">Mechanical</a></li>
                             <li><a href="electrical.html">Electrical</a></li>
                             <li><a href="software.html">Software</a></li>
-                            <li>
-                                <a href="#">Submenu</a>
-                                <ul>
-                                    <li><a href="#">Option One</a></li>
-                                    <li><a href="#">Option Two</a></li>
-                                    <li><a href="#">Option Three</a></li>
-                                    <li><a href="#">Option Four</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="bill_of_materials.html">Bill of Materials</a></li>
+                            <li><a href="about-us.html">About Us</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -69,52 +66,63 @@
                     future.</p>
                 <iframe src="https://drive.google.com/file/d/1lM5GqBzE2_dhWcEwTQNLp4k9LOsnjyCU/preview" width="320"
                     height="240" allow="autoplay"></iframe>
+
+                <hr>
+                <h3>Mechanical</h3>
                 <div class="row">
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Mehcanical</h3>
-                        <p>Add details</p>
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Electrical</h3>
-                        <p>Add details</p>
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Software</h3>
+                    <div class="col-6 col-12-mobilep">
                         <p>
-                            For Sprint 1, software focused on writing scripts to control the servos in order to
-                            draw different shapes with out gantry. We discovered that while the code worked for the
-                            servos
-                            when they were not integrated, upon integration the pulleys would slip off the servos, which
-                            meant we were not able to test if the shapes were drawn correctly.
-                        </p>
-                        <div class="row">
-                            <div class="col-6 col-12-mobilep">
-                                <p>
-                                    Since we decided to pivot towards a horizontal gantry system, we turned our
-                                    attention towards figuring out how we wanted to process the audio data. As we
-                                    brainstormed
-                                    potential methods, we focused on having a simple circuit with LEDs that lit up when
-                                    audio
-                                    input was detected.
-                                </p>
-                            </div>
-                            <div class="col-6 col-12-mobilep">
 
-                                <iframe src="https://drive.google.com/file/d/1dnygHc-RZllUU6iWAHQWHxb5lUuR2hS5/preview"
-                                    width="320" height="240" allow="autoplay"></iframe>
-                            </div>
-                        </div>
-
-                        <p>
-                            At the end of this sprint, we decided that our next priority was to have the drawing
-                            commands be different depending on audio input -- essentially integrating
-                            our audio processing with gantry control. However, we knew this would be a significant
-                            change
-                            as we would also be dealing with a different gantry system and different motors.
                         </p>
+                    </div>
+                    <div class="col-6 col-12-mobilep">
+
+                        <img class="center" src="images\mech-sprint1.jpg" alt="Spirograph Image"
+                            style="width:400px;height:300px;">
                     </div>
                 </div>
+                <hr>
+                <h3>Electrical</h3>
+                <p>Add details</p>
+
+                <hr>
+                <h3>Software</h3>
+                <p>
+                    For Sprint 1, software focused on writing scripts to control the servos in order to
+                    draw different shapes with out gantry. We discovered that while the code worked for the
+                    servos
+                    when they were not integrated, upon integration the pulleys would slip off the servos, which
+                    meant we were not able to test if the shapes were drawn correctly.
+                </p>
+                <div class="row">
+                    <div class="col-6 col-12-mobilep">
+                        <p>
+                            Since we decided to pivot towards a horizontal gantry system, we turned our
+                            attention towards figuring out how we wanted to process the audio data. As we
+                            brainstormed
+                            potential methods, we focused on having a simple circuit with LEDs that lit up when
+                            audio
+                            input was detected.
+                        </p>
+                    </div>
+                    <div class="col-6 col-12-mobilep">
+
+                        <iframe src="https://drive.google.com/file/d/1dnygHc-RZllUU6iWAHQWHxb5lUuR2hS5/preview"
+                            width="320" height="240" allow="autoplay"></iframe>
+                    </div>
+
+
+                    <p>
+                        At the end of this sprint, we decided that our next priority was to have the drawing
+                        commands be different depending on audio input -- essentially integrating
+                        our audio processing with gantry control. However, we knew this would be a significant
+                        change
+                        as we would also be dealing with a different gantry system and different motors.
+                    </p>
+                </div>
             </div>
+
+
 
             <!-- sprint 2 -->
             <div class="box">
@@ -127,45 +135,53 @@
                     decided that we needed a CNC motor shield which is usually used for most X-Y gantry.</p>
                 <iframe src="https://drive.google.com/file/d/1mR3OjEy1xk59IaxfbjJxt_kmTEY0B351/preview" width="320"
                     height="240" allow="autoplay"></iframe>
+                <hr>
+                <h3>Mechanical</h3>
                 <div class="row">
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Mehcanical</h3>
-                        <p>Add details</p>
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Electrical</h3>
-                        <p>Add details</p>
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Software</h3>
-                        <div class="row">
-                            <div class="col-6 col-12-mobilep">
-                                <p>
-                                    For sprint 2, the software team decided that to visualize music using spirographs.
-                                    Consequently, we dedicated time to understanding the formulae that produce
-                                    spirographs and
-                                    translating the formulae into functions that return positions. Software modified
-                                    these
-                                    formulae by having the parameters be determined by the most salient frequencies in
-                                    the
-                                    fourier transform of the audio signal. A deeper expalantion of these formulae can be
-                                    found
-                                    on the <a href="software.html">Software page</a>.
-                                </p>
-                            </div>
-                            <div class="col-6 col-12-mobilep">
-                                <img src="images\simple_spirograph.jpg" alt="Spirograph Image"
-                                    style="width:300px;height:400px;">
-                            </div>
-                        </div>
-
+                    <div class="col-6 col-12-mobilep">
                         <p>
-                            Additionally, software also
-                            figure out simple motor control commands through Arduino. However, we ultimately decided to
-                            switch to using the CNC shield to simplify the simultaneous movement of multiple motors.
+
                         </p>
                     </div>
+                    <div class="col-6 col-12-mobilep">
+
+                        <img class="center" src="images\mech-sprint2.jpg" alt="Spirograph Image"
+                            style="width:400px;height:300px;">
+                    </div>
                 </div>
+                <hr>
+                <h3>Electrical</h3>
+                <p>Add details</p>
+                <hr>
+                <h3>Software</h3>
+                <div class="row">
+                    <div class="col-6 col-12-mobilep">
+                        <p>
+                            For sprint 2, the software team decided that to visualize music using spirographs.
+                            Consequently, we dedicated time to understanding the formulae that produce
+                            spirographs and
+                            translating the formulae into functions that return positions. Software modified
+                            these
+                            formulae by having the parameters be determined by the most salient frequencies in
+                            the
+                            fourier transform of the audio signal. A deeper expalantion of these formulae can be
+                            found
+                            on the <a href="software.html">Software page</a>.
+                        </p>
+                    </div>
+                    <div class="col-6 col-12-mobilep center">
+                        <img class="center" src="images\simple_spirograph.jpg" alt="Spirograph Image"
+                            style="width:300px;height:300px;">
+                    </div>
+                </div>
+
+                <p>
+                    Additionally, software also
+                    figure out simple motor control commands through Arduino. However, we ultimately decided to
+                    switch to using the CNC shield to simplify the simultaneous movement of multiple motors.
+                </p>
+
+
             </div>
 
             <!-- Sprint 3 -->
@@ -177,59 +193,89 @@
                     integrating and testing small problems during this sprint and after. </p>
                 <iframe src="https://drive.google.com/file/d/1m1WjPmJlPcXqFJ0A8rXKKHL4ZTsBncMV/preview" width="640"
                     height="480" allow="autoplay"></iframe>
+                <hr>
+                <h3>Mechanical</h3>
                 <div class="row">
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Mehcanical</h3>
-                        <p>Add details</p>
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Electrical</h3>
-                        <p>Add details</p>
-                    </div>
-                    <div class="row-6 row-12-mobilep">
-                        <h3>Software</h3>
-                        <p>For sprint 3, the software team divided their efforts between integrating with the new CNC
-                            shield and developing a user interface.</p>
-                        <p>To integrate with the CNC shield, the software team decided to use GCode and GRBL. Software
-                            learned how to create and write to GCode files, as well as which GCode commands were the
-                            most pertinent for the project. Additionally, software also learned how to stream the GCode
-                            files to the CNC shield for motor movemnt. A deeper explanation of this process can be found
-                            on the <a href="software.html">Software page</a>.</p>
+                    <div class="col-6 col-12-mobilep">
+                        <p>
 
-                        <div class="row">
-                            <div class="col-6 col-12-mobilep">
-                                <p>
-                                    For the interface component of the project, the software team chose to use Python
-                                    and
-                                    tkinter in order to develop a simple in which the user could enter a song for
-                                    visualization.
-                                    Whilst developing the interface, the software team decided to switch from the
-                                    fourier
-                                    transforms used in sprint 2 to using the Spotify API for the audio data. A deeper
-                                    explanation of this process can be found on the <a href="software.html">Software
-                                        page</a>.
-                                </p>
-                            </div>
-                            <div class="col-6 col-12-mobilep">
-                                <img src="images\interface.jpg" alt="Image of interface"
-                                    style="width:300px;height:400px;">
-                            </div>
-                        </div>
+                        </p>
+                    </div>
+                    <div class="col-6 col-12-mobilep">
 
+                        <img class="center" src="images\mech-sprint3.jpg" alt="Spirograph Image"
+                            style="width:400px;height:300px;">
                     </div>
                 </div>
+                <hr>
+                <h3>Electrical</h3>
+                <p>Add details</p>
+                <hr>
+                <h3>Software</h3>
+                <p>For sprint 3, the software team divided their efforts between integrating with the new CNC
+                    shield and developing a user interface.</p>
+                <p>To integrate with the CNC shield, the software team decided to use GCode and GRBL. Software
+                    learned how to create and write to GCode files, as well as which GCode commands were the
+                    most pertinent for the project. Additionally, software also learned how to stream the GCode
+                    files to the CNC shield for motor movemnt. A deeper explanation of this process can be found
+                    on the <a href="software.html">Software page</a>.</p>
+
+                <div class="row">
+                    <div class="col-6 col-12-mobilep">
+                        <p>
+                            For the interface component of the project, the software team chose to use Python
+                            and
+                            tkinter in order to develop a simple in which the user could enter a song for
+                            visualization.
+                            Whilst developing the interface, the software team decided to switch from the
+                            fourier
+                            transforms used in sprint 2 to using the Spotify API for the audio data. A deeper
+                            explanation of this process can be found on the <a href="software.html">Software
+                                page</a>.
+                        </p>
+                    </div>
+                    <div class="col-6 col-12-mobilep center">
+                        <img class="center" src="images\interface.jpg" alt="Image of interface"
+                            style="width:400px;height:400px;">
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <!-- Final Deliverable -->
+            <div class="box">
+                <h3>Final Deliverable</h3>
+                <p>
+                    Our final tasks included adding multiple concentric spirals and implementing a color changing
+                    mechanism from a software perspective.
+                </p>
+                <iframe src="" width="640" height="480" allow="autoplay"></iframe>
+                <hr>
+                <h3>Mechanical</h3>
+                <p>Add details</p>
+                <hr>
+                <h3>Electrical</h3>
+                <p>Add details</p>
+                <hr>
+                <h3>Software</h3>
+                <p>The first task the software team tackled was the abilitity to have multiple concentic
+                    spirographs. The problems we had in previous sprints with secondary spirographs appearing in
+                    incorrect locations was resolved by having all of the spiral positions be dependent on
+                    previous spirals. To implement the color changing mechanism, we modified how we calibrated
+                    the motor responsible for the color wheel, which enabled easy transition between colors.
+                </p>
+
+
             </div>
         </section>
 
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
-                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-                <li><a href="#" class="icon brands fa-google-plus"><span class="label">Google+</span></a></li>
+                <li><a href="https://github.com/lilibaker/music-visualizer-pie" class="icon brands fa-github"><span
+                            class="label">Github</span></a></li>
             </ul>
             <ul class="copyright">
                 <li>&copy; Untitled. All rights reserved.</li>
