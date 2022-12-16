@@ -24,7 +24,7 @@
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Untiled.png</span>
+									<span class="symbol"><img src="images/Untiled_animation.gif" alt="" /></span><span class="title">Untiled.png</span>
 								</a>
 
 							<!-- Nav -->
@@ -58,7 +58,38 @@
 
 							<!-- Text -->
 								<section>
+                            
+                                <p>
+                                Most electrical components we used are either directly used in open-source 3D printers or have parallels to those used in open-source 3D printers. Therefore, no custom circuits or PCBs were needed. The use of Klipper required us to use a Raspberry Pi, which was powered by a buck converter within the FYSETC Spider, an integrated-MCU mainboard with IO for all peripherals on Untiled. The PI and Spider were connected via UART through TX and RX headers on both devices.
+                                </p>
+                                <p>
+                                Because the Spider is a mainboard meant for a 3D printer, the motor drivers, motors, nozzle limit switch, and electronics cooling fan were directly plug-and-play. To finely turn motor driver parameters such as run current, the TMC2209 motors drivers were connected over UART. We connected the air pump to a heater output because it required more power than a standard fan. 
+                                </p>
+                                <p>
+                                We added a Neopixel to the toolhead for aesthetics and quick status communication. However, due to space constraints, it was desoldered from the LED strip and mounted standalone, requiring an external 100pF capacitor between power and ground.
+                                </p>
+                                <p>
+                                The solenoid was the only component significantly different from those used in 3D printers. However, the only required additional component was a flyback diode over power and ground of the solenoid pointing towards the positive lead to prevent the built-up charge in the solenoid from feeding back into the Spider.
+                                </p>
+                                <p>Untiled is powered off of a single 24V power supply, fed into the Spider. There are various DC-to-DC converters on the Spider for 12, 5, and 3.3V for onboard logic and peripherals. Mains was wired to the 24V power supply through a rocker switch and 24V was wired to the Spider.
+                                </p>
+                                <p>In addition to using proper electrical components for all parts of Untiled, we made sure to strain relief all wires and provide clear paths for wire umbilicals. There were three discrete umbilicals on Untiled: one for the X-axis motor, one for the toolhead, and one for the z-axis on the toolhead. We put cable sheathing on over wires and pneumatic tubing, then printed clips to constrain the wires and tubing to pieces of 3mm filament on the toolhead and X-axis motor umbilicals. The 3mm filament kept the umbilicals stiff, as to keep the wires and tubing out of the path of motion of moving components.
+                                </p>
+                                <p>
+                                    Various other printed parts were used, along with copious amounts of zip ties to keep wires tidy and out of the way.
 
+                                </p>
+                               
+                                </section>
+                                <section>
+                                    <h2>Schematics</h2>
+                                    <p>Full electrical schematic for Untiled. For pin reference only, not for use to create a functional board.</p>
+                                    <div class="box alt">
+                                        <div class="row gtr-uniform">
+                                            <div><span class="image fit"><img src="images/Schematic1.png" alt="" /></span></div>
+                                            <div><span class="image fit"><img src="images/schematic2.png" alt="" /></span></div>
+                                        </div>
+                                    </div>
                                 </section>
                                 
 
