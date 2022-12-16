@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Generic - Alpha by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <!-- <h1><a href="index.html">Alpha</a> by HTML5 UP</h1> -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="#" class="icon solid fa-angle-down">Layouts</a>
+                        <ul>
+                            <li><a href="aboutus.html">About Us</a></li>
+                            <li>
+                                <a href="#" class="icon solid fa-angle-down">Technical</a>
+                                <ul>
+                                    <li><a href="software.html">Firmware</a></li>
+                                    <li><a href="electrical.html">Electrical</a></li>
+                                    <li><a href="mechanical.html">Mechanical</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="financials.html">Financials</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="button">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <section id="main" class="container">
+            <header>
+                <h2>Firmware</h2>
+                <p>Firmware and code for M-O. Check out our <a href="https://github.com/olincollege/mo">Git Repo to view the full source code!</a></p>
+            </header>
+            <div class="box">
+                <div class="row">
+                    <div class="row-6 ros-12-mobilep">
+                        <h3>Overall Firmware Architecture</h3>
+                        <p>We created an Arduino library, Mo_Lib, to hold all of our code. This library contained two
+                            main classes: Robot and Controller. These hold all of the variables and functions for the
+                            robot and controller respectively. The robot class contains functions for receiving radio
+                            messages as well as functions for controlling both the body and head of the robot. The
+                            controller class contains functions for reading the input from the joystick and buttons then
+                            sending this info via radio to the robot.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-6 ros-12-mobilep">
+                        <h3>Movement</h3>
+
+
+
+                        <h4>Driving</h4>
+                        <p>The code for driving based on joystick input is split between a few functions. The
+                            first,.readStick(), gets the X and Y values of the driving joystick. These are then sent
+                            via
+                            radio from the controller to the robot, where they are passed into a function
+                            calcMotorSpeeds() that converts the joystick value into a speed for each of the motors to
+                            drive at, which can be positive or negative based on the direction. Finally,
+                            setMotorSpeeds() tells the four motors to drive at the calculated speeds.
+                        </p>
+
+
+                        <h4>Head</h4>
+                        <p>The code for moving the head is split between a few functions. It reads data from the right
+                            joystick in the controller and sends it via the same method that the drivebase motion is
+                            sent.
+                        </p>
+                        <p>However, instead of affecting the speed of the head - which is a relatively top heavy object
+                            - the X input to the joystick's direction is taken and the head is moved in that direction
+                            for the duration that the joystick sends input in that direction. This is done by calling
+                            the step_left() and step_right() functions depending on the joystick reading.
+                        </p>
+
+                        <h4>Arm</h4>
+                        <p>The movement of the arm functions in a similar way to that of the head; however, the input
+                            data from the controller is different. As opposed to a joystick, the arm’s movement is
+                            controlled by two buttons - one to move it down and one to move it up. Data from all six
+                            buttons on the robot are sent as a bitstring and the first two of these represent whether
+                            the “arm up” and the “arm down” buttons are being pressed.
+                        </p>
+                        <p>Based on the direction, the arm movement is then completed by calling the same functions as
+                            the head to step the arm, with it moving up/down as opposed to left/right.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row-6 ros-12-mobilep">
+                        <h3>Face</h3>
+
+
+
+                        <h4>LED Matrix</h4>
+                        <p>The LED matrix is used to represent M-O's face and displays his various different
+                            expressions.
+                        </p>
+                        <p>When initially exploring what to use for M-O's face panel, we looked at various types of
+                            Neopixel and LED screens where we found that either the price, quality, or size were not
+                            suitable to what we wanted. Some of the criteria we were looking for included the following:
+                        </p>
+                        <ul>
+                            <li>Colored LEDs (at least yellow)</li>
+                            <li>Quality similar to that of M-O in the movie - </li>
+                            <li>Large enough to distinctly see the eyes make different expressions</li>
+                            <li>One single element</li>
+                            <li>Can be wired to Arduino with enough remaining pins for radio chip data</li>
+                        </ul>
+                        <p>Based on this criteria, we settled on a 16x32 pixel LED Matrix with the RGB Matrix Shield
+                            from Adafruit.
+                        </p>
+                        <span class="image fit"><img src="images/Matrix-1.png" alt="Matrix 1" /></span>
+                        <p>We started by coding the following functions to display basic expressions on the RGB Matrix:
+                        </p>
+                        <ul>
+                            <li>blank_eyes() - clears the screen by setting all the pixels to off</li>
+                            <li>default_eyes() - M-O's default open eyes</li>
+                            <li>big_eyes() - M-O's eyes when widened</li>
+                            <li>closed_eyes() - M-O blinking</li>
+                            <li>horiz_line() - M-O horizontal line glitch</li>
+                            <li>angry_eyes() - Angled eyes that appear mad</li>
+                        </ul>
+                        <p> All of the expressions were based off clips from the movie itself:
+                        </p>
+                        <div class="row">
+                            <div class="column">
+                                <img src="Matrix-2.png" alt="Matrix-2" style="width:100%">
+                            </div>
+                            <div class="column">
+                                <img src="Matrix-3.png" alt="Matrix-3" style="width:100%">
+                            </div>
+                        </div>
+
+                        <p>Since we wanted to make two animations for M-O - one happy and one angry - we wrote two
+                            functions happy_animation() and angry_animation() that cycle through some of the expressions
+                            at varying rates. </p>
+                        <div class="row">
+                            <div class="column">
+                                <img src="Matrix-5.gif" alt="Matrix-5" style="width:100%">
+                            </div>
+                            <div class="column">
+                                <img src="Matrix-4.gif" alt="Matrix-4" style="width:100%">
+                            </div>
+                        </div>
+
+                        <p>Finally, we connected the radio chip to the matrix shield and used inputs from the controller
+                            to call the various expressions and animations.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

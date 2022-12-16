@@ -5,16 +5,22 @@ permalink: /implementation/sprint1/
 
 Due to certain complications that made it harder to work on the project as a team, we were unable to get much progress in getting water moving from point A to point B. The original goal for the sprint was to create a mix of two drinks, such that we would use 2 ingredients to create 3 drinks: ingredient 1, ingredient 2, and a blend of ingredients 1 and 2. For this, we wanted to have a rough version of barbot that integrated two motors, their respective pump assemblies, and a way to interface with the system. Unfortunately, a combination of ineffective motor control and lack of functional pump system did not allow us to meet this initial goal.
 
-_optional TODO: insert video of sprint 1 demo_
-
 ## Mechanical:
 
- _pump design_
+ We attempted to recreate a used design that was found on thingiverse for the peristaltic pump. We had some problems with the central hub not engaging with the drive shaft on the NEMA 17 motor in addition to not having the necessary hardware to complete the construction of the 3d printed pump. 
+ 
+![alternate failure](/pie-2022-03/barbot/images/sp1_pump.png)
+
+_Figure 0.5: An alternate design..._
+
+ We had an alternate design, noted that these pumps were very high in friction. This combiened with improper motor control led to a pumpless sprint 1.
+
+ The casing was pretty much non existant and was created swiftly out of cardboard to hold the working electronics.
 
 ## Electrical:
 
  ![Sprint 1 Electronics](/pie-2022-03/barbot/images/s1_ee.jpg)
-_Figure 2: Sprint 1 electronics before being placed in the box_
+_Figure 1: Sprint 1 electronics before being placed in the box_
 
 For sprint 1, we were able to accomplish a pretty good leap in the right direction.
 
@@ -40,15 +46,15 @@ The exact specs of the resistors used can be found in the [electrical subsystem]
 
 ![Sprint 1 Firmware](/pie-2022-03/barbot/images/s1fw_fsm.png)
 
-_Figure 3: State diagram of the finite state machine implemented_
+_Figure 2: State diagram of the finite state machine implemented_
 
-Separating the tasks onto states these four states made it easier to debug the system, since we could then track whether or not the state transitions were occurring when they were supposed to.
+Separating the tasks onto states these four states made it easier to debug the system, since we could then track whether or not the state transitions were occurring when they were supposed to. Note, we also had to use the following [LCD library](https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library) to control the display.
 
 ### Idle
 
 ![Idle State](/pie-2022-03/barbot/images/s1_id.png)
 
-_Figure 4: The idle state represented_
+_Figure 3: The idle state represented_
 
 The idle state is essentialy our default state, and is the state entered at the point of booting up the system. It state tells the user that the system is ready to recieve input from the user. It does so by setting the red LED high, and displaying "READY..." on the LCD screen. During this state, we allow the user to use the potentiometer to dial in their drink choice. It remains in this state infinitely until the "Select" button is pressed.
 
@@ -56,7 +62,7 @@ The idle state is essentialy our default state, and is the state entered at the 
 
 ![Selecting State](/pie-2022-03/barbot/images/s1_se.png)
 
-_Figure 5: The selecting state represented_
+_Figure 4: The selecting state represented_
 
 When entering the selecting state, we read the potentiometer and perform the necessary calculations to determine the drink choice based on the potentiometer value. Since the analog values range from 0 to 1028, it was just a matter of floor dividing by 257, which would allow us to have drink choices 0, 1, 2, and 3.
 
@@ -72,7 +78,7 @@ Once the confirm button is pressed, the system then transistions to the dispensi
 
 ![Dispensing State](/pie-2022-03/barbot/images/s1_di.png)
 
-_Figure 6: The dispensing state represented_
+_Figure 5: The dispensing state represented_
 
 In the dispensing state, we turn on the motors that need to be running. Here, we also turn on the LED(s) that correspond to the motors that are supposed to be running. Also the yellow LED turns on to indicate that we are in the dispensing state.
 
@@ -86,7 +92,7 @@ Once the drinks have finished dispensing, the motors stop driving, and the syste
 
 ![Done State](/pie-2022-03/barbot/images/s1-do.png)
 
-_Figure 7: The done state represented_
+_Figure 6: The done state represented_
 
 This state can only be accessed when the drinks have finished dispensing. This state will display the words "DONE" and turn on the green LED for 5 seconds, then transition back to the idle state to start the cycle over again.
 

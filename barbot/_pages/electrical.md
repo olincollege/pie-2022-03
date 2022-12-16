@@ -20,11 +20,11 @@ Note, the resistors required to make the LEDs and buttons work are wired on the 
 ![UI Face](/pie-2022-03/barbot/images/ui_face.jpg)
 _Figure 3: The interface that allows usability._
 
-The red, yellow, and green LEDs here represent the state of the machine. The actual details of what these colors mean when they are on are explained in the _[Context](/pie-2022-03/barbot/pages/context)_ page under _"How Barbot works"_.
+The red, yellow, and green LEDs here represent the state of the machine. The actual details of what these colors mean when they are on are explained in the _[Context](/pie-2022-03/barbot/context/#how-barbot-works)_ page under _"How Barbot works"_.
 
 The blue and white LEDs represent a set of drinks that are being dispensed. These are more artiacts of the two-motor prototype of the barbot, where they once turned on to show which ingredient was being dispensed.
 
-Barbot makes use of three buttons - select, confirm, and reset. The full detail on the functionality of these buttons is explained in the _[Context](/pie-2022-03/barbot/pages/context)_ page under _"How Barbot works"_
+Barbot makes use of three buttons - select, confirm, and reset. The full detail on the functionality of these buttons is explained in the _[Context](/pie-2022-03/barbot/context/#how-barbot-works)_ page under _"How Barbot works"_
 
 ![Breadboard System](/pie-2022-03/barbot/images/bb_sch.PNG)
 ![Potentiometer](/pie-2022-03/barbot/images/pot_sch.PNG)

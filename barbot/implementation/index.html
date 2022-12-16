@@ -159,30 +159,267 @@
       <section class="page__content" itemprop="text">
         
         <h1 id="increment-steps">Increment Steps</h1>
-<p>Working up to the currently functioning BarBot came involved building up the pump assembly, electronics, and the firmware in parallel to allow continual testing.</p>
+        <p>Working up to the currently functioning BarBot involved building up the pump assembly, user interface electronics, motor electronics, and firmware in parallel to allow continual testing.</p>
 
-<p>The following is a breakdown on the actual sprints taken to get a working BarBot</p>
-
-<p><em>TODO: Create the sites for the three sprints and create embedded links to them here</em></p>
-
-<h2 id="sprints">Sprints</h2>
-
-<p><em>For now…</em></p>
-
-<p><a href="/pie-2022-03/barbot/implementation/sprint1">Sprint 1</a></p>
-
-<p><a href="/pie-2022-03/barbot/implementation/sprint2">Sprint 2</a></p>
-
-<p><a href="/pie-2022-03/barbot/implementation/sprint3">Sprint 3</a></p>
-
-<p><em>TODO: Add images that show some progress from Sprint 1 to Sprint 3</em></p>
-
-<h2 id="budget-distribution">Budget Distribution</h2>
-
-<p><em>TODO: Describe original budgetting</em></p>
-
-<p><em>TODO: Link to a view-only budget spreadsheet (even better, embedded spreadsheet)</em></p>
-
+        <p>Expectedly, we ran into a few hurdles in the development of each subsystem - of which the pump assembly proved to be most challenging. Having quick access to previous versions of our electronics and firmware allowed us to continuously test the pump assembly even while developing new hardware or firmware</p>
+        
+        <p>The following is a visualization on how we evolved from the first version of Barbot in Sprint 1, to the more familiar Barbot that begins to take shape in Sprint 3. The links will take a deeper dive into what was accomplished each sprint, what went wrong, and how we hoped to improve.</p>
+        
+        <h2 id="sprints">Sprints</h2>
+        
+        <p><a href="/pie-2022-03/barbot/implementation/sprint1">Sprint 1</a>
+        <img src="/pie-2022-03/barbot/images/sprint1.png" alt="Sprint 1" /></p>
+        
+        <p><em>Sprint 1: A humble start to Barbot, with only really a basic layout of the electronics and firmware working.</em></p>
+        
+        <p><a href="/pie-2022-03/barbot/implementation/sprint2">Sprint 2</a></p>
+        
+        <p><img src="/pie-2022-03/barbot/images/sprint2.png" alt="Sprint 2" /></p>
+        
+        <p><em>Sprint 2: Barbot’s shape has remained pretty consistent, but now holds two pumps, with the electronics for four, and now features a maintainance mode!</em></p>
+        
+        <p><a href="/pie-2022-03/barbot/implementation/sprint3">Sprint 3</a></p>
+        
+        <p><img src="/pie-2022-03/barbot/images/sprint3.png" alt="Sprint 3" /></p>
+        
+        <p><em>Sprint 3: Barbot has taken a new shape, new pumps have been developed, and electrical harness is ready to go in!</em></p>
+        
+        <h2 id="budget-distribution">Budget Distribution</h2>
+        
+        <p><a href="https://docs.google.com/spreadsheets/d/18YlrUDudFTC6DY1zr5jNOG53ShCypcfX/edit?usp=sharing&amp;ouid=101998879275732043623&amp;rtpof=true&amp;sd=true">Link to budget spreadsheet</a></p>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Item name</th>
+              <th>item quantity</th>
+              <th>MSRP</th>
+              <th>item total price</th>
+              <th>total money spent</th>
+              <th>total price at MSRP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tubing</td>
+              <td>1</td>
+              <td>41.61</td>
+              <td>41.61</td>
+              <td>216.75</td>
+              <td>435.75</td>
+            </tr>
+            <tr>
+              <td>fridge</td>
+              <td>1</td>
+              <td>60</td>
+              <td>60</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Peristaltic pump DIY</td>
+              <td>1</td>
+              <td>126.9</td>
+              <td>46.9</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>wiring</td>
+              <td>1</td>
+              <td>5</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Housing/aesthetics</td>
+              <td>1</td>
+              <td>70</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>step down converter https://a.co/d/7d3tiRA</td>
+              <td>1</td>
+              <td>2</td>
+              <td>2</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>sealant</td>
+              <td>1</td>
+              <td>19</td>
+              <td>19</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Arduino Mega2560</td>
+              <td>1</td>
+              <td>20</td>
+              <td>20</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>extension cord</td>
+              <td>1</td>
+              <td>6</td>
+              <td>6</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Perfboards</td>
+              <td>3</td>
+              <td>1.5</td>
+              <td>1.5</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Pin Headers</td>
+              <td>24</td>
+              <td>3.5</td>
+              <td>3.5</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>24V Power Supply</td>
+              <td>1</td>
+              <td>20</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Terminal Blocks</td>
+              <td>3</td>
+              <td>0.4</td>
+              <td>0.4</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>100uF Capacitors</td>
+              <td>6</td>
+              <td>5</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>LEDs</td>
+              <td>5</td>
+              <td>1</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>2.2 kΩ  resistors</td>
+              <td>5</td>
+              <td>1</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Buttons</td>
+              <td>3</td>
+              <td>1</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>10 kΩ  resistors</td>
+              <td>3</td>
+              <td>1</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>10 kΩ Potentiometer</td>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>LCD Screen</td>
+              <td>1</td>
+              <td>15</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>6-pin 4-wire motor wire harnesses</td>
+              <td>4</td>
+              <td>5</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>20cm M-M jumper wires</td>
+              <td>20</td>
+              <td>1.16</td>
+              <td>1.16</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>20cm F-M jumper wires</td>
+              <td>43</td>
+              <td>2.68</td>
+              <td>2.68</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Lots of Solder</td>
+              <td>1</td>
+              <td>4</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>motor drivers.</td>
+              <td>1</td>
+              <td>12</td>
+              <td>12</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>Empty bottles</td>
+              <td>4</td>
+              <td>0</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>adhesives</td>
+              <td>1</td>
+              <td>10</td>
+              <td>0</td>
+              <td> </td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        
         
       </section>
 

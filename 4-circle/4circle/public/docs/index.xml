@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on 4Circle</title>
+    <link>https://olincollege.github.io/pie-2022-03/4-circle/docs/</link>
+    <description>Recent content in Docs on 4Circle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Dec 2022 01:00:56 -0500</lastBuildDate><atom:link href="https://olincollege.github.io/pie-2022-03/4-circle/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High Level Overview</title>
+      <link>https://olincollege.github.io/pie-2022-03/4-circle/docs/highlevel/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>https://olincollege.github.io/pie-2022-03/4-circle/docs/highlevel/</guid>
+      <description>The primary software component of our algorithm was written in Go</description>
+    </item>
+    
+    <item>
+      <title>Electrical Design</title>
+      <link>https://olincollege.github.io/pie-2022-03/4-circle/docs/electrical/</link>
+      <pubDate>Fri, 16 Dec 2022 01:00:56 -0500</pubDate>
+      
+      <guid>https://olincollege.github.io/pie-2022-03/4-circle/docs/electrical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software Design</title>
+      <link>https://olincollege.github.io/pie-2022-03/4-circle/docs/software/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>https://olincollege.github.io/pie-2022-03/4-circle/docs/software/</guid>
+      <description>Overview and Goals The primary software component of our project was an algorithm that could play the Connect 4 algorithm against our human player.
+We wanted to make our algorithm as good at the game as possible, so we set our goal to build a perfect weak solver; that is, a solver that was capable of ensuring the best possible result from any situation, though not necessarily taking the shortest path to get there.</description>
+    </item>
+    
+    <item>
+      <title>Mechanical Design</title>
+      <link>https://olincollege.github.io/pie-2022-03/4-circle/docs/mechanical/</link>
+      <pubDate>Fri, 16 Dec 2022 01:00:51 -0500</pubDate>
+      
+      <guid>https://olincollege.github.io/pie-2022-03/4-circle/docs/mechanical/</guid>
+      <description>For our mechanical system, we created a chip dispensing mechanism that was mounted on a lead screw attached to a stepper motor so that it could move to the correct column and dispense a chip into it. Almost all parts were 3D printed using PLA with the exception of the mount and box around the lead screw, which was laser cut on 1/4&amp;quot; MDF.
+Chip Dispensing: To hold the chips prior to their dispensing, we 3-D printed a PLA tube that was mounted above the chute.</description>
+    </item>
+    
+    <item>
+      <title>Firmware Design</title>
+      <link>https://olincollege.github.io/pie-2022-03/4-circle/docs/firmware/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>https://olincollege.github.io/pie-2022-03/4-circle/docs/firmware/</guid>
+      <description>To integrate our software and electrical components we used a simple Python script that could write to the serial port the arduino was connected to. To do this, we first needed to integrate Go and Python, such that our compiled Go program could call our Python program to write to serial.
+Our first attempt at integration was trying to import C into Go, using the &amp;ldquo;C&amp;rdquo; package, and then using C&amp;rsquo;s Python/C API to run our Python code.</description>
+    </item>
+    
+    <item>
+      <title>BOM and Cost Analysis</title>
+      <link>https://olincollege.github.io/pie-2022-03/4-circle/docs/bom/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>https://olincollege.github.io/pie-2022-03/4-circle/docs/bom/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
