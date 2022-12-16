@@ -8,8 +8,6 @@ bref = ""
 toc = true
 +++
 
-The primary software component of our algorithm was written in Go and our electrical components was written in the Arduino IDE language.
-
 To integrate our software and electrical components we used a simple Python script that could write to the serial port the arduino was connected to. To do this, we first needed to integrate Go and Python, such that our compiled Go program could call our Python program to write to serial. 
 
 Our first attempt at integration was trying to import C into Go, using the "C" package, and then using C's Python/C API to run our Python code. We originally tried this because Isa already had a lot of experience integrating C and Python, and thus had already written all the functions we'd have needed, meaning that the only thing we'd have to figure out is integrating C into Go. However, we ran into too many issues trying to initialize the C environment into Go that we decided the best route was to try and do direct Python/Go integration.
