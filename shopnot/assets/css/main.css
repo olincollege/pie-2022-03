@@ -4058,7 +4058,8 @@ div.container {
 	width: 800px;
 	height: 530px;
 	position: relative;
-	margin: 20px;
+	/* margin: 20px; */
+	margin: 0 auto
 }
 
 div.image {
