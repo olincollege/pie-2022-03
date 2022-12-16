@@ -18,6 +18,9 @@ iframe {
     border-radius: 50%;
 }
 
+.section-image {
+    width: 90%;
+}
 
 #banner-about-us {
     background-attachment: scroll, fixed;
