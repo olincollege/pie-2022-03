@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Big Knit</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"></span><span class="title">Big Knit</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="product.html">The Product</a></li>
+						<li><a href="sprints.html">Our Process</a></li>
+						<li><a href="mechanical.html">Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="firmware.html">Firmware</a></li>
+						<li><a href="how-to-knit.html">How to Knit</a></li>
+						<li><a href="bom.html">Materials and Budget</a></li>
+						<li><a href="team.html">The Team</a></li>
+					</ul>
+				</nav>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Mechanical</h1>
+							<p>Without the mechanical subsystem, Big Knit would just be a stepper motor taking steps. Here's how it works!</p>
+							<span class="image main"><img src="images/how-it-works.png" alt="" /></span>
+							<p> Knitting is a mechanically complex process! We broke it down into individual components, which each moved in one specific way. </p>
+
+							<span class="image main"><img src="images/gantry.png" alt="" /></span>
+
+							<!-- Gantry -->
+							<section>
+								<h3>The Gantry</h3>
+								<span class="image left"><img src="images/motor-mount.jpg" alt="" height="250" width="auto" /></span>
+								<span class="image left"><img src="images/linear-cam.png" alt="" height="250" width="auto" /></span>
+								<p>The linear cam is attached to a gantry cart that moves in one dimension. The gantry cart slides along a one meter length of 8020 extrusion. Directly attached to the gantry cart is a belt and pulley system. At one end of the 8020 is a pulley attached to a stepper motor, and at the other end of the gantry is a pulley mounted to the 8020 through a custom 3D printed piece. The stepper motor is mounted to the 8020 through a custom steel sheet metal part that is directly screwed into the motor and the 8020. 
+								</p>
+							</section>
+
+							<!-- Linear cam -->
+							<section>
+								<h3>Linear Cam</h3>
+								<span class="image right"><img src="images/assembly.png" alt="" height="300" width="auto" /></span>
+								<p>The linear cam converts the side-to-side motion of the gantry to an in-and-out sliding motion of the needles. The in/out travel of the cam was decided based on the length of the latch on the needles to ensure it moved far enough. Then, we decided on the width and slope of the cam based on experimentation to stop it from binding. The cam mounted onto the gantry via v slot pulleys, which helped keep it aligned and clamped down on the main rail of the linear slide. The spacing and position of the wheels was intentionally chosen in a triangle layout to distribute any twisting force on the cam as well as to be properly constrained.</p>
+							</section>
+
+							<!-- Knitting Assembly-->
+							<section>
+								<h3>Knitting Subassembly</h3>
+								<p>The knitting subassembly consists of the moving needles which hold the yarn and actually produce the knit stitch, as well as the table that constrains their movement. The page [HOW TO KNIT] explains the specifics of how this movement creates a knit stitch.
+								</p>
+
+								<span class="image main"><img src="images/needlebed-mock-up.png" alt="" /></span>
+
+								<p>The table has specifically toleranced slots which allow the needles to slide smoothly without twisting. It is machined from MDF, which was specifically chosen for its combination of sustainability and ability to have a smooth finish. Special care was taken to avoid any chips or splinters and create a smooth surface finish. There are two separate grooved pieces, with a slot between them in order to constrain the knit piece between them. This means that as the needles slide in and out, the material is held in place forcing the loops to slide as intended. In many of our demonstration photos the front piece is removed for clarity and visibility, but it is necessary for the knitting to occur successfully.
+								</p>
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer"></footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
