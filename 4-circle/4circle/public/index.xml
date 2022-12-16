@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>4Circle</title>
+    <link>/</link>
+    <description>Recent content on 4Circle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Dec 2022 01:00:56 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electrical Design</title>
+      <link>/docs/electrical/</link>
+      <pubDate>Fri, 16 Dec 2022 01:00:56 -0500</pubDate>
+      
+      <guid>/docs/electrical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mechanical Design</title>
+      <link>/docs/mechanical/</link>
+      <pubDate>Fri, 16 Dec 2022 01:00:51 -0500</pubDate>
+      
+      <guid>/docs/mechanical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BOM and Cost Analysis</title>
+      <link>/docs/bom/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>/docs/bom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firmware Design</title>
+      <link>/docs/firmware/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>/docs/firmware/</guid>
+      <description>The primary software component of our algorithm was written in Go</description>
+    </item>
+    
+    <item>
+      <title>Software Design</title>
+      <link>/docs/software/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>/docs/software/</guid>
+      <description>The primary software component of our project was an algorithm that could play the Connect 4 algorithm against our human player</description>
+    </item>
+    
+    <item>
+      <title>High Level Overview</title>
+      <link>/docs/highlevel/</link>
+      <pubDate>Fri, 16 Dec 2022 00:39:49 -0500</pubDate>
+      
+      <guid>/docs/highlevel/</guid>
+      <description>The primary software component of our algorithm was written in Go</description>
+    </item>
+    
+  </channel>
+</rss>
