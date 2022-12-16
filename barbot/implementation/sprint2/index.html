@@ -1,0 +1,305 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Sprint 2 - BarBot</title>
+<meta name="description" content="A display of the process taken to ideate and create a drink dispensing  robot - BarBot.">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BarBot">
+<meta property="og:title" content="Sprint 2">
+<meta property="og:url" content="https://olincollege.github.io/pie-2022-03/barbot/implementation/sprint2/">
+
+
+  <meta property="og:description" content="A display of the process taken to ideate and create a drink dispensing  robot - BarBot.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://olincollege.github.io/pie-2022-03/barbot/implementation/sprint2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "https://olincollege.github.io/pie-2022-03/barbot/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/pie-2022-03/barbot/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/pie-2022-03/barbot/">
+          BarBot
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/pie-2022-03/barbot/">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pie-2022-03/barbot/context/">Context</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pie-2022-03/barbot/implementation/">Implementation</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pie-2022-03/barbot/subsystems/">Subsystems</a>
+            </li><li class="masthead__menu-item">
+              <a href="/pie-2022-03/barbot/aboutus/">About Us</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Sprint 2">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Sprint 2
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>The goal for this sprint was to catch up on what was not accomplished in sprint 1 - get liquids flowing from point A to point B through the motors. At the same time, we wanted to expand the capacity of our electronics to work for at least 4 motors. We also decided to add to the finite state machine to allow for both a user mode and a maintainance mode.</p>
+
+<h2 id="mechanical">Mechanical:</h2>
+
+<p><em>pump design</em></p>
+
+<h2 id="electrical">Electrical:</h2>
+
+<p><img src="/pie-2022-03/barbot/images/s2_ee.jpg" alt="Sprint 2 Electronics" />
+ <img src="/pie-2022-03/barbot/images/s2_ee2.jpg" alt="Sprint 2 Power Electronics" />
+ <em>Figures 2 &amp; 3: Integrated electronics in Sprint 2. || Integrated power supply.</em></p>
+
+<p>The main ground we managed to cover electrically was the expansion of the motor driver board to include the electronics necessary for 4 motors, and the implemenation of a 24V power supply to power the motors. We chose to put off the step down electronics that would allow us to power the arduino from the power supply.</p>
+
+<h3 id="functional-electronics">Functional Electronics</h3>
+
+<p>The main improvements to the electrical design were strictly functional. This is where we begin to draw the line between power electroics and actuation electronics.</p>
+
+<h4 id="power-electronics">Power Electronics</h4>
+
+<p>In terms of power, we were able to implement the 24V power supply that we had scrounged from the 3D printer where we got our motors from. Its implementation was rather straight forward, as it simply involved taking the connections from the 3D printer case, and attatch it to the Barbot. In anticipation for step down voltage, we also created a small protoboard that would split the 24V into 2 pathways - one that would go to the motors, and the other that would go through the step down, and ultimately the Arduino. Since we were unable to implement he step down circuitry in this sprint, the Arduino was still powered by the laptop via the USB connection.</p>
+
+<h4 id="actuation-electronics">Actuation Electronics</h4>
+
+<p>For Sprint 2, we increased the size of our motor board to allow for 4 motor driver. We also chose to get new motor driver modules. Though they were still A4988s, these new ones had a current limiting potentiometer, which is one thing the last motor driver modules lacked. Although the pin out was slightly different, it was still fairly straight forward to implement. We were able to use <a href="https://lastminuteengineers.com/a4988-stepper-motor-driver-arduino-tutorial/">this website</a> to validate our desgin.</p>
+
+<p>Since we amped up the amount of motors we are using, we have also decided to upgrade our microcontroller from an arduino UNO to an arduino MEGA2560. This upgrade gives us more digital and PWM pins to allow us to control more motors, continue receiving button signals, and continue using LEDs to represent the state.</p>
+
+<h2 id="firmware">Firmware:</h2>
+
+<p>One of the first firmware updates that occured during sprint 2 was the change from creating the pwm signals using delays to using the AccelStepper library which can be obtained by typing <code class="language-plaintext highlighter-rouge">AccelStepper</code> in Arduino IDE. Due to the way that the library works, we begin by setting a target distance arbitrarily high (1000000 steps), and allow the motors to run in the dispensing / clean / set-up towards that target. Whenever we wanted to stop, we would run the <code class="language-plaintext highlighter-rouge">.stop()</code> method at roughly 17 seconds before the time the motors actually needed to stop running. We would then “reset” the movement by runnning the <code class="language-plaintext highlighter-rouge">.setCurrentPosition(0);</code> method whenever switching out any of these states. More complete notes on the implementation can be found in the <a href="/pie-2022-03/barbot/subsystems/firmware">firmware subsystems</a> webpage.</p>
+
+<p><img src="/pie-2022-03/barbot/images/fw_fsm.PNG" alt="Sprint 2 FSM" /></p>
+
+<p><em>Figure 4: The finite state machine encapsulating both user and maintainance modes</em></p>
+
+<p>This sprint, we introduced a new mode - maintainance mode. Here we created 2 additional finite state machines: The main finite state machine, and the maintainance mode finite state machine.</p>
+
+<h3 id="main-fsm">Main FSM</h3>
+<p>The main finite state machine toggles between the user and maintainance mode by pressing the reset button during their respective idle states.</p>
+
+<h4 id="user-mode-fsm">User Mode FSM</h4>
+<p>The user mode did not change, except that we now made it so that pressing the reset button during the idle state and also implemented the AccelStepper library as stated previously</p>
+
+<h4 id="maintainance-mode">Maintainance Mode</h4>
+
+<p><img src="/pie-2022-03/barbot/images/s2_mmi.png" alt="Maintainance Mode Initiation" /></p>
+
+<p><em>Figure 5: The display when entreing maintainance mode.</em></p>
+
+<p>This mode exists to add maintainance issues. This state machine allows the person running the barbot to “set” the liquids to the tip of the tubes, and to run a cleaning cycle.</p>
+
+<h5 id="idle">Idle</h5>
+
+<p><img src="/pie-2022-03/barbot/images/s2_mmh.png" alt="Idle Screen" /></p>
+
+<p><em>Figure 6: The display while in idle mode</em></p>
+
+<p>The idle mode here acts the same way as the idle in the user mode, but instead of waiting strictly for the select button, it waits for either select, confrim, or reset buttons. In our design, the select button takes the system to the set-up state, the confirm button takes the system to the clean state, and the reset button takes the system back to the user mode.</p>
+
+<h5 id="set-up">Set-Up</h5>
+
+<p><img src="/pie-2022-03/barbot/images/s2_sl.png" alt="Setting Liquids Screen" /></p>
+
+<p><em>Figure 7: The display as Barbot sets the liquids</em></p>
+
+<p>The set-up mode is meant to turn on and run the motors for just enough time to allow the liquids to stop at the end of the tubing. Since we did not have the exact length of tubing determined, we were unable to set an actual time parameter for how long the motors should run. This should not be hard to update, as the value is stored in a variable named <code class="language-plaintext highlighter-rouge">setupdur</code> (short for “set up duration”).</p>
+
+<h5 id="clean">Clean</h5>
+
+<p>Similar to the set up mode, the clean mode is simply in charge of getting all of the motors running at once. The difference being that the clean mode allows the motors to continue running until the arbitrailit high step count is reached. In order to stop cleaning, the user must press the reset button to make it back to the maintainance idle mode.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="/pie-2022-03/barbot/implementation/sprint1">Sprint 1</a></td>
+      <td> </td>
+      <td><a href="/pie-2022-03/barbot/implementation/sprint3">Sprint 3</a></td>
+    </tr>
+  </tbody>
+</table>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 BarBot. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/pie-2022-03/barbot/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
