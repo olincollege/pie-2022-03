@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Big Knit</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"></span><span class="title">Big Knit</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="product.html">The Product</a></li>
+						<li><a href="sprints.html">Our Process</a></li>
+						<li><a href="mechanical.html">Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="firmware.html">Firmware</a></li>
+						<li><a href="how-to-knit.html">How to Knit</a></li>
+						<li><a href="bom.html">Materials and Budget</a></li>
+						<li><a href="team.html">The Team</a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Our Process</h1>
+							<!-- <span class="image main"><img src="images/pic13.jpg" alt="" /></span> -->
+							<p>From the first day we started brainstorming to the final demo-day, our team organized our process into 3 2-week sprints. We had specific goals for each sprint and built off of what we had done in the last 2 weeks to keep pushing towards our final product.</p>
+							
+							<!-- Sprint 1 -->
+							<section>
+								<h2>Sprint 1</h2>
+								<strong>Goal</strong>
+								<p>For our first sprint, we wanted to have an integrated linear slide controlled by an Arduino and a knitting needle form and structure that could knit.</p>
+								<strong>MVP</strong>
+								<p>At this point, our MVP was a knitting machine using >8 needles. It would be able to cast on and knit a single stitch type on its own. It would then be able to knit a given number of rows using a ball of t-shirt yarn. This would be on demand via a vending machine-like process.</p>
+								<strong>Product</strong>
+								<p>At the end of Sprint 1, we had an integrated linear slide using Arduino code to move a stepper motor, slowly, until it hit a limit switch and then changed direction. Separately, we had a proof of concept knitting needle mechanism and track that could be used to knit by hand, but wasn't good enough to use going forward.
+								</p>
+
+								<a href="https://docs.google.com/presentation/d/1Q-vIGaq1II3_Fr6CXaALO-gxi3ySHOpCFaqj8ZD2uQw/edit?usp=sharing" class="button fit">See Detailed Slides for Sprint 1</a>
+								<br><br>
+							</section>
+
+							<section>
+								<h2>Sprint 2</h2>
+								<strong>Goal</strong>
+								<p>For our second sprint, we wanted to have an integration of the knitting needles with a pulley and belt to translate the sliding motion into knitting motion. We also wanted to have a functional t-shirt yarn cutter, proof of concept for casting on, and a conceptual design for vending machine.</p>
+								<strong>MVP</strong>
+								<p>By the end of our second sprint, our MVP had changed slightly from the first sprint. At this point, our MVP was a knitting machine that could create a rug up to ~1 meter wide. It would still be able to cast on and knit a single stitch for a given number of rows using a ball of t-shirt yarn. This would be on demand via a user interface, but not necessarily in a vending machine style.
+								</p>
+								<strong>Product</strong>
+								<p>By the end of this sprint, we had improved upon our knitting needle and track materials and connected that movement to our stepper motor. We had achieved our integration of the pulley and belt so that they were equipped with a cam. We were able to move a single needle on a track. The stepper motor would move the pulley and cam a specified number of steps and then swap directions. The motor was still slow and the needles still needed improvement.</p>
+
+								<a href="https://docs.google.com/presentation/d/1ConIAR2IucACxYw5BDxhNnd9CmadmEvL4jhXbW8CcuY/edit?usp=sharing 
+								" class="button fit">See Detailed Slides for Sprint 2</a>
+								<br><br>
+							</section>
+
+							<section>
+								<h2>Sprint 3</h2>
+								<strong>Goal</strong>
+								<p>The goal for our final sprint was to have a machine that would take in a user specified width and length and then proceed to knit until it had fulfilled the specifications. Ideally, it would be able to cast-on.</p>
+								<strong>MVP</strong>
+								<p>By this sprint, our MVP had changed again. Now, we still wanted to create an automated knitting machine that would knit a single stitch to user specifications (up to 1 meter wide), but it would no longer need to be able to cast on.</p>
+								<strong>Product</strong>
+								<p>Our final product for this sprint was a mounted gantry, pulley, and belt system equipped with a cam and limit switches on either end of the linear rail. The motor would first perform a homing sequence by hitting one of the limit switches and then would take a specified number of steps before turning around. It would perform this sequence a given number of times using user input. We also had a smoother needle track to eventually integrate with the linear cam.</p>
+
+								<a href="https://docs.google.com/presentation/d/16naokxAVkjBTyB2oVS9dYf4pl6IicITRz6YhjSNClJ4/edit?usp=sharing" class="button fit">See Detailed Slides for Sprint 3</a>
+							</section>
+
+							<!-- Future Work-->
+							<section>
+								<h2>Future Improvements</h2>
+								<p>
+									This project faced many challenges, such that if we were to do it again our approach would be quite different.
+								</p>
+									
+								<p>
+									Knitting with t-shirt yarn required that we make our own needles, since commercially available knitting machine needles are not large enough for use with t-shirt yarn. This proved to be quite the challenge, especially with our goal of sustainable materials and manufacturing. A substantial amount of this project was focused on finding a design and manufacturing technique for needles, which meant that we did not have the time to focus on making our machine more advanced and automated. If we were to start over, we would likely consider placing less of an emphasis on sustainability, so that we could take advantage of commercially available knitting machine parts and cut down on our constant battle against friction.
+								</p>
+
+								<p>
+									Some aspects we would hope to include on a future iteration of this project include a more sophisticated method for bringing the yarn to the needles, and possibly using servos to allow more complex knitting than a single basic stitch. We conceptually thought through a design for a servo mount which would allow us to automate casting on. 
+								</p>
+							</section>
+							
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer"></footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
