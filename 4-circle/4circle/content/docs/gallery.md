@@ -8,14 +8,14 @@ bref = ""
 toc = true 
 +++
 
-[!Final Product Front View](/images/frontFinal.jpg)
+![Final Product Front View](/images/frontFinal.jpg)
 
-[!Final Product Trimetric View](/images/trimetricFinal.jpg)
+![Final Product Trimetric View](/images/trimetricFinal.jpg)
 
-[!Final Project Back View](/images/backFinal.jpg)
+![Final Project Back View](/images/backFinal.jpg)
 
-[!Final Project Winning Move](/images/win.jpg)
+![Final Project Winning Move](/images/win.jpg)
 
-[!Stepper Motor Close Up](/images/stepperCloseup.jpg)
+![Stepper Motor Close Up](/images/stepperCloseup.jpg)
 
 {{< youtube 2qGTjEIBQPw >}}
