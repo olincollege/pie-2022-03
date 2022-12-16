@@ -5,6 +5,39 @@ permalink: /subsystems/firmware/
 
 Barbot's firmware is designed to handle both the UI electronics as well as the motor functions. We designed Barbot to have two modes: user and maintainance. These two modes are finite state machines that are linked by a main state machine that switches between the two with the press of the reset button.
 
+## Source Code:
+
+**[Github](https://github.com/ArturoJoya/BarBot)**
+
+## Firmware Directory
+
+- [Dependencies](/pie-2022-03/barbot/subsystems/firmware/#dependencies)
+
+- [Definition of Variables](/pie-2022-03/barbot/subsystems/firmware/#definition-of-variables)
+
+- [Set Up Function](/pie-2022-03/barbot/subsystems/firmware/#set-up)
+
+- [Finite State Machine](/pie-2022-03/barbot/subsystems/firmware/#finite-state-machine)
+
+  - [User Mode](/pie-2022-03/barbot/subsystems/firmware/#user-mode)
+
+     - [Idle](/pie-2022-03/barbot/subsystems/firmware/#idle)
+
+     - [Selecting](/pie-2022-03/barbot/subsystems/firmware/#selecting)
+
+     - [Dispensing](/pie-2022-03/barbot/subsystems/firmware/#dispensing)
+
+     - [Done](/pie-2022-03/barbot/subsystems/firmware/#done)
+
+  - [Maintainance Mode](/pie-2022-03/barbot/subsystems/firmware/#maintainance-mode)
+
+     - [Idle](/pie-2022-03/barbot/subsystems/firmware/#idle-1)
+
+     - [Set Up](/pie-2022-03/barbot/subsystems/firmware/#set-up-1)
+
+     - [Clean](/pie-2022-03/barbot/subsystems/firmware/#clean)
+
+- 
 ## Dependencies
 
 Our firmware design takes advantage of the following library dependencies.
@@ -75,11 +108,13 @@ The `mit` stands for the "motor inteface type", which accordiing to the document
 The following block of code is used to define and hardcode the drinks that would be dispensed. The latter end of the code sets the time for the cleaning and set-up functions. In this case, 12 seconds to set the tubes from empty to full, and 90 seconds to clean the tubes.
 ```
 // Lists of Drink Strings
-const int num_of_drinks = 4;
+const int num_of_drinks = 8;
 const int num_of_motors = 4;
-const char* drink_list[num_of_drinks] = {"NULL","Soda Water","Gin","Gin Fizz"};
+const char* drink_list[num_of_drinks] = {
+  "NULL","Soda Water","Citrus Gin","Herbal Gin","Citrus Gin Soda","Herbal Gin Soda","Citrus Bee's Knees","Herbal Bee's Knees"
+  };
 long drink_array[num_of_drinks][num_of_motors] = {
-  {0,0,0,0},{30000,0,20000,0},{0,25000,0,10000},{30000,25000,2100,20000}
+  {0,0,0,0},{40000,0,0,0},{0,20000,0,0},{0,0,10000,0},{45000,20000,0,0},{45000,0,10000,0},{0,20000,0,20000},{0,0,10000,20000}
 };
 long pump_durs[num_of_motors];
 ...
@@ -104,6 +139,10 @@ uint32_t setup_time;
 We need to also declare the variables that we will use to set the drink choice,
 ```
 // Choice instantiation
+int temp_choice;
+int temp_choice_raw;
+int new_temp_choice;
+int new_temp_choice_raw;
 int choice_raw;
 int drink_choice;
 ```
@@ -268,6 +307,7 @@ The user mode is booted by default. Here, the user will be able to select and co
 ![User Mode Idle](/pie-2022-03/barbot/images/f_fsm_idu.jpg)
 _Figure 2: UI during the idle state_
 
+When entering the idle state, we turn on the red LED that indicates that its ready to get user input, and the blue LED that indicates that its in the user mode. We also disable the motor drivers to avoid heating up the motors while idling.
 ```
 void idle(){
   // Wait for the SELECT button press, in the meantime, hold RED on.
@@ -279,7 +319,27 @@ void idle(){
     lcd.print("Ready...");
     digitalWrite(ena1, HIGH);
     digitalWrite(ena2, HIGH);
+    temp_choice_raw = analogRead(POTSELECT);
+    temp_choice = temp_choice_raw/((1028/num_of_drinks) + 1);
+    lcd.setCursor(0,1);
+    lcd.print(drink_list[temp_choice]);
   }
+```
+The `temp_choice_raw` and `temp_choice` are used to display the drink that is being referenced by the potentiometer. This was a suggestion given to us by one of our peers, which greatly facilitates the drink selection. Below is the code that allows Barbot to continuously if the potentiometer changes to a different drink.
+```
+  new_temp_choice_raw = analogRead(POTSELECT);
+  new_temp_choice = new_temp_choice_raw/((1028/num_of_drinks) + 1);
+  if(new_temp_choice != temp_choice){
+    lcd.clear();
+    lcd.setCursor(4,0);
+    lcd.print("Ready...");
+    temp_choice = new_temp_choice;
+    lcd.setCursor(0,1);
+    lcd.print(drink_list[temp_choice]);
+  }
+```
+The idle can only go to two states: selecting, and maintainance mode. The following `if` and `while` statements are to detect and debounce the buttons without using a debouncing FSM. When the signal is detected, it will prepare the system to exit the state and enter the new respective states.
+```
   if(digitalRead(SELECT) == HIGH){
     while(digitalRead(SELECT) == HIGH){}
     state = SELECTING;
@@ -300,6 +360,7 @@ void idle(){
 ![Selecting State](/pie-2022-03/barbot/images/f_fsm_seu.jpg)
 _Figure 3: UI when user chooses drink 3, in this case, "Gin Fizz"_
 
+When entering the state, the arduino will read the value from the potentiometer which comes as a value from 0 to 1028. In order to get the drink choice number, we will divide the integers. Since `drink_choice` is an integer, the operation is essentially a floor division. We will also set the LCD screen at this time. 
 ```
 void selecting(){
   // Read the analog once, and blink the LED mapping to the choice.
@@ -310,32 +371,30 @@ void selecting(){
   if (state != prior_state){
     prior_state = state;
     choice_raw = analogRead(POTSELECT);
-    drink_choice = choice_raw/257;
+    drink_choice = choice_raw/((1028/num_of_drinks) + 1);
     lcd.setCursor(0,0);
     lcd.print("Current Drink:");
     lcd.setCursor(0,1);
     lcd.print(drink_list[drink_choice]);
     sel_time = millis();
     sel_count = 0;
-    
+    digitalWrite(RED, LOW);
   }
-
+```
+The following logic simply blinks the LEDs and tracks the amount of times the LEDs blink.
+```
   // Blink LEDs representing choice
   t = millis();
   if(t >= sel_time + BLINK_INT){
-    if(drink_choice == 1){
       digitalWrite(RED, !digitalRead(RED));
-    } else if(drink_choice == 2){
-      digitalWrite(RED, LOW);
       digitalWrite(YELLOW, !digitalRead(YELLOW));
-    } else{
-      digitalWrite(RED, LOW);
       digitalWrite(GREEN, !digitalRead(GREEN));
-    }
     sel_time = t;
     sel_count++;
   }
-
+```
+There are three possible state transitions from the selecting state. In order to move on to the dispensing state, the user must press confirm before the LEDs turn on and off 10 times. There are three ways to get back to the idle state: The LEDs blink 10 times, the drink choice stays at 0, and the reset button is pressed.
+```
   // Check for state transition
   if (digitalRead(CONFIRM) == HIGH){
     while(digitalRead(CONFIRM) == HIGH) {}
@@ -350,7 +409,9 @@ void selecting(){
     while(digitalRead(RESET) == HIGH){}
     state = READY;
   }
-  
+  ```
+  The following block prepares the system to switch out of the selecting state.
+  ```
   //reset LEDs to switch out of selecting state
   if(state != prior_state){
     digitalWrite(RED, LOW);
@@ -366,6 +427,7 @@ void selecting(){
 ![Dispensing State](/pie-2022-03/barbot/images/f_fsm_diu.jpg)
 _Figure 4: UI while system dispenses drink 3._
 
+When entering the dispensing state, we update the relevant UI. Since the dispensing state actually uses the motors, we turn on the motor drivers and assign the pump durations based on the drink chosen. This came after Sprint 3 once we had a chance to analyze the code more carefully.
 ```
 void dispensing(){
   // What to do while dispensing
@@ -386,7 +448,9 @@ void dispensing(){
       pump_durs[pd] = drink_array[drink_choice][pd];
     }
   }
-
+```
+The refactored form of the code does essentially what the previous revisions did, but condenses into a signle block instead of a bunch of other roughly equally densed blocked. The advantage here is that we set these variables when initiating the state, and get reassigned per drink choice.
+```
   // REFACTORED CODE
   t = millis();
   if(t > (dispense_time + pump_durs[0] - decel_time)){
@@ -409,7 +473,9 @@ void dispensing(){
   pump2.run();
   pump3.run();
   pump4.run();
-
+```
+To leave the state, we must ensure that the motors get shut off. We take advantage of this by running `.stop()` which sets the target 0. To make sure that the motors had been fully reset, we run `setCurrentPosition(0)` to make the stepper motors think that they've not gone anywhere.
+```
   //if RESET button is hit, will abort action and return to READY
   if(digitalRead(RESET) == HIGH){
     while(digitalRead(RESET) == HIGH){}
@@ -439,6 +505,8 @@ void dispensing(){
 ![Finished State](/pie-2022-03/barbot/images/f_fsm_dou.jpg)
 _Figure 5: UI when system has finished dispensing._
 
+The main purpose of the done stage is to make sure that we are getting out of the dispensing correctly. It also gives us some time to prompt the user to take their drink. This stage will automatically go to the idle stage after 5 seconds
+
 ```
 void done(){
   // What to do when the barbot has finished.
@@ -460,6 +528,7 @@ void done(){
 ![Entering Maintainance Mode](/pie-2022-03/barbot/images/f_fsm_mmh.jpg)
 _Figure 6: Display as the system transitions from user mode to maintainance mode._
 
+In order to enter the Maintainence mode, the user must hit the reset button while the barbot is in its idle mode. The purpose of the maintainace mode is to allow a Barbot owner to both set the liquids to the tip of the pump, and to run clean operations whenever changing out the liquids. For the purpose of the code, our idle state in maintainance mode is "disabled", as in 'not enabled', as in, waiting for an instruction.
 ```
 case SETUP:
       switch(curr_state){
@@ -481,6 +550,7 @@ case SETUP:
 ![Maintainance Idle Mode](/pie-2022-03/barbot/images/f_fsm_idm.jpg)
 _Figure 7: Display while the system is in the maintainance idle state._
 
+The idle state in maintainance mode initializes its state by displaying its transition, and then setting the screen with the two options: Set-Up and Clean.
 ```
 void disabled(){
   // Menu mode for maintenance 
@@ -506,15 +576,9 @@ void disabled(){
     lcd.setCursor(0,1);
     lcd.print("VV           VV");
   }
-
-  // Blink LEDs representing choice 
-  t = millis();
-  if(t >= dis_time + BLINK_INT){
-      digitalWrite(RED, !digitalRead(RED));
-      dis_time = t;
-      dis_count++;
-  }
-  
+```
+The following block of code actually looks out for the button presses. Once the buttons have been pressed, we set the steps to move arbitrarily high again, since we are controlling accuracy through time. Note, we are also looking out for another reset press which would take the system back to the user mode.
+```
   // Allow switch to maintenance options
   if (digitalRead(CONFIRM) == HIGH){
     while(digitalRead(CONFIRM) == HIGH) {}
@@ -552,6 +616,7 @@ void disabled(){
 ![Set Up State](/pie-2022-03/barbot/images/f_fsm_sum.jpg)
 _Figure 8: UI while the system is setting the liquids to the tip of the nozzle._
 
+Setting Up the liquids entails running the motors for just long enough such that the liquids will go from the bottom of the tubing to right at the tip. After running tests on our system, we figured out that 9 seconds was the amount of time it took the liquid to reach the tip of the nozzle. We set this parameter when defining our variabled. The rest of the code is essentially the same as the dispensing code, except that all of the motors are controlled by a single time parameter instead of individual times. Note that the set up time will depend on the acceleration rate and the length of the tubing. Though we cannot provide equations relating these numbers, we acknowledge that both are factors in how quickly liquid will go from point the bottom of the tubing to the opposite tip.
 ```
 void set(){
   // Liquid Setting Mode
@@ -619,57 +684,7 @@ void set(){
 ![Clean State](/pie-2022-03/barbot/images/f_fsm_clm.jpg)
 _Figure 9: UI while the system runs its cleaning cycle._
 
-```
-void clean(){
-  // Pumpline Cleaning Mode
-  uint32_t t;
-
-  // Initialize 
-  if (curr_state != prev_state){
-    prev_state = curr_state;
-    digitalWrite(ena1, LOW);
-    digitalWrite(ena2, LOW);
-    lcd.clear();
-    lcd.setCursor(0,0);
-    lcd.print("Cleaning...");
-    lcd.setCursor(0,1);
-    lcd.print("RESET to Stop");
-    clean_time = millis();
-  }
-
-  t = millis();
-  if(t < cleandur + clean_time){
-    digitalWrite(BLUE, HIGH);
-    digitalWrite(WHITE, HIGH);
-  }
-  if(t > cleandur + clean_time - decel_time){
-    pump1.stop();
-    pump2.stop();
-    pump3.stop();
-    pump4.stop();
-  }
-
-  pump1.run();
-  pump2.run();
-  pump3.run();
-  pump4.run(); 
-
-  if(digitalRead(RESET) == HIGH){
-    while(digitalRead(RESET) == HIGH){}
-    pump1.stop();
-    pump2.stop();
-    pump3.stop();
-    pump4.stop();
-    pump1.setCurrentPosition(0);
-    pump2.setCurrentPosition(0);
-    pump3.setCurrentPosition(0);
-    pump4.setCurrentPosition(0);
-    digitalWrite(BLUE, LOW);
-    digitalWrite(WHITE, LOW);
-    curr_state = DISABLED;
-  }
-}
-```
+It would be far too redundant to paste the code for this state, since it is identical to the setup block, except that instead of `setupdur` and `setup_time`, we would be using `cleandur` and `clean_time`. This is because they serve the exact same function, but for a different amount of time. In hindsight, we could have attempted to create a function encapsulating the "run all of the motors at once" functionality with the `_dur` and `_time` variables serving as the function arguments. Since they both have the same transition, we could even have a selecting and dispensing stage. This may or may not serve as more efficient code; however, this implementation has given us no issues to date. 
 
 ## Source Code:
 
