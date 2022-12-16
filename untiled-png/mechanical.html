@@ -62,18 +62,30 @@
                                     <p>All extrusion pieces were cut, and then squared and standardized using a knee mill.  This resulted in a gantry that is square within all axes, and extremely rigid.  Metric 2020 extrusion was used across all spans where linear rails were affixed, as the MGN-9 rail we used did not fit nicely on the imperial 1010 extrusion.  </p>
                                     <p>The somewhat unconventional overall design of the gantry was specifically chosen to suit our task.  Usually, in cartesian systems, the goal is to reduce the unsupported length of the crossbar, in order to promote rigidity and precision.  We elected to depart from this convention, as our system is optimized for speed in one axis only, and running the crossbar lengthwise (parallel to the axis of rapid motion) meant that there was minimal transverse loading on the crossbar.  This trade-off, of a longer unsupported span with comparatively less lateral loading, allows us to move the toolhead extremely quickly without sacrificing rigidity or precision.   </p>
                                     <p>We also took care to integrate robust belt tensioning mechanisms across both the x and y axis. This helped to contribute to the rigidity of the system and allowed us to reach high travel speeds.</p>
+                                    <p><br></p>
                                     </section>
                                 <section>
                                     <h2>Flipper</h2>
                                     <p>The flipper mechanism is a gravity fed slide that allows the gantry to turn tiles from their white side to the black (or vice versa). The top of the slide has a wide opening that funnels the tile toward the inversion point. Then, the slide guides the flipped tile into the pick-up zone where it passively aligns with the trough. After making a simple sketch model of the flipper geometry to confirm viability, we used iterative design to eliminate potential reliability issues over 8 unique prototypes.</p>
-                                    <div><span class="center"><img src="images/flipper_evolution.png" alt="" /></span></div>                                    <p>Some of the failure modes we experienced during testing involved the tiles not flipping at all, tiles coming in at an angle and getting stuck, tiles sliding too fast and bouncing out of the pick-up zone, tiles sliding too slowly and not making it to the bottom, and tiles rubbing against the walls of the pick-up trough causing them to fall off during pick up. The end product is heavily optimized to mitigate nearly all of these potential failure modes.</p>
+                                    <div><span class="center"><img src="images/flipper_evolution.png" alt="" /></span></div>
+                                    <p>Some of the failure modes we experienced during testing involved the tiles not flipping at all, tiles coming in at an angle and getting stuck, tiles sliding too fast and bouncing out of the pick-up zone, tiles sliding too slowly and not making it to the bottom, and tiles rubbing against the walls of the pick-up trough causing them to fall off during pick up. The end product is heavily optimized to mitigate nearly all of these potential failure modes.</p>
                                     <div><span class="center"><img src="images/flipper.png" width="400" alt="" /></span></div>
+                                    <p><br></p>
                                 </section>
                                 <section>
                                     <h2>Toolhead</h2>
                                     <p>The gripper toolhead is responsible for picking and placing the tiles. The design features 100 mm of vertical travel, which allows the tiles to be lifted up from the build plate to the height of the flipper drop zone. The gripper relies on a suction nozzle sold for use in traditional PCB pick-and-place machines. The nozzle is powered by a 24 volt diaphragm air pump which is mounted in the main control box. This was done to eliminate toolhead mass and promote faster movement.</p>
                                     <p>The toolhead also features limit switches to detect the extremes of toolhead extension. The switches are also used to probe each tile prior to pick up. This helps to compensate for a variable build plate height and allows tiles to be picked up reliably every time.</p>
+                                    <p><br></p>
                                 </section>
+                                <section>
+                                    <h2>Pneumatics</h2>
+                                    <p>TODO</p>
+                                    <div><span class="image fit"><img src="images/pnuematics_flowchart.png" alt="" /></span></div>
+                                </section>
+
+                        
+
                                 
 
 
