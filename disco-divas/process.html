@@ -428,6 +428,35 @@
     <p>
     Unfortunately, all the songs ended up looking pretty similar. We tried a couple things, like scaling things up to take more of the circle, but it didn’t change the visualizations too much. We also noticed that all four songs had a weird spike at the beginning/end, which we thought should not be the case. 
     </p>
+    
+
+
+    <p>
+        <strong>Mechanical Design:</strong>
+    </p>
+
+    <p>During the final push, we continued to fix small mechanical issues, like the pens&#39; tension against the paper. We also added paint to the box!</p>
+    <p><img src="images/final_2.JPG" alt="" style="width:80%"></p>
+
+    <p>
+        <strong>Electrical/Firmware Design:</strong>
+    </p>
+    <p>Everything left:</p>
+    <ul>
+    <li>Mount electronics</li>
+    <li>Resolve stepper motor lockup</li>
+    <li>Add screen</li>
+    </ul>
+    <p>Immediately after the sprint 3 review, I got to work mounting all the electronics securely to the shelf that the mechanical team had put together. Although time consuming, this was very valuable as it eliminated the risk of loose wires.</p>
+    <p>An issue that had been discovered by the software team in the previous sprint was that sometimes stepper motors would lock up and loudly buzz when sent a new command before the motor had reached its target destination. To fix this I added the <code>next_taget</code> array described on the Firmware Design page to add a buffer of one command. This worked smoothly most of the time with only rare occurrences of the motor stalling when traveling thousands of steps. This logic was continuously tweaked for a few days, sometimes interrupting and overriding motor movement and sometimes waiting until the previous target was reached before starting again. We ultimately decided on the latter. If I had more time to work on this project I would have further optimized this code and tried adding different buffers for situations where several commands are being sent in the time it takes for the motor to move to a target position, as we observed happening on the final product, resulting in occasional skipped instructions. If that didn&#39;t resolve the issue I&#39;d probably implement logic to check that the next instruction has the inverse instruction of the previous instruction to avoid cases where the rising edge of two waves are stacked and shift a band up*. Overall, considering the limits of stepper motor/lead screw speed, we should have either switched to belts to draw back the song in real time or slowed down the rotation of the disk (and process as a whole) to allow for the steppers get get where they need to be before sending more commands.</p>
+    <p>*at the end of the project we weren&#39;t sure if this was a firmware, software, or mechanical issue, but continued optimizations in each could have improved the outcome.</p>
+    
+
+
+    <p>
+        <strong>Software Design:</strong>
+    </p>
+    
     <p>
     After the 3rd sprint, we had a little more time to improve the visualization. We got rid of the spike at the beginning by trimming the quiet parts of the song at the beginning and the end. We also pulled the -100 values up to -80 or so. Those two things were throwing off the scaling, because they were throwing off the average volumes. They made the visualizations a lot better. We also tried a classical song (because while all the songs we tried had different sounds, they’re all a little more similar to each other than they are to the classical song).
     </p>
