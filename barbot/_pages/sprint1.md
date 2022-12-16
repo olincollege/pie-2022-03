@@ -42,7 +42,7 @@ The exact specs of the resistors used can be found in the [electrical subsystem]
 
 _Figure 3: State diagram of the finite state machine implemented_
 
-Separating the tasks onto states these four states made it easier to debug the system, since we could then track whether or not the state transitions were occurring when they were supposed to.
+Separating the tasks onto states these four states made it easier to debug the system, since we could then track whether or not the state transitions were occurring when they were supposed to. Note, we also had to use the following [LCD library](https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library) to control the display.
 
 ### Idle
 
