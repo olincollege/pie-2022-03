@@ -25,6 +25,7 @@ For our processing units the main power we used came from the raspberry pi AC/DC
 
 ## Electrical Diagram
 
+![Electrical Diagram](/static/images/4circle_eschematic)
 
 ## The Math and Code Behind the System
 As with many things in order to contructed our system we had to heavily rely on math.
