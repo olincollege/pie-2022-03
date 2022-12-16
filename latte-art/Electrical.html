@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Electrical</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">BaristaBot</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">BaristaBot</a></li>
+							<li><a href="System.html">System</a></li>
+							<li><a href="Mechanical.html">Mechanical</a></li>
+							<li class="active"><a href="Electrical.html">Electrical</a></li>
+							<li><a href="Firmware.html">Firmware</a></li>
+							<li><a href="Software.html">Software</a></li>
+							<li><a href="Materials.html">Materials</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Electrical</h1>
+								</header>
+								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<p>The electrical system is composed of two main elements: the electrical hardware and the Arduino firmware used to control the motors and communicate with Python. </p>
+								<h3>The electrical hardware consists of the following:</h3>
+									<ul>
+										<li>1 Arduino Mega 2560</li>
+										<li>1 Ramps 1.4 Shield</li>
+										<li>5 A4988 Stepper Motor Drivers</li>
+										<li>2 Nema 17 Bipolar Stepper Motors</li>
+										<li>3 Kysan Electronics Bipolar Stepper Motors </li>
+										<li>4  MakerBot Mechanical Limit Switches</li>
+										<li>1 ESV ½” plastic zero differential solenoid valve</li>
+										<li>1 Henxlco 12V 20A Power Supply</li>
+									</ul>
+								<h2>Three Axis Gantry Control System</h2>
+								<div class="image fit"><img src="images/Electrical/3AxisGauntry.png" alt="" /></div>
+								<div class="image fit"><img src="images/Electrical/stepperDrivers.png" alt="" /></div>
+								<p>We use the <a href="https://github.com/laurb9/StepperDriver">StepperDriver library</a> from the Arduino IDE, as the Arduino provides easy-to-use firmware libraries to control the motor movements. The StepperDriver library contains a MultiDriver library that moves the motors simultaneously. We also use a Ramps 1.4 shield in to connect the stepper motors, where we refer to <a href = "https://reprap.org/wiki/RAMPS_1.4">this link</a>for pin connections.</p>
+								<h2>Milk Extrusion</h2>
+								<div class="image fit"><img src="images/Electrical/valve.png" alt="" /></div>
+								<p>A solenoid valve is used to extrude the milk. The milk is poured from the funnel into a plastic tubing that connects the end of the funnel to the top of the valve. The valve is made of stainless steel, which is food safe. We soldered the valve connections on a board, where it is also connected to a MOSFET transistor and a diode as shown in the schematic below. The valve is connected to PIN17 on the Arduino Mega.</p>
+								<h2>Higher Voltage Power Connection</h2>
+								<p>We bought a 12V, 20A power supply in order to power our system. The e-stop allows a maximum 6A of current to run through the system. We used barrel jack connectors to connect the Ramps 1.4 shield to the e-stop, then another one to connect the e-stop to the power supply. The 3-wire power cord then connects the power supply to the wall plug.</p>
+								<div class="image fit"><img src="images/Electrical/power.png" alt="" /></div>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
