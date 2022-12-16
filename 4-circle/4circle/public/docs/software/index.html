@@ -7,11 +7,11 @@
   <title>Software Design - 4Circle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="https://olincollege.github.io/pie-2022-03/4-circle/favicon.png">
 
   
   
-  <link rel="stylesheet" href="/css/style.min.6719d72e323121369d5caeb4264b95d8a63cf1deaab029da67602fe5a046e0a4.css">
+  <link rel="stylesheet" href="/pie-2022-03/4-circle/css/style.min.6719d72e323121369d5caeb4264b95d8a63cf1deaab029da67602fe5a046e0a4.css">
   
 
   
@@ -24,13 +24,13 @@
     
     
     <li class="menu-item-home">
-      <a href="/">
+      <a href="/pie-2022-03/4-circle/">
         <span>Home</span>
       </a>
     </li>
     
     <li class="menu-item-docs">
-      <a href="/docs/">
+      <a href="/pie-2022-03/4-circle/docs/">
         <span>Docs</span>
       </a>
     </li>
@@ -41,23 +41,23 @@
     <div class='header'>
   <div class="container">
     <div class="logo">
-      <a href="/"><img alt="Logo" src="/images/logo.svg" /></a>
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/"><img alt="Logo" src="/images/logo.svg" /></a>
     </div>
     <div class="logo-mobile">
-      <a href="/"><img alt="Logo" src="/images/logo-mobile.svg" /></a>
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/"><img alt="Logo" src="/images/logo-mobile.svg" /></a>
     </div>
     <div id="main-menu" class="main-menu">
   <ul>
     
     
     <li class="menu-item-home">
-      <a href="/">
+      <a href="/pie-2022-03/4-circle/">
         <span>Home</span>
       </a>
     </li>
     
     <li class="menu-item-docs">
-      <a href="/docs/">
+      <a href="/pie-2022-03/4-circle/docs/">
         <span>Docs</span>
       </a>
     </li>
@@ -91,27 +91,27 @@
   <ul>
     
     <li class="">
-      <a href="/docs/electrical/">Electrical Design</a>
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/docs/highlevel/">High Level Overview</a>
     </li>
     
     <li class="">
-      <a href="/docs/mechanical/">Mechanical Design</a>
-    </li>
-    
-    <li class="">
-      <a href="/docs/bom/">BOM and Cost Analysis</a>
-    </li>
-    
-    <li class="">
-      <a href="/docs/firmware/">Firmware Design</a>
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/docs/electrical/">Electrical Design</a>
     </li>
     
     <li class="active ">
-      <a href="/docs/software/">Software Design</a>
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/docs/software/">Software Design</a>
     </li>
     
     <li class="">
-      <a href="/docs/highlevel/">High Level Overview</a>
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/docs/mechanical/">Mechanical Design</a>
+    </li>
+    
+    <li class="">
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/docs/firmware/">Firmware Design</a>
+    </li>
+    
+    <li class="">
+      <a href="https://olincollege.github.io/pie-2022-03/4-circle/docs/bom/">BOM and Cost Analysis</a>
     </li>
     
   </ul>
@@ -122,13 +122,13 @@
         <div class="col-12 col-md-9">
           
 <h1 class="title">Software Design</h1>
-<div class="content ">
+<div class="content anchor-link-enabled">
   <h2 id="overview-and-goals">Overview and Goals</h2>
 <p>The primary software component of our project was an algorithm that could play the Connect 4 algorithm against our human player.</p>
 <p>We wanted to make our algorithm as good at the game as possible, so we set our goal to build a perfect weak solver; that is, a solver that was capable of ensuring the best possible result from any situation, though not necessarily taking the shortest path to get there.</p>
 <p>For instance, if a win possible from a particular position, our player should always win, but there is no distinction between winning in more or less moves. If only a draw is possible, then our player should draw.</p>
 <h3 id="language">Language</h3>
-<p>We chose to write our algorithm in Go, for its combination of being a very fast language as well as its relative familiarity to our team members. Other options that were considered were Python, which was ruled out as it was far too slow, and C++, which we ultiamtely chose not to use to do complexity and familiarity</p>
+<p>We chose to write our algorithm in <a href="https://go.dev">Go</a>, for its combination of being a very fast language as well as its relative familiarity to our team members. Other options that were considered were Python, which was ruled out as it was far too slow, and C++, which we ultiamtely chose not to use to do complexity and familiarity</p>
 <h2 id="algorithm-design">Algorithm Design</h2>
 <p>At its core, the solving algorithm is a Negamax algorithm (a variant on Minimax that takes advantage of the fact that for turn-based, 2 player games, a player&rsquo;s score for any position is the negative score of the other player) that traverses through the game tree to find the ultimate outcome of each potential move assuming both players play optimally, then plays whichever move will result in the highest final score. This is similar to how many game engines work, from Tic-Tac-Toe all the way to Chess or Go.</p>
 <p>However, raw Negamax is a fairly inefficient algorithm that repeats many calculations. Left to its own devices, it would take an impractically large amount of time to play a Connect 4 game. To combat this, we added many different kinds of optimizations to our Negamax algorithm until we could play a game of Connect 4 in a reasonable amount of time. Those optimizations are described below</p>
@@ -160,6 +160,9 @@
 <p>By the end of our project, we had an algorithm that could perfectly evalute positions with under 30 moves remaining in just a few seconds. For context, the board has 42 total spaces on it, and thus the longest possible game is 42 moves long. For positions that were furhter than that, they took a few minutes each, and at each move, the algorithm must evaluate 7 positions (1 for each potential column move). As an academic proof-of-concept, we had fulfilled our goal of creating an optimal solver.</p>
 <p>However, for demonstration purposes we felt that it was still a little too slow, so we repurposed our sets-of-three function one more time to score a position based on how many sets of three there were, and then cut off the exploration at 25 moves and returned the score of that position.</p>
 <p>While this did mean that the solver was no longer technically perfect, truncating it did allow us to strongly solve the game for those 25 moves (meaning it took the most efficient path towards victory instead of just any path). In practice, as soon as a win was possible within 25 moves, the algorithm would march towards it without fail, which still made it very difficult to beat.</p>
+<h2 id="references">References</h2>
+<p>We took inspiration from <a href="https://blog.gamesolver.org">Pascal Pons&rsquo; project</a> on solving Connect 4 when developing our algorithm, using some of its key concepts and optimizations in our Go implementation.</p>
+<p><a href="https://github.com/amit-kumarh/4circle/tree/main/algo">[ PROJECT LINK HERE ]</a></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -201,7 +204,7 @@
   
 
   
-  <script type="text/javascript" src="/js/scripts.min.302a6fc365d5139fb98cf60bdb8f715d96257ea189161d36c190ccfa8182e569.js"></script>
+  <script type="text/javascript" src="/pie-2022-03/4-circle/js/scripts.min.302a6fc365d5139fb98cf60bdb8f715d96257ea189161d36c190ccfa8182e569.js"></script>
   
 
   
