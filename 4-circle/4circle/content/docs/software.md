@@ -2,7 +2,7 @@
 title = "Software Design"
 description = "The software design of our project"
 date = 2022-12-16T00:39:49-05:00
-weight = 20
+weight = 10
 draft = false
 bref = ""
 toc = true
@@ -16,7 +16,7 @@ We wanted to make our algorithm as good at the game as possible, so we set our g
 For instance, if a win possible from a particular position, our player should always win, but there is no distinction between winning in more or less moves. If only a draw is possible, then our player should draw.
 
 ### Language
-We chose to write our algorithm in Go, for its combination of being a very fast language as well as its relative familiarity to our team members. Other options that were considered were Python, which was ruled out as it was far too slow, and C++, which we ultiamtely chose not to use to do complexity and familiarity
+We chose to write our algorithm in [Go](https://go.dev), for its combination of being a very fast language as well as its relative familiarity to our team members. Other options that were considered were Python, which was ruled out as it was far too slow, and C++, which we ultiamtely chose not to use to do complexity and familiarity
 
 ## Algorithm Design
 At its core, the solving algorithm is a Negamax algorithm (a variant on Minimax that takes advantage of the fact that for turn-based, 2 player games, a player's score for any position is the negative score of the other player) that traverses through the game tree to find the ultimate outcome of each potential move assuming both players play optimally, then plays whichever move will result in the highest final score. This is similar to how many game engines work, from Tic-Tac-Toe all the way to Chess or Go.
@@ -61,7 +61,10 @@ However, for demonstration purposes we felt that it was still a little too slow,
 
 While this did mean that the solver was no longer technically perfect, truncating it did allow us to strongly solve the game for those 25 moves (meaning it took the most efficient path towards victory instead of just any path). In practice, as soon as a win was possible within 25 moves, the algorithm would march towards it without fail, which still made it very difficult to beat.
 
+## References
+We took inspiration from [Pascal Pons' project](https://blog.gamesolver.org) on solving Connect 4 when developing our algorithm, using some of its key concepts and optimizations in our Go implementation.
 
+[[ PROJECT LINK HERE ]](https://github.com/amit-kumarh/4circle/tree/main/algo)
 [^1]: In testing, we found that using bigger cache sizes had a diminishining returns effect, and decided 10 million was a good balance that got us most of the performance gains without increasing memory usage too much.
 
 [^2]: Technically, nodes that are pruned by alpha-beta pruning will only give us an upper bound on the score and not the exact value, so it's not quite as simple as just looking up a position and checking its score, but it still cuts out a huge amount of computation.
