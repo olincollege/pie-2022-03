@@ -66,9 +66,9 @@
                 <div class="row">
                     <div class="row-6 row-12-mobilep">
                         <h3>Gantry</h3>
-                <p>The frame of the gantry is a U-shape made of two (dimensions) bars of 20mm x 20mm v-slot extruded
-                    aluminum, crossed on one end by a (dimensions) bar of the same material. Crossing both of the y-axis
-                    bars is an x-axis bar of the same aluminum extrusion, which is mounted to each y-axis bar on a
+                <p>The frame of the gantry is a U-shape made of two 50 cm bars of 20mm x 20mm v-slot extruded
+                    aluminum, crossed on one end by another 50 cm bar of the same material. To acheive the y-motion,
+                    another piece of alumunim rail is mounted to each y-axis bar on a
                     rolling carriage made from laser cut MDF so that the entire bar can slide in the y-direction.
                     Another carriage, which holds the color changing motor and pens, is mounted vertically on the x-axis
                     bar. The frame is primarily held together by screws and nuts inserted in the rails, which hold in
@@ -77,23 +77,29 @@
                     and ensures that the frame is held at perpendicular angles, as we found that without this support
                     the entire frame would shift and prevent the x-axis rail from moving across the entire y-axis.
                 </p>
-                <p>
-                    The x-y motion is driven by two NEMA 17 stepper motors, one for each axis. The y-axis motor is
+                <div class="row">
+                    <div class="row-6 row-12-mobilep">
+                        <h3>Gantry</h3>
+                    </p>The x-y motion is driven by two NEMA 17 stepper motors, one for each axis. The y-axis motor is
                     mounted with a 3D printed mount to the end of one of the y-axis bars, on the other end of this bar
-                    is another mount with a (6mm) pulley. Between these is a timing belt that attaches to the carriage.
+                    is another mount with a 6mm GT2 pulley. Between these is a timing belt that attaches to the carriage.
                     On the opposite side there is no motor, but a corresponding pair of pulleys and belts. In the
-                    interest of simplicity, we wanted to use only one motor to move the y-axis. One challenge with this
+                    interest of simplicity, we wanted to use only one motor to drive the y-axis. One challenge with this
                     was overcoming the torque created by having a friction force from the opposite carriage applied at a
-                    distance from the applied force of the motor (figure). Our first stepper motor was not quite
-                    strong enough to overcome this torque, so we exchanged it for a stronger Nema 17 stepper motor with 42 N-cm of torque.
+                    distance from the applied force of the motor. Our first stepper motor was had a torque of 20 N-cm not quite
+                    strong enough to overcome this torque, so we exchanged it for a stronger Nema 17 stepper motor with 
+                    42 N-cm of torque.
                 </p>
                 <div class="row">
                     <div class="row-6 row-12-mobilep">
-                        <h3>And now a subheading</h3>
-                        <p>Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia
-                            nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi.
-                            Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae lorem ipsum adipiscing ac.
-                            Vivamus ornare laoreet odio vis praesent.</p>
+                        <h3>Pen Mechanism</h3>
+                    <p> The pen holder is designed to hold the marker in steady as the gantry draws, and also allows 
+                    us to change color to make the art more visually interesting. We felt that having multiple colors
+                    would allow us to reflect more aspects of the music. Originally, the pen holder was made from a piece 
+                    of laser cut material, and was held in place with a pair of spacers sandwiching the disk as seen in 
+                    figure 3. While lasercutting has the potential to be a less material and time intensive manufacturing 
+                    process, we found that the piece wiggled too much to allow for the precise spirograph design we wanted.
+                    The final pen holder is therefore made from a single 3D printed piece that press fits onto the motor shaft.
                     </div>
                     <div class="row-6 row-12-mobilep">
                         <h3>And another subheading</h3>
