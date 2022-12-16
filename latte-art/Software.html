@@ -59,7 +59,7 @@
 									<h2>Communication</h2>
 									<p>Communication is done between Python and Audriono through a serial connection using a USB cord. In order to successfully communicate, the port name and baud rate on the Arduino must match the port and baud rate names in GCodeCommands. As shown in the figure below, The Arduino initially sends “<” over the serial connection signaling to the Python script that it is ready to receive a command. Python functions wait to receive “<” before sending a single G-Code over serial to the Arduino. Arduino then reads and parses the G-Code, and executes the command. After completing the command, Arduino sends “<” showing it is ready for the next command.</p>
 									<span class="image fit"><img src="images/software/communication.png" alt="" /></span>
-									<span<p><i>Diagram of communication between software and firmware</i></p></span>
+									
 								</div>
 								<div id="GCode">
 									<h2>G-Code</h2>
@@ -211,7 +211,6 @@
 									<p>Finally, the menu class is imported into the LatteUI.py file, which represents the main file where the menu object is created. The LatteUI.py file is where the code is run from. </p>
 									<h3>GUI Architecture</h3>
 									<span class="image fit"><img src="images/software/GUIArc.png" alt="" /></span>
-									<p>Add In</p>
 									<h3>UI INTERFACE PAGES</h3>
 									<p>The user can interact with the latte art machine through a user interface that was created using pygame. A parent class called Button() was created to create buttons for the user to interact with, along with subclasses called NavigationButton() and DesignButton() to differentiate between buttons meant to navigate and buttons meant for design purposes. A class called Menu() was created in order to switch between pages if certain buttons are clicked. </p>
 									<p>The user is first taken to the home page by calling a function named home() within the Menu() class. The home page has the name of our robot and a short description.</p>
@@ -237,7 +236,7 @@
 								<div id="Architecture">
 									<h2>Code Architecture</h2>
 									<span class="image fit"><img src="images/software/CodeArc.png" alt="" /></span>
-									<p>Add In</p>
+									<p>A diagram of overall software system with the GUI connected to the path planning code.</p>
 
 								</div>
 								<div id="Dependencies">
