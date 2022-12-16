@@ -37,27 +37,56 @@
                 <h1 class="major">Software</h1>
 
                 <h3>Overview</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
                 <p>The software program for WALL-E basically have three parts, ESP32-CAM, Blynk control-ESP32 receive, Drive&Neck and FAcial expression. All development work 
                     could be doen with arduino IDE. With support of ESP32 third party board driver and libraries.
                 </p>
 
                 <h3>Blynk</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Blynk is an IoT application for multi platforms. Each little program has its own authentication key and you could design wedgets on Blynk appi</p>
+                <p>Blynk is an IoT application for multi platforms. Each little program has its own authentication key and you could design your own user interface inside its application. 
+                    After setting it up, you will need to match the data stream, for example, joystick used merged datastream, chosse V3 for data type. For testing purpose, we also desined 
+                    a serial read program for digit reading, please refer to the link below. At first we also tried Wemos D1R1 wifi board for Blynk control receiver. 
+                    But due to the low power efficiency and unstability, we switched to stable esp32. Please notice, some pins on ESP32 are already connected top its on-board flash memory, you cannot use 
+                    them for digital input or output.
+                </p>
+                <ul class="actions special">
+                    <li><a href="https://github.com/Dowling7/PIE_wall-e/tree/main/esp32_control" class="button alt">ESP32 Blynk code</a></li>
+                </ul>
+                <ul class="actions special">
+                    <li><a href="https://github.com/Dowling7/PIE_wall-e/tree/main/wemos_control" class="button alt">Wemos Blynk code</a></li>
+                </ul>
+                <p>
+                    After transmitting data to ESP32, it will process and pass data to arduino(Movement control) in form of a four-digit binary number
+                    For eample(forward 1000, Backward 0100, Left 0010, right 0001)
+                </p>
+                <ul class="actions special">
+                    <li><a href="https://github.com/Dowling7/PIE_wall-e/tree/main/serial_read" class="button alt">Serial read</a></li>
+                </ul>
 
-                <h3>esp32</h3>
+                <h3>ESP32-CAM</h3>
                 <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about the code for the esp32. how the diagram works to read where teh joystick is - how it send
-                    information to arduino</p>
+                <p>The ESP32 CAM uses high resolution OV2640 camera for video shooting. After flashing the code into ESP32-CAM, it will automatically connect to the 
+                    network with written in information. PLease open serial monitor after flashing, IP address of CAM will be listed. Log into the ip address within the same network(so that you don't need NAT), There's 
+                    neat and clean page for video send back. Face detection and recognition are based on pretrained models.
+                 </p>
+                 <ul class="actions special">
+                    <li><a href="https://github.com/Dowling7/PIE_wall-e/tree/main/CameraWebServer" class="button alt">Webcam code</a></li>
+                </ul>
 
                 <h3>Drive and Neck</h3>
                 <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about driving logic and neck control - both in same script</p>
+                <p>Motorshield and neck's are build on the code for both MP2 and MP3, used adafruit motorshield library to implement drive code for four wheels. You may want to have a look on merged code, see below.</p>
 
+                <ul class="actions special">
+                    <li><a href="https://github.com/Dowling7/PIE_wall-e/tree/main/drive_code" class="button alt">Arduino drive and neck code</a></li>
+                </ul>
                 <h3>Face</h3>
                 <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about face code</p>
+                <p>Facial expression of WALL-E is ddeveloped on ssd1306 display, refresh to switch between differenbt bitmaps, for more details and development history, please refer to the link below.
+
+                </p>
+                <ul class="actions special">
+                    <li><a href="face.html" class="button alt">Learn More</a></li>
+                </ul>
             </div>
         </section>
 
