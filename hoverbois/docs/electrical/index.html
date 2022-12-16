@@ -103,6 +103,10 @@
                     
                 </li><li class="navbar-item pure-menu-item ">
                     
+                        <a href="/pie-2022-03/hoverbois/docs/process/" class="pure-menu-link">Process</a>
+                    
+                </li><li class="navbar-item pure-menu-item ">
+                    
                         <a href="/pie-2022-03/hoverbois/docs/mechanical/" class="pure-menu-link">Mechanical</a>
                     
                 </li><li class="navbar-item pure-menu-item active">
@@ -130,6 +134,8 @@
                 </li><li>
                     <a href="/pie-2022-03/hoverbois/docs/gallery/">Gallery</a>
                 </li><li>
+                    <a href="/pie-2022-03/hoverbois/docs/process/">Process</a>
+                </li><li>
                     <a href="/pie-2022-03/hoverbois/docs/mechanical/">Mechanical</a>
                 </li><li>
                     <a href="/pie-2022-03/hoverbois/docs/electrical/">Electrical</a>
@@ -149,9 +155,60 @@
 <article class="line-numbers">
     
     
-    <p>TODO: fill with content</p>
-<p>circuit schematics, photos, descriptions</p>
-<h1 id="electrical-components">Electrical Components</h1>
+    <h1 id="electrical-system">Electrical System</h1>
+<p>We designed the electrical system to integrate as easily with the software
+systems as possible. Thus, everything was accessible under an easy to use
+Python &ldquo;driver&rdquo; interface as described in the <a href="https://olincollege.github.io/pie-2022-03/hoverbois/docs/software/">Software</a> portion of the website. In addition, we made the final
+design found in Sprint 3 as tightly integrated with the <a href="https://olincollege.github.io/pie-2022-03/hoverbois/docs/mechanical/">Mechanical</a> system after a near tragic accident during Sprint 2.</p>
+
+
+
+<img src="/pie-2022-03/hoverbois/images/electrical-schematic.png" alt="High level schematic of electrical system.">
+
+<h2 id="power-delivery">Power Delivery</h2>
+<p>We powered the hovercraft with a 4S LiPo battery, although it can take anything
+between a 3S and a 5S. We used a DC DC Buck converter to step down the voltage
+to 5V. This was used to power the Raspberry Pi over USB, which was used to
+power everything else. The only components operated directly from the battery&rsquo;s
+voltage were the ESCs.</p>
+<h2 id="computer">Computer</h2>
+<p>The electrical system is the designed around a Raspberry Pi 3B+ (upgraded from
+Sprint 1&rsquo;s Pi 2) and a Raspberry Pi Pico microcontroller. The two communicate
+over USB. Using a microcontroller in addition to a single board computer has
+the following advantages:</p>
+<ul>
+<li><strong>The Raspberry Pi 3B+ technically has 4 PWM pins but only 2 PWM channels.
+Thus, we can only generate 2 of the 3 PWM signals we required for motor
+control. In addition, the PWM generation on the Pi is unreliable.</strong></li>
+<li>It improves software performance. The Pico handling the motor control frees
+up CPU time to run more sophisticated controllers.</li>
+</ul>
+<h2 id="motors">Motors</h2>
+<p>The motors and ESCs were chosen in collaboration with the mechanical team. We
+settled for an EMAX ECO II Series 2207 2400Kv Motor, a part typically used for
+drones. This would provide more than enough power. We picked ESCs that would
+suffice to drive the motor with a 4S battery, ultimately picking the RDQ 3-6S
+BLHeli_S DShot600 30A ESC.</p>
+<p>The ESCs receive power directly from the battery. In case we lose control from
+the software or microcontroller, we built in a physical ESTOP switch that cuts
+power from the ESCs.</p>
+<h2 id="servo">Servo</h2>
+<p>We controlled the rudder with a hobby servo servo. This was powered the Pico&rsquo;s
+VBUS (5V) connector. It was controlled via a 3.3V PWM signal.</p>
+<h2 id="peripherals">Peripherals</h2>
+<p>We connected peripherals to the GPIO pins on the Raspberry Pi. We used a 9-Axis
+IMU from <a href="https://www.adafruit.com/product/5543">Adafruit</a>. This communicated
+to the Raspberry Pi through I²C and the <code>CorrectedIMU</code> class on the software
+side.</p>
+<p>We purchased a GPS/GLONASS unit from
+<a href="https://www.adafruit.com/product/5440">Adafruit</a> as well. This would have
+talked to the Raspberry Pi over UART. Unfortunately, we never got to
+integrating the GPS.</p>
+<h2 id="radio">Radio</h2>
+<p>Lastly, we purchased a set of cheap USB LoRa module from Amazon. We would have
+attached one unit to the Raspberry Pi and the other unit to a laptop running a
+user interface. Unfortunately, one of the units fried itself. The lesson we
+learned was to never cheap out on your electronics.</p>
 
 </article>
 </div>
@@ -169,7 +226,7 @@
                 
             </div>
 <footer>
-    <article>Copyright © 2022 Devlin Ih, Joseph Gilbert, William Skelly, Ethan Chen</article>
+    <article>Copyright © 2022 Ethan Chen, Joseph Gilbert, Devlin Ih, William Skelly</article>
 </footer>
 
 </main>
