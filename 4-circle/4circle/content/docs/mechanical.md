@@ -7,9 +7,10 @@ draft = false
 bref = ""
 toc = true
 +++
-![Trimetric View] (/images/Trimetric View.png)
+
+![Trimetric View] (/images/trimetricView.png)
 For our mechanical system, we created a chip dispensing mechanism that was mounted on a lead screw attached to a stepper motor so that it could move to the correct column and dispense a chip into it. Almost all parts were 3D printed using PLA with the exception of the mount and box around the lead screw, which was laser cut on 1/4" MDF.
-![Side View] (/images/Final Assembly side.png)
+![Side View] (/images/sideView.png)
 
 ## Chip Dispensing:
 *image here*
