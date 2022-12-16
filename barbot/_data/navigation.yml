@@ -1,0 +1,25 @@
+main:
+- title: "Home"
+  url: /
+- title: "Context"
+  url: /context/
+- title: "Implementation"
+  url: /implementation/
+  children:
+    - title: "Sprint 1"
+      url: /implementation/sprint1/
+    - title: "Sprint 2"
+      url: /implementation/sprint2/
+    - title: "Sprint 3"
+      url: /implementation/sprint3/
+- title: "Subsystems"
+  url: /subsystems/
+  children:
+    - title: "Mechanical"
+      url: /subsystems/mechanical/
+    - title: "Electrical"
+      url: /subsystems/electrical/
+    - title: "Firmware"
+      url: /subsystems/firmware/
+- title: "About Us"
+  url: /aboutus/
