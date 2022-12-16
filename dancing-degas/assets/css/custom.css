@@ -12,12 +12,16 @@ iframe {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    text-align: center;
 }
 
 .headshots {
     border-radius: 50%;
 }
 
+.section-image {
+    width: 90%;
+}
 
 #banner-about-us {
     background-attachment: scroll, fixed;

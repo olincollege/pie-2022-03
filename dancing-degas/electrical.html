@@ -59,15 +59,22 @@
                     <li>A4988 Motor Driver x 3</li>
                     <li>NEMA 17 Stepper Motors x 3</li>
                 </ul>
-                <span class="image featured"><img src="images/electrical_components.jpg" alt="" /></span>
+                <span class="image featured"><img src="images/electrical_components.jpg"
+                        alt="Electrical Components" /></span>
             </div>
             <div class="box">
-                <span class="image featured"><img src="" alt="" /></span>
+
                 <h3>Schematic</h3>
-                <p></p>
+                <img class="center section-image" src="images/electrical_schematic.png" alt="Electrical Schematic" />
+                <hr>
+                <p>The main electrical components include an Arduino Uno, a CNC motor shield, three A4988 motor drivers,
+                    and three NEMA 17 stepper motors. The whole electrical system is powered by a 12V external power.
+                    The Arduino board, which has Grbl installed, controls the motor movements upon receiving command
+                    from the user’s laptop via the serial port. The three stepper motors control the X and Y axis of the
+                    gantry and the color wheel separately. The potentiometer on each of the A4988 drivers is adjusted
+                    such that the current the motors operate on is about 80% of the maximum current.</p>
             </div>
             <div class="box">
-                <span class="image featured"><img src="" alt="" /></span>
                 <h3>Firmware Design</h3>
                 <p>
                     Grbl v1.1 is installed on the Arduino, which is connected to the user’s computer with a USB cable.
@@ -77,6 +84,15 @@
                     generating G-code based on coordinates of spirograph points and streaming G-code to Grbl on the
                     Arduino.
                 </p>
+            </div>
+            <div class="box">
+                <h3>Reflection</h3>
+                <p>There are many improvements that can be made to the current electrical system. We could add limit
+                    switches to each end of the two axes of the gantry, which would act as both an origin of the homing
+                    routine, and an emergency switch in case the pen is moving off the canvas and getting stuck.
+                    Additionally, we could use a battery instead of a power adapter to reduce the difficulties in wire
+                    management. There could also be a power switch added to the whole system, so that the user can turn
+                    it on and off easily.</p>
             </div>
         </section>
 
