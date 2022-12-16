@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>DeskBot</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">DeskBot</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="demo.html" >Demo</a></li>
+						<li><a href="systemOverview.html" >System Overview</a></li>
+						<li><a href="mechanical.html" >Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="software.html" class = "active">Software and Firmware</a></li>
+						<li><a href="budget.html">Budget</a></li>
+						<li><a href="timeline.html">Timeline</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Software and Firmware</h1>
+							<h2>Firmware</h2>
+							<p>In our system we use two Arduinos to control the two big components of our gantry: the H-Bot and the Gripper.</p>
+							<h3>H-Bot Gantry Control</h3>
+							<h4>Stepper Motor Control</h4>
+							<p>The H-Bot system has 9 different directions that we have to control, but to allow for different accelerations, specifically half the acceleration,  we have 13 different cases.</p>
+							<main class='main' style=" display: flex; justify-content: center; align-items: center;">
+
+								<section class='left section' style="width: 600px">
+							  
+									<ul style="list-style: none;">
+										<li>a - Stopped</li>
+										<li>b - Forward</li>
+										<li>c - Backward</li>
+										<li>d - Forward Left Diagonal</li>
+										<li>e - Forward Right Diagonal</li>
+										<li>f - Backward Left Diagonal</li>
+										<li>g - Backward Right Diagonal</li>
+										<li>h - Left</li>
+										<li>i - Right</li>
+										<li>j - Slow Forward</li>
+										<li>k - Slow Backwards</li>
+										<li>l - Slow Left</li>
+										<li>m - Slow Right</li>
+									</ul>
+							  
+								</section>
+								<section class='right section'>
+									<video controls muted   style="width: 50%;
+									height: 56.25%; margin-left: 21.875%;">  
+										<source src="images/controlsGantry.MOV" type="video/mp4">  
+									</video>
+								</section>
+							  
+							  </main>
+							<p>In order to set one of these states, there needs to be a serial input that specifies the case and number of steps. For example, typing 'b100' sets the state to b or forward and runs it for 100 steps. Once the command is finished, the Arduino prints 'finished' to Serial letting the Python Controller know the instruction is finished.</p>
+							<h4>Gripper and Z Controller</h4>
+							<p>The Gripper and Z axis control are very similar to the H-Bot controller, but is on a separate arduino and only has 5 states. Unlike previously, only states b and c need to have a specified number of steps.</p>
+							<main class='main' style=" display: flex; justify-content: center; align-items: center;">
+
+								<section class='left section' style="width: 600px">
+							  
+									<ul style="list-style: none;">
+										<li>a - Stopped</li>
+										<li>b - Up</li>
+										<li>c - Down</li>
+										<li>d - Open Gripper</li>
+										<li>e - Close Gripper</li>
+									</ul>
+							  
+								</section>
+								<section class='right section'>
+									<video controls muted   style="width: 50%;
+									height: 56.25%; margin-left: 21.875%;">  
+										<source src="images/z_gripper.MOV" type="video/mp4">  
+									</video>
+								</section>
+								</main>
+							<p>This entire implementation creates a flexible controller that enables many applications. In this specific use case, it allows us to specify movement of objects to specific locations to organize them by simply sending a commands through serial. However, this controller would allow for other applications, such as playing chess, drawing on paper or any other not rotational xyz movement. </p>
+								
+							<h2>Software</h2>
+							<h3>Computer Vision</h3>
+							<h4>Expo Marker CV</h4>
+							<p>For our Expo Marker detection, we used the OpenCV’s Python library to mask various Expo Marker colors in the frame of the camera.
+							</p>
+							<p>To create a binary image of these selected colors, we first needed to choose a colorspace. We used a HSV (hue, saturate, value) colorspace for our color detection. We chose to use this colorspace rather than RGB because HSV is much easier to manipulate colormask-wise.
+							Because color detection is dependent on the camera’s lighting environment, each time we tested our system, we needed to change the HSV bounds for each color. Previously we would have to manually change these values, which proved to be tedious and time-consuming. To expedite this process, we created a control window that would allow us to adjust the bounding range for our HSV values via trackbars.
+							</p>
+							<span class="image fit"><img src="images/green_trackbars.gif" alt="" /></span>	
+							<p>Now that we have a binary image of our specific color, we can draw rectangles around all the white regions. By doing this, we now can obtain the x and y values of the center of all objects of that color in the frame. Because each color has a different HSV range, a binary image for each color has to be made. All the data from each binary image can be stored and then be overlaid over the original image for visualization.</p>
+							<span class="image fit"><img src="images/multicolor.gif" alt="" /></span>	
+							<p>To negate the occurrence of false positives, we implemented a size check to make sure the camera only recognizes the color on the Expo Markers. We set an area range for the rectangle that has been drawn over all the white regions in the frame. If the rectangle’s area was within the range of 5000-5500 pixels, we know that the color belongs to an expo marker. It should also be noted that the gantry system was a controlled environment, so any objects of the same color and size were usually not present.</p>
+							<span class="image fit"><img src="images/green_threashold.gif" alt="" /></span>	
+							<h3>Controller</h3>
+							<p>Our python controller connects the firmware to the computer vision system. The controller first tells the gantry to sweep the entire desk until it detects something of a specific color.</p>
+							<video controls muted   style="width: 50%;
+							height: 56.25%; margin-left: 20.875%;">  
+								<source src="images/sweepGreen.MOV" type="video/mp4">  
+							</video>
+
+							<p>From there the python controller, centers the camera around the center of the object and moves forwards the amount of steps that it needs to detect the object. Once the beam break sensor is broken the gripper closes around the object and moves it to a specified location. Below is an attempted demo before fully tuning the system</p>
+							<p style="text-align:center">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/clm9NUCVkYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</p>
+
+							<h4>Perfection Game</h4>
+							<p>The secondary CV system we implemented surrounded the game Perfection where different shaped objects have to be placed in a certain location and assembly. </p>
+							<p>This computer vision also starts with creating a binary image based on the color of the Perfection pieces. Since all the pieces are yellow, which made it simpler than multiple color detection. </p>
+							<p>The complexity of this application comes when determining the orientation of the game piece. First, images of each Perfection piece were taken and stored in a directory to be compared to the game piece in the live video feed. When a piece is in the frame of the camera and color detection is applied to it, a still image is captured and a contour of the white space of the binary image is calculated. This contour is then compared to each of the game piece reference images. If the game piece is similar in shape to one of the reference images, that shape becomes our prediction. The unclassified game piece’s contour is then rotated and compared to the contour of the predicted reference image. If the contours are similar within a defined threshold, then we know what piece is being detected and its rotation. If the contours are not similar enough, we compare the contour of the Perfection piece to the next closest prediction and repeat the process.</p>
+							<span class="image fit"><img src="images/perfectionShapeDetection.gif" alt="" /></span>
+							</div>
+
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
