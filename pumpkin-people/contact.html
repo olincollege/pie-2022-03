@@ -6,41 +6,33 @@
 -->
 <html>
 	<head>
-		<title>Contact - Twenty by HTML5 UP</title>
+		<title>Electrical Design</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="contact is-preload">
+	<body class="no-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Twenty <span>by HTML5 UP</span></a></h1>
+					<h1 id="logo"><a href="index.html">Pumpkin Transcriber <span>by The Pumpkin People</span></a></h1>
 					<nav id="nav">
 						<ul>
-							<li class="current"><a href="index.html">Welcome</a></li>
+							<li class="current"><a href="index.html">Home Page</a></li>
 							<li class="submenu">
-								<a href="#">Layouts</a>
+								<a href="#">Pages</a>
 								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li><a href="contact.html">Contact</a></li>
-									<li class="submenu">
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Dolore Sed</a></li>
-											<li><a href="#">Consequat</a></li>
-											<li><a href="#">Lorem Magna</a></li>
-											<li><a href="#">Sed Magna</a></li>
-											<li><a href="#">Ipsum Nisl</a></li>
-										</ul>
-									</li>
+									<li><a href="Mechanical.html">Mechanical Design</a></li>
+									<li><a href="no-sidebar.html">Software/Firmware Design</a></li>
+									<li><a href="contact.html">Electrical Design</a></li>
+									<li><a href="Sprint1.html">Sprint One</a></li>
+									<li><a href="Sprint2.html">Sprint Two</a></li>
+									<li><a href="Sprint3.html">Sprint Three</a></li>
+									<li><a href="Budget.html">Budget</a></li>
 								</ul>
 							</li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -49,42 +41,65 @@
 				<article id="main">
 
 					<header class="special container">
-						<span class="icon solid fa-envelope"></span>
-						<h2>Get In Touch</h2>
-						<p>Use the form below to give /dev/null a piece of your mind.</p>
+						<span class="icon solid fa-mobile-alt"></span>
+						<h2><strong>Electrical Design</strong></h2>
+						<p>How we decided to conect all our components.</p>
 					</header>
 
 					<!-- One -->
-						<section class="wrapper style4 special container medium">
+						<section class="wrapper style4 container">
 
 							<!-- Content -->
 								<div class="content">
-									<form>
-										<div class="row gtr-50">
-											<div class="col-6 col-12-mobile">
-												<input type="text" name="name" placeholder="Name" />
-											</div>
-											<div class="col-6 col-12-mobile">
-												<input type="text" name="email" placeholder="Email" />
-											</div>
-											<div class="col-12">
-												<input type="text" name="subject" placeholder="Subject" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Message" rows="7"></textarea>
-											</div>
-											<div class="col-12">
-												<ul class="buttons">
-													<li><input type="submit" class="special" value="Send Message" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
+									<section>
+										<a class="image featured"><img src="images/Electrical.png" alt="" /></a>
+										<header>
+											<h3><center><u>Into the Guts of our Wiring: The thought behind the connections</u></center></h3>
+										</header>
+										<p>The aim of the wiring is to connect the arduino to the steppers, limit switch, and E-stop. In addition, we connected the steppers to external voltage.</p>
+										<p>As far as the steppers go, we have the steppers connected to the drivers. The drivers then have a step wire and a direction wire that go to the arduino. The step wire lets the stepper know when to step while the direction pin determines the direction of the step. The arduino can’t supply the 9 volt power needed to run the steppers, so the drivers are also connected to external batteries. Finally, the drivers are connected to 5 volts and ground from the arduino to power the logic.</p>
+										<p>The E-stop and limit switch are wired very similarly. They are both connected to a digital arduino pin set to high voltage and ground. When the button or switch is hit, its internal circuit is opened and the pin it is connected to no longer reads a high input.</p>
+										<p>Stepper motors contain a ring of wire coils. Every other coil is wired to the same current source. This means that current can be passed through the even coils one direction, while it is passed through the odd coils in the opposite direction. This causes magnetic fields which push and pull at the magnets attached to the shaft of the motor. When the current directions are switched back and forth, the stepper magnets are constantly being pulled towards the next coil in succession. This results in rotation.</p>
+									</section>
 								</div>
 
 						</section>
 
-				</article>
+						<section class="wrapper style4 container">
+
+							<!-- Content -->
+								<div class="content">
+									<section>
+										<a class="image featured"><img src="images/Mangement.jpg" width="640" height="1200" alt="" /></a>
+										<header>
+											<h3><center><u>Into the Guts of our Wiring: Wire Management</u></center></h3>
+										</header>
+										<p>For the Z-axis we 3D printed clips to hold our wires in place. For the main base, we used zip ties to hold wires in place.</p>
+									</section>
+								</div>
+								<div class="row">
+									<div class="col-6 col-12-narrower">
+	
+										<section>
+											<a class="image featured"><img src="images/Wiremanageaxis.jpg" alt="" /></a>
+											<header>
+												<h3><center>Z-Axis Management</center></h3>
+											</header>
+										</section>
+	
+									</div>
+									<div class="col-6 col-12-narrower">
+	
+										<section>
+											<a class="image featured"><img src="images/Wiremanagebase.jpg" alt="" /></a>
+											<header>
+												<h3><center>Main Base Management</center></h3>
+											</header>
+										</section>
+	
+									</div>
+								</div>
+						</section>
 
 			<!-- Footer -->
 				<footer id="footer">
