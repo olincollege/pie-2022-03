@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Electrical</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<a href="index.html" class="title">ShopNot</a>
+		<nav>
+			<ul>
+				<li><a href="mechanical.html">Mechanical</a></li>
+				<li><a href="electrical.html">Electrical</a></li>
+				<li><a href="software.html">Software</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h1 class="major">Electrical</h1>
+				<span class="image right"><img src="images/studio/electrical-board.jfif"
+						alt="Electrical Board Picture" /></span>
+				<p>The gantry's stepper motors and limit switches are controlled by a Protoneer Arduino CNC Shield V3.0
+					mounted to an Arduino Uno. The three steppers are driven by three DRV8825 stepper driver boards,
+					running as daughter boards on the CNC shield. All 3 driver boards are in half-stepping mode, to
+					mitigate low-speed resonance and increase precision. These steppers drive the movement of the gantry
+					according to g-code commands. The X and Y axes use larger NEMA 23 steppers to support movement of
+					the toolhead through material, while the Z axis uses a smaller NEMA 17 stepper reclaimed from a dead
+					Makerbot Replicator Mini 3D printer. Controlling the high-torque NEMA 23 steppers made our X and Y
+					axis stepper drivers run pretty hot. To keep them cool, we wired in a 24V fan from a 3D printer to
+					blow across the shield's heatsinks, ensuring the drivers stay cool during use. Our tool head
+					utilizes a Genmitsu GS-775M DC motor. We selected this motor as it already had a collet attached and
+					supported the speeds we were seeking to cut at. To use this motor, we utilized a HiLetgo BTS7960
+					H-bridge motor controller which is controlled through the spindle control pins on the CNC shield. To
+					power all of these electronics, we used an AVAWO 360W 24V Power Supply. All of our electronics
+					operated at 24V, so wiring our electronics to this rail was simple. For safety, we implemented an
+					Emergency Stop to cut power from the wall to the power supply.</p>
+				<a href="images/elecdiagram_v2.png"><span class="image fit"><img src="images/elecdiagram_v2.png"
+							alt="Electrical Diagram" /></span></a>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; ShopNot Team. All rights reserved.</li>
+				<li>Principles of Integrated Engineering Fall 2022</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

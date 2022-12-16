@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Firmware</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">BaristaBot</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">BaristaBot</a></li>
+							<li><a href="System.html">System</a></li>
+							<li><a href="Mechanical.html">Mechanical</a></li>
+							<li><a href="Electrical.html">Electrical</a></li>
+							<li class="active"><a href="Firmware.html">Firmware</a></li>
+							<li><a href="Software.html">Software</a></li>
+							<li><a href="Materials.html">Materials</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Firmware</h1>
+								</header>
+								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<p>The firmware was written in the Arduino IDE. The firmware receives messages from the software and controls the five stepper motors, five stepper drivers, four limit switches, and the solenoid valve.</p>
+								<p>When the firmware receives a message, it is usually in this format:</p>
+								<ul>
+									<li><b>G#</b></li>
+									<li><b>M#</b></li>
+								</ul>
+								<p>The parser reads the number after the letter ‘G’ or ‘M’ in order to determine which function to run. The functions were written in a switch-case format, where the case number is synonymous with the number for the GCode command, which is the number right after the letter ‘G’ or ‘M’.</p>
+								<p>The GCode that is sent is in terms of millimeters, which we convert to degrees based on our calibration of the stepper motors. We also edited the Stepper Driver library to run five stepper motors simultaneously since it could only run three at the same time previously. </p>
+								<p>Since our GCode commands are in terms of absolute coordinates, we created global variables to keep track of the motors’ positions. The GCode contains basic functions that enable and disable motors, move motors, set motor speeds, and switch the solenoid on and off.</p>
+								<h2>G-Code commands</h2>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>G-Code</th>
+													<th>Description</th>
+													<th>Python Command</th>
+													<th>Arduino Command</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>G1 X_Y_Z_T_</td>
+													<td>Move to a given position on the global axis system with X,Y,Z set in mm and tilt set in degrees.</td>
+													<td>move_controller(xpos, ypos, zpos, angle)</td>
+													<td>move_motors(X,Y,Z,T);</td>
+												</tr>
+												<tr>
+													<td>G27</td>
+													<td>"Zero" and recalibrate each axis by moving all the motors to hit the limit switches</td>
+													<td>go_home()</td>
+													<td>go_home();</td>
+												</tr>
+												<tr>
+													<td>G28</td>
+													<td>Move to the center of the coffee cup</td>
+													<td>go_cup_orgin()</td>
+													<td>cup_origin();</td>
+												</tr>
+												<tr>
+													<td>M6 S_</td>
+													<td>Pause the machine for a given amount of time in milliseconds </td>
+													<td>delay(ms)</td>
+													<td>wait(S);</td>
+												</tr>
+												<tr>
+													<td>M10</td>
+													<td>Enable Z axis motor</td>
+													<td>enable_Z()</td>
+													<td>enable_Z();</td>
+												</tr>
+												<tr>
+													<td>M11</td>
+													<td>Disable Z axis motor</td>
+													<td>disable_Z()</td>
+													<td>disable_Z();</td>
+												</tr>
+												<tr>
+													<td>M12</td>
+													<td>Enable tilt motor</td>
+													<td>enable_T()</td>
+													<td>enable_T();</td>
+												</tr>
+												<tr>
+													<td>M13</td>
+													<td>Disable tilt motor</td>
+													<td>disable_T()</td>
+													<td>disable_T();</td>
+												</tr>
+												<tr>
+													<td>M14</td>
+													<td>Enable X axis motor</td>
+													<td>enable_X()</td>
+													<td>enable_X();</td>
+												</tr>
+												<tr>
+													<td>M15</td>
+													<td>Disable X axis motor</td>
+													<td>disable_X()</td>
+													<td>disable_X();</td>
+												</tr>
+												<tr>
+													<td>M16</td>
+													<td>Enable Y axis motors</td>
+													<td>enable_Y()</td>
+													<td>enable_Y();</td>
+												</tr>
+												<tr>
+													<td>M17</td>
+													<td>Disable Y axis motors</td>
+													<td>disable_Y()</td>
+													<td>disable_Y();</td>
+												</tr>
+												<tr>
+													<td>M220 S_</td>
+													<td>Change speed of X and Y axis motors</td>
+													<td>set_speed(speed)</td>
+													<td>set_speed(S);;</td>
+												</tr>
+												<tr>
+													<td>M221 S_</td>
+													<td>Change speed of tilt motor</td>
+													<td>set_speed_T(speed)</td>
+													<td>set_speed_T(S);</td>
+												</tr>
+												<tr>
+													<td>M222 S_</td>
+													<td>Change speed of z axis motor</td>
+													<td>set_speed_Z(speed)</td>
+													<td>set_speed_Z(S);</td>
+												</tr>
+												<tr>
+													<td>M380</td>
+													<td>Enable the solenoid(valve) enabling liquid flow</td>
+													<td>enable_solenoid()</td>
+													<td>enable_solenoid();</td>
+												</tr>
+												<tr>
+													<td>M81</td>
+													<td>Disable the solenoid(valve) disabling liquid flow</td>
+													<td>disable_solenoid()</td>
+													<td>disable_solenoid();</td>
+												</tr>
+												<tr>
+													<td>M100</td>
+													<td>A list of G-Code commands printed in the serial terminal when the program starts up</td>
+													<td></td>
+													<td>help();</td>
+												</tr>
+											</tbody>
+										</table>
+								</div>
+								<div id="Dependencies">
+									<h2>Dependencies</h2>
+									<p>The firmware requires <a href="https://www.arduino.cc/en/software">Arduino IDE</a> to be downloaded as well as the <a href="https://github.com/laurb9/StepperDriver">StepperDriver library including modifications. </a></p>
+									<h3>Files Changed</h3>
+									<ul>
+										<li>MultiDriver.cpp</li>
+										<li>MultiDriver.h</li>
+										<li>SyncDriver.cpp</li>
+										<li>SyncDriver.h</li>
+									</ul>
+									<p>The files should be changed in the following file system within the Arduino libraries as shown below</p>
+									<div class="image fit"><img src="images/software/firmwarefiles.png" alt="" /></div>
+									<p>Moreover, the firmware is deeply dependent on the electrical components and setups found in the <a href="Electrical.html">electrical section</a>. The firmware also communicates with the software through G-Code found in the table above which is further explained in the <a href="Software.html">software section</a>.</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
