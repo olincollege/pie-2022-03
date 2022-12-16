@@ -71,7 +71,15 @@
                 <h3>Mechanical</h3>
                 <div class="row">
                     <div class="col-6 col-12-mobilep">
-                        <p>
+                        <p>This sprint provided a good proof of concept and gave the mechanical team a nice challenge to
+                            warm up with. During this sprint, we researched different kinds of gantries and chose the 
+                            vertical gantry because of its relative simplicity, it only required two motors and gravity.
+                            We used a combination of sketch modeling techniques and rapid prototyping to quickly manufacture
+                            a cardboard frame with 3D printed motor mounts, pen holder, and pulleys. Testing this system
+                            revealed some of the challenges we might need to think about when designing a gantry. These
+                            included friction and slippage on the pulleys, the importance of keeping parts linear and rigid, 
+                            as well as considerations of required torque to overcome the forces of gravity and friction 
+                            caused by the drawing mechanism.
 
                         </p>
                     </div>
@@ -128,18 +136,26 @@
             <div class="box">
                 <h3>Sprint 2</h3>
                 <p>In sprint 2 we made a lot of progress. We fully shifted to a horizontal X-Y gantry and were able to
-                    achieve a working gantry in two weeks. We had to order a lot of our parts this sprint like v slot
+                    achieve a working gantry in two weeks. We had to order a lot of our parts this sprint like V-slot
                     rails, wheels, stepper motors, belts, and pulleys. For the software side, we translated Cartesian
                     coordinate to motor motion and began working on the spiral art design. From this sprint, we decided
                     to stick with the mechanical design but to work on reducing friction and adding stability. We
-                    decided that we needed a CNC motor shield which is usually used for most X-Y gantry.</p>
+                    decided that we needed a CNC motor shield which is better suited to X-Y gantry systems.</p>
                 <iframe src="https://drive.google.com/file/d/1mR3OjEy1xk59IaxfbjJxt_kmTEY0B351/preview" width="320"
                     height="240" allow="autoplay"></iframe>
                 <hr>
                 <h3>Mechanical</h3>
                 <div class="row">
                     <div class="col-6 col-12-mobilep">
-                        <p>
+                        <p>During this sprint, we learned some of the basics of creating a gantry with extruded aluminum.
+                            For example, we learned the difference between T-slot and V-slot. For our purposes, because 
+                            we wanted a v-wheel carriage that rolled smoothly on our gantry, we decided to use V-slot
+                            aluminum. The rails are also anodized to a nice black color, which looks sleek. In this
+                            sprint we implemented two out of three stepper motors, both mounted on one side of the gantry.
+                            These were Nema 17 steppers with a torque of 20 N-cm. After an integrated test, however, we
+                            found that these motors couldn't quite drive the gantry with the required speed and precision.
+                            The test drive of this system was successful but super slow! We also noticed that the timing
+                            belts did not have enough room and were rubbing against the wheels.
 
                         </p>
                     </div>
@@ -164,7 +180,7 @@
                             these
                             formulae by having the parameters be determined by the most salient frequencies in
                             the
-                            fourier transform of the audio signal. A deeper expalantion of these formulae can be
+                            fourier transform of the audio signal. A deeper explanation of these formulae can be
                             found
                             on the <a href="software.html">Software page</a>.
                         </p>
@@ -188,7 +204,7 @@
             <div class="box">
                 <h3>Sprint 3</h3>
                 <p>Our last sprint mainly focused on the spiral art algorithm and converting the position to Gcode
-                    commands. We also built a user interface where the user can pick a song. For the mechanical side, we
+                    commands. We also built a user interface where the user can pick a song. On the mechanical side, we
                     added a base, acrylic board, and the color changing mechanism. We worked a lot as a whole team on
                     integrating and testing small problems during this sprint and after. </p>
                 <iframe src="https://drive.google.com/file/d/1m1WjPmJlPcXqFJ0A8rXKKHL4ZTsBncMV/preview" width="640"
@@ -197,14 +213,24 @@
                 <h3>Mechanical</h3>
                 <div class="row">
                     <div class="col-6 col-12-mobilep">
-                        <p>
+                        <p>The main issues we aimed to address in sprint 3 were reducing friction in the gantry,
+                            particularly in the y-direction as the motor was having a hard time moving the 
+                            entire x-axis bar across the frame while being driven from just one side. We made
+                            a number of minor edits to give it a helping hand, including moving the timing belts
+                            slightly away from the wheels. We also mounted the gantry to a wooden base to keep 
+                            everything at right angles. Both of these significantly improved the performance.
+                            Unfortunately, one of our motors stopped working, likely due to burnout. At this point,
+                            we decided to shift to a stronger, 42 N-cm stepper motor. Another feature we worked on 
+                            was the holder for the pens, which was originally made from a disc of laser cut material.
+                            We found that this design was a bit wobbly so we designed a 3D printed pen wheel
+                            instead.
 
                         </p>
                     </div>
                     <div class="col-6 col-12-mobilep">
 
-                        <img class="center" src="images\mech-sprint3.jpg" alt="Spirograph Image"
-                            style="width:400px;height:300px;">
+                        <img class="center" src="images\mech-sprint3.jpg" alt="Sprint 3 Progress"
+                            style="width:300px;height:400px;">
                     </div>
                 </div>
                 <hr>
@@ -217,7 +243,7 @@
                 <p>To integrate with the CNC shield, the software team decided to use GCode and GRBL. Software
                     learned how to create and write to GCode files, as well as which GCode commands were the
                     most pertinent for the project. Additionally, software also learned how to stream the GCode
-                    files to the CNC shield for motor movemnt. A deeper explanation of this process can be found
+                    files to the CNC shield for motor movement. A deeper explanation of this process can be found
                     on the <a href="software.html">Software page</a>.</p>
 
                 <div class="row">
@@ -254,13 +280,22 @@
                 <iframe src="" width="640" height="480" allow="autoplay"></iframe>
                 <hr>
                 <h3>Mechanical</h3>
-                <p>Add details</p>
+                <p>During our last week leading up to demo day, the mechanical team focused on tidying up the design
+                    and making minor changes to make the gantry draw as smoothly and precisely as possible. We created
+                    a frame to hold the acrylic canvas in place and painted everything black. We also reprinted the
+                    holder for the pen wheel motor so that the motor could be screwed in place.
+                </p>
+            </div>
+            <div class="col-6 col-12-mobilep">
+                <img class="center" src="images\final_touches.jpg" alt="Final Touches"
+                    style="width:400px;height:300px;">
+            </div>
                 <hr>
                 <h3>Electrical</h3>
                 <p>Add details</p>
                 <hr>
                 <h3>Software</h3>
-                <p>The first task the software team tackled was the abilitity to have multiple concentic
+                <p>The first task the software team tackled was the ability to have multiple concentric
                     spirographs. The problems we had in previous sprints with secondary spirographs appearing in
                     incorrect locations was resolved by having all of the spiral positions be dependent on
                     previous spirals. To implement the color changing mechanism, we modified how we calibrated
