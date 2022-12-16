@@ -45,23 +45,20 @@
 								<header class="major">
 									<h1>Mechanical Design Process</h1>
 								</header>
-								<span class="image fit"><img src="images/Mechanical/final.jpg" alt="" /></span>
-								<div id="intro">
+								<div class="row gtr-50 gtr-uniform">
+									<div class="col-4"><span class="image fit"><img src="images/Mechanical/0.png" alt="" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/Mechanical/1.png" alt="" /></span></div>
+									<div class="col-4"><span class="image fit"><img src="images/Mechanical/2.png" alt="" /></span></div>
+								</div>
+							
 									<h2>Introduction</h2>
 									<p>In order to create a machine that could create latte art, we first had to study the motions that a barista would use. We found that there were four main categories of movement necessary to create latte art. The first is obvious - the back and forth motions in the plane parallel to the art which are the basis of the pattern. We replicated this movement using an x-y gantry system. The next motion is an up and down movement (along the z axis). This allows the barista to control the force with which the milk hits the surface of the drink, which determines whether the milk sits on top of the art or if it penetrates through. We replicated this movement using a lead screw mechanism. The third motion is the tilt of the cup. This motion is used for various purposes - sometimes to bring the milk spout closer to the surface of the art, sometimes to vary the force of the milk, sometimes to increase the final size of the art. Although the effect of this was initially unclear to us, we chose to design a mechanism to replicate the tilt. The final motion was the release of liquid from the milk jug. While a barista would simply tilt their jug, to replicate this we used a solenoid valve and a tube. This final motion required a good deal of troubleshooting and experimentation to get the proper flow rate, but we hoped that with these four mechanisms, we would be able to create latte art.</p>
-								</div>
+							
 								<div id="gantry">
 									<h2>The Gantry</h2>
 									<p>Our first step in the mechanical process was to design a gantry system. Much of our initial design process revolved around a 3D printer that we took apart for materials (Figure 1). This printer also had a three axis gantry. Two axes of motion were focused on the cup - the x direction and the z direction. The extruder only moved in the y direction. We chose to modify this design so that all three axes were focused on our extruder, as we were worried that excessive cup motion would result in sloshing and spilling.</p>
 									<p>Using the belts, pulleys, rails, bearings, and stepper motors from the 3D printer, we designed our first iteration of the gantry system. This first iteration had all three axes controlled by belt and pulley systems. The y axis was bolted onto our extrusion structure and had two plates. The first plate had a stepper motor that controlled the motion, along with the linear bearing and rails, while the other side only had the bearing and rails to guide the motion. The plate for the x axis was bolted onto the bearings, so that it was perpendicular to the y axis. This had the same setup as the y-axis. The z axis plate was also very similar to the x plate, and it bolted on the bearing on the x-axis plate. The extruder is attached to the bearing on the z plate. This iteration was lacking several important pieces - limit switches, hard stops for the rails, mounting spots for the plates, and room for everything to operate smoothly - but it allowed us to get a rough sense of what the gantry would look like.</p>
-									<span class="image fit"><img src="images/software/Choose0.png" alt="" /></span>
-									<span class="image fit"><img src="images/software/Choose0.png" alt="" /></span>
 									<p>For our second iteration, we made several big changes. First, we decided to add a second stepper to the y-axis in order to support the weight of the extruder system and to keep it moving symmetrically. Secondly, we decided to completely redesign our z-axis by changing it from a belt-and-pulley system to a lead-screw mechanism in order to make designing the e-stop easier for our software team. The stepper motors go slack when power is cut to them, which means that they no longer exert any torque on a belt-and-pulley system. This was fine for belt-and-pulley systems that have gravity acting perpendicular to the belt (such as our y- and x- axes), but for our z-axis, gravity would pull the extruder down to its lowest position, which would be unideal for a situation where the e-stop was required. We took a stepper motor, lead screw, and guiding rails from a different 3d printer, and designed new plates and cut down the screw and rails so it would fit in our system, then mounted these to a baseplate to support them. We also made several smaller changes to our gantry, such as rounding off the corners of the plates, changing the placement of the motors and rails to avoid interference, and adding mounting points for the linear bearings.</p>
-									<div class="row gtr-50 gtr-uniform">
-										<div class="col-4"><span class="image fit"><img src="images/Mechanical/0.png" alt="" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Mechanical/1.png" alt="" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Mechanical/2.png" alt="" /></span></div>
-									</div>
 								</div>
 								<div id="extrusion">
 									<h2>The Extrusion System</h2>
@@ -78,7 +75,7 @@
 								<div id="electrical">
 									<h2>Electrical Mounting</h2>
 									<p>Although we had several electrical pieces that needed to be mounted, the most important pieces were the limit switches. In order for the limit switches to function properly and allow us to zero the three axes, they needed to be placed in several different orientations around our machine. We chose to design several different bracket configurations to hold them in place against the plates.</p>
-									<h2>Electrical Mounting</h2>
+							
 								</div>
 							</section>
 
