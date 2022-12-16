@@ -7,8 +7,9 @@ draft = false
 bref = ""
 toc = true
 +++
-
+![Trimetric View] (/images/Trimetric View.png)
 For our mechanical system, we created a chip dispensing mechanism that was mounted on a lead screw attached to a stepper motor so that it could move to the correct column and dispense a chip into it. Almost all parts were 3D printed using PLA with the exception of the mount and box around the lead screw, which was laser cut on 1/4" MDF.
+![Side View] (/images/Final Assembly side.png)
 
 ## Chip Dispensing:
 *image here*
@@ -21,4 +22,4 @@ The first thing we considered was chute length. In our first prototype of the ch
 Our baseboard was used to mount the servo and hold the chip that was about to be dispensed into the game board. Additionally, we used our baseboard as the mounting point from our chip dispenser to the lead screw.
 
 ## Mounting: 
-To mount our dispenser onto the lead screw 
+To mount our dispenser onto the lead screw we cut two pieces of 1/4" MDF wood. The first piece of wood connected to the chip dispenser and was long enough such that the chip dispenser was hovering above the game board. The second piece of wood was used as a bridge between the first piece of wood and the lead screw, where it was glued onto the wood and screwed into the lead screw mount. 
