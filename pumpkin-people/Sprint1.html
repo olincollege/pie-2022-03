@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sprint One</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">Pumpkin Transcriber <span>by The Pumpkin People</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="index.html">Home Page</a></li>
+							<li class="submenu">
+								<a href="#">Pages</a>
+								<ul>
+									<li><a href="Mechanical.html">Mechanical Design</a></li>
+									<li><a href="no-sidebar.html">Software/Firmware Design</a></li>
+									<li><a href="contact.html">Electrical Design</a></li>
+									<li><a href="Sprint1.html">Sprint One</a></li>
+									<li><a href="Sprint2.html">Sprint Two</a></li>
+									<li><a href="Sprint3.html">Sprint Three</a></li>
+									<li><a href="Budget.html">Budget</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon solid fa-mobile-alt"></span>
+						<h2><strong>Sprint One</strong></h2>
+						<p>This was our first sprint review, which occured on October 28th, 2022.</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 container">
+
+							<!-- Content -->
+								<div class="content">
+									<section>
+										<a href="#" class="image featured"><img src="images/Sprintoneimage.png" width="640" height="1200" alt="" /></a>
+										<header>
+											<h3><center><strong><u>Sprint One Overview</u></strong></center></h3>
+										</header>
+										<p>At this stage, our <strong>MVP</strong> (minimum viable product) was a mechanism that used a spring-loaded marker to draw a design on a pumpkin.
+										Meanwhile, our <strong>reach goal</strong> was to have a mechanism that would use a laser to raster an image onto a pumpkin.</p>
+										<p>The <strong>current state</strong> of our project mainly included physical elements, where we had:
+											<ul>
+												<li>A rotating base</li>
+												<li>A z-axis</li>
+												<li>First level code that ran the motors</li>
+												</ul>
+										</p>
+										
+										<div class="row">
+											<div class="col-6 col-12-narrower">
+			
+												<section>
+													<header>
+														<h3><center>Current State Main Base</center></h3>
+													</header>
+													<a class="image featured"><img src="images/Firstsprintmainbase.png" alt="" /></a>
+												</section>
+			
+											</div>
+											<div class="col-6 col-12-narrower">
+			
+												<section>
+													
+													<header>
+														<h3><center>Current State Z-axis</center></h3>
+													</header>
+													<a class="image featured"><img src="images/Firstsprintzaxis.png" width="300" height="900" alt="" /></a>
+												</section>
+			
+											</div>
+										</div>
+
+										<p>At this point all of our components were separate, and the next step was to integrate them together.</p>
+										<p>In terms of our <strong>biggest technical risk</strong>, we were most concerned with the carriage that would be holding the spring-loaded pen.
+										This was a very technical design that could have various potential problems, including friction, and sizing issues. The threaded rod used to move the carriage also posed as a problem due to its pitch and/or bow. Therefore we decided to perform a multitude of tests
+										to insure that this system was in fact working properly.
+										</p>
+										<p>One thing we considered using for this project was a <strong>CNC shield</strong>, which was meant to help with the programming process.
+										The CNC shield would control our XY plotter so that both of our motors would be able to work at the same time but at different speeds. In order
+										to use this shield, though, we needed to understand a program called <strong>GRBL</strong>.
+										</p>
+										<p><strong>GRBL</strong> is an open sourse software that would enable motion control for CNC machines, and in face is commonly used
+										in various small at-home CNC projects. It was developed for motion control for an Arduino microcontroller board, and uses a universal
+										G-code sender (UGS) software that "sends" the G-code to the GRBL controller.
+										</p>
+
+										<P>In terms of our <strong>target goal</strong>, at this point we were optimistic about our progress and hoped 
+										to integrate a laser into our design. Therefore, for our <strong>next deliverable</strong>, we wanted to ensure
+										that we had a fully functional spring-loaded marker carriage and also fully integrated code that powers the motors and allows us to actually draw
+										something onto a pumpkin.
+										</P>
+								</section>
+
+									</section>
+								</div>
+
+						</section>
+
+				</article>
+
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+
+						<li><a href="https://github.com/Luludlpp/PumpkinPals" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
