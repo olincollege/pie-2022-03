@@ -8,17 +8,18 @@ bref = ""
 toc = true
 +++
 
-![Trimetric View] (/images/trimetricView.png)
+![Trimetric View](/images/trimetricView.png)
+
 For our mechanical system, we created a chip dispensing mechanism that was mounted on a lead screw attached to a stepper motor so that it could move to the correct column and dispense a chip into it. Almost all parts were 3D printed using PLA with the exception of the mount and box around the lead screw, which was laser cut on 1/4" MDF.
-![Side View] (/images/sideView.png)
+
+![Side View](/images/sideView.png)
 
 ## Chip Dispensing:
-*image here*
 To hold the chips prior to their dispensing, we 3-D printed a PLA tube that was mounted above the chute. The connect 4 chips were stacked on top of each other and the tube was mounted close enough to the baseboard such that only 1 chip was out of the tube at a time and thus only one chip could be dispensed into the chute at a time. 
-*image here*
+![Trimetric View of Chute](/images/chuteTrimetric.png)
 When the chips came out of the tube they were not aligned correctly as they were horizontal instead of vertical, and thus we needed to realign them such that they could go into the game board. Our solution to that was creating a chute that would realign the chip and dispense it into the game board. There were a couple of things that were took into consideration while creating the chute. 
-
-The first thing we considered was chute length. In our first prototype of the chute, the horizontal portion of the chute was too long and the chip would get stuck right before the chute became vertical. For our second prototype we shortened the horizontal portion a little bit, which made it easier for the chip to go through the chute successfully (?) *need to edit this*. The second thing we considered was servo arm length. Since our servo arm was longer than the distance between the chip and the chute, we needed to add slits within the chute sides so that the servo arm would not get stuck. 
+![Side View of Chute](/images/chuteSlide.png)
+The first thing we considered was chute length. If the horizontal portion of the chute was too long, the chip would get stuck right before the chute became vertical. The second thing we considered was servo arm length. Since our servo arm was longer than the distance between the chip and the chute, we needed to add slits within the chute sides so that the servo arm would not get stuck. 
 
 Our baseboard was used to mount the servo and hold the chip that was about to be dispensed into the game board. Additionally, we used our baseboard as the mounting point from our chip dispenser to the lead screw.
 
