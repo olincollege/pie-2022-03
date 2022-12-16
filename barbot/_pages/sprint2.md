@@ -7,7 +7,17 @@ The goal for this sprint was to catch up on what was not accomplished in sprint 
 
 ## Mechanical:
 
-_pump design_
+ We successfully manufactured the 3D printed pump design and pumped water somewhat consistently. However we ran into additional issues primarily with the tolerances with the pump and our tubing, the central hub continuing to not engage, and high thermals melting the 3d print.  We attempted to recreate the central hub but that did not remedy the problem with the central shaft engaging properly. Thus, the pump assembly had a life span of about 5 minutes at most.
+
+ ![Pump Assembly CAD](/pie-2022-03/barbot/images/pump_rev1.PNG)
+
+ _Figure 1: What the pumps were supposed to look like._
+
+ [![Barbot video](https://img.youtube.com/vi/YXZqgjuNtps/0.jpg)](https://www.youtube.com/shorts/YXZqgjuNtps)
+ 
+ _Video of the pump assembly pumping water from a glass bottle_
+
+ Once the pump assembly lifespan expired, it would just make a really loud noise of the shaft rubbing against the assembly, which was only magnified with a new cardboard box casing that was designed for sprint 2.
 
 ## Electrical:
 
