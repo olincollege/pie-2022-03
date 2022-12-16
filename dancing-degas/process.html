@@ -55,7 +55,7 @@
             <div class="box">
                 <h2>Sprint 1</h2>
                 <p>For our first sprint we wanted to test out a drawing mechanism. No one on our team had experience
-                    with gantry so we wanted to learn about them first in order to decide the scope of our project. We
+                    with gantries so we wanted to learn about them first in order to decide the scope of our project. We
                     made a vertical X-Y gantry in less than two weeks that used servo motors and weight to center the
                     pen holder in the middle. We found after our sprint that the design worked well but only for one
                     color and we felt that in order to fully visualize music, we need multiple. A multiple color
@@ -97,7 +97,7 @@
                     gantry. The main problem with these motors was that they did not have enough torque to pull the belt
                     which has the pen and weights attached to. But they worked well for concept proving in this sprint.
                     To drive these two motors, an Arduino board was sufficient, therefore we did not include any other
-                    motor shield. The arduino is connected to the user’s laptop via a USB port.</p>
+                    motor shield. The arduino is connected to the user's laptop via a USB port.</p>
 
                 <hr>
                 <h3>Software</h3>
@@ -146,7 +146,7 @@
                 <p>In sprint 2 we made a lot of progress. We fully shifted to a horizontal X-Y gantry and were able to
                     achieve a working gantry in two weeks. We had to order a lot of our parts this sprint like V-slot
                     rails, wheels, stepper motors, belts, and pulleys. For the software side, we translated Cartesian
-                    coordinate to motor motion and began working on the spiral art design. From this sprint, we decided
+                    coordinates to motor motion and began working on the spiral art design. From this sprint, we decided
                     to stick with the mechanical design but to work on reducing friction and adding stability. We
                     decided that we needed a CNC motor shield which is better suited to X-Y gantry systems.</p>
                 <iframe src="https://drive.google.com/file/d/1mR3OjEy1xk59IaxfbjJxt_kmTEY0B351/preview" width="320"
@@ -179,12 +179,12 @@
                 <hr>
                 <h3>Electrical</h3>
                 <p>After switching to Nema 17 stepper motors, we used an Adafruit motor shield which is stacked on top
-                    of the arduino board. The two main challenges were: 1. Moving motors in both the x and y axis
-                    synchronously requires a fast and robust algorithm; 2. Serial communication between Python and
+                    of the arduino board. The two main challenges were: 1) Moving motors in both the x and y axis
+                    synchronously requires a fast and robust algorithm; 2) Serial communication between Python and
                     Arduino IDE was slow and unreliable. To tackle the first challenge, we take the coordinate of a
                     point, and loop through a function that moves x and y in tiny steps repeatedly, such that the
                     “zigzag” movement is subtle enough to be negligible. We learned by the end of this sprint that most
-                    CNC machines use G Code and CNC motor shield to enable such movement. Therefore, we decided to
+                    CNC machines use Gcode and CNC motor shield to enable such movement. Therefore, we decided to
                     switch from Adafruit motor shield to CNC motor shield with the hope of avoiding using Arduino IDE.
                 </p>
                 <hr>
@@ -330,7 +330,7 @@
                 <h3>Electrical</h3>
                 <p>After deciding not to install limit switches for a homing routine, we focused on the stretch goal –
                     color
-                    wheel turning. We calibrate this motor differently so that one step in the command represents the
+                    wheel turning. We calibrated this motor differently so that one step in the command represents the
                     steps needed to turn from one marker to the adjacent one. The potential problem with this is that we
                     always have to make sure the initial position of the wheel has one marker pointing vertically
                     downwards, otherwise the turning command would not work. We also did a quick clean up of the wires
@@ -344,7 +344,7 @@
                         <p>The first task the software team tackled was the ability to have multiple concentric
                             spirographs. The problems we had in previous sprints with secondary spirographs appearing in
                             incorrect locations was resolved by having all of the spiral positions be dependent on
-                            previous spirals. To test if the spirals were geerated correctly before moving the gantry,
+                            previous spirals. To test if the spirals were generated correctly before moving the gantry,
                             we used Universal GCode Server, which produced images such as to the right. To implement the
                             color changing mechanism, we modified how we calibrated
                             the motor responsible for the color wheel, which enabled easy transition between colors.
