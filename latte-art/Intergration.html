@@ -30,10 +30,10 @@
 							<li><a href="MechProgress.html">Mechanical</a></li>
 							<li><a href="ElectricalProgress.html">Electrical</a></li>
 							<li><a href="SoftwareProgress.html">Software</a></li>
-							<li class="active"><a href="Intergration.html">Intergration</a></li>
+							<li class="active"><a href="Intergration.html">Integration</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/angrocki/Latte-Art-Robot" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -43,14 +43,37 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Intergration Process</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<h1>Integration Process</h1>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								<div id="Sprin1">
+									<h2>Sprint 1</h2>
+									<p>Our overarching goals were to create a machine that can both steam milk and make latte art at the press of a button. We planned on interacting wirelessly with the Raspberry Pi and creating a GUI using React and flask.</p>
+									<p>By the end of the first sprint, the mechanical team disassembled a 3-axis printer, so we had a 2-axis gantry we could test stepper motor movements on, as well as stepper motors and limit switches to test with. The mechanical team needed the Y-axis to create a CAD for the latte art gantry they were designing, so the electrical team tested the motors and limit switches on the remaining two axes.</p>
+									<p>The electrical team was able to move the X-axis motor in a line on the 2-axis gantry. The X-axis motor was controlled with an Arduino library called Stepper. A CNC motor shield was used for testing the motors.</p>
+									<span class="image fit"><img src="images/Intergrated/sprint1.png" alt="" /></span>
+									<p>The software side did research on using GRBL, which seems to be a popular option when it comes to controlling stepper motors with a CNC motor shield. However, after finding out that GRBL requires a third-party application, we decided to widen the scope of the software side and create our own G-Code library.</p>
+								</div>
+								<div id="Sprint2">
+									<h2>Sprint 2</h2>
+									<p>We decided to exclude making the milk steamer aspect of our machine because of our slower progress in fully controlling the stepper motors and creating the 3-axis gantry. At this point, the tilt mechanism was complete, while the gantry CAD was almost complete. Some parts of the gantry were prototyped out of plywood.</p>
+									<p>On the electrical side, the solenoid valve was wired up with a MOSFET and diode, then successfully tested. We switched to using the Ramps 1.4 shield with the Arduino mega, and all the motors were calibrated for the 2-axis test gantry. We switched to using a library called StepperDriver for motor control purposes. We also tested the Time-of-Flight sensor, then started doing research on the hard stop.</p>
+									<span class="image fit"><img src="images/Intergrated/wires.jpg" alt="" /></span>
+									<p>On the software side,the basic structure for our own G-Code library to move the stepper motors was created. The basic structure was created in the Arduino IDE, then tested using LEDs.</p>
+								</div>
+								<div id="Sprint3">
+									<h2>Sprint 3</h2>
+									<p>The 3-axis gantry system was fully assembled, including all the electrical connections. The extrusion structure was also fully assembled, with the nozzle successfully extruding milk. Only small tweaks were needed, such as adding routes for wiring, adding an outer shell, and fixing the tilt mechanism. All parts of the liquid loop are food safe since the materials we used were either nylon, plastic, or stainless steel. After each latte test session, soap and water are run through the loop until all the milk is cleaned out.</p>
+									<span class="image fit"><img src="images/Intergrated/sprint3mech.jpg" alt="" /></span>
+									<p>On the electrical side, we had complete control over the 3-axis gantry system on the new assembly. All axes were calibrated and the stepper motor driver library was edited to control all five steppers at once. A new power supply was also ordered so that all five steppers can move at the same time. All the limit switches and the emergency stop button were integrated as well. The solenoid valve was soldered, then integrated into code.</p>
+									<p>On the electrical side, we had complete control over the 3-axis gantry system on the new assembly. All axes were calibrated and the stepper motor driver library was edited to control all five steppers at once. A new power supply was also ordered so that all five steppers can move at the same time. All the limit switches and the emergency stop button were integrated as well. The solenoid valve was soldered, then integrated into the code. 
+										On the software side, the G-Code library we created was fully able to control the stepper motors. The origin of the cup was calibrated, and the motor steps were converted to millimeters. The paths for the base, heart, and rosetta were drafted and only needed fine-tuning through testing. We decided to focus our attention on reorganizing the Python code and planning the GUI in Pygame.</p>
+									<span class="image fit"><img src="images/Intergrated/sprint3.png" alt="" /></span>
+								</div>
+								<div id="demo">
+									<h2>Final Demo Day</h2>
+									<p>On the mechanical side, slight adjustments and fixes were made to decrease the flow rate and velocity including experimenting with pinching the tube, decreasing the size of the opening at the top of the funnel, and increasing the orifice size of the milk extruder. In addition, slight adjustments were made to make the milk extruder more stable including adding steel brackets and recruiting the x-axis with steel. The mechanical team also added aesthetic final touches like a green acrylic box that was rastered with our robot’s name “BaristaBot '' as an outer shell and a small green box internally to hide and protect the electrical components. On the electrical side, the wires were reordered and cut to be able to go along the extrusion structure. The solenoid valve was resoldered onto a new board and placed into the green box. On the software side, the GUI code was created using a design from Canva, and the paths were further fine-tuned through testing.</p>
+									<span class="image fit"><img src="images/Intergrated/demo.jpg" alt="" /></span>
+								</div>
 							</section>
 
 					</div>

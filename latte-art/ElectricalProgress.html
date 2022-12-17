@@ -27,13 +27,13 @@
 						<ul class="links">
 							<li><a href="index.html">BaristaBot</a></li>
 							<li><a href="Process.html">Process</a></li>
-							<li><a href="MechProgress.html">Mechanical</a></li>
-							<li class="active"><a href="ElectricalProgress.html">Electrical</a></li>
-							<li><a href="SoftwareProgress.html">Software</a></li>
-							<li><a href="Intergration.html">Intergration</a></li>
+							<li><a href="MechProgress.html">-Mechanical</a></li>
+							<li class="active"><a href="ElectricalProgress.html">-Electrical</a></li>
+							<li><a href="SoftwareProgress.html">-Software</a></li>
+							<li><a href="Intergration.html">-Integration</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://github.com/angrocki/Latte-Art-Robot" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -44,13 +44,31 @@
 							<section class="post">
 								<header class="major">
 									<h1>Electrical Design Process</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								<div id="start">
+									<h2>Electrical Beginnings</h2>
+									<p>We started off with a CNC shield, Arduino Uno, 2 stepper motors, five stepper drivers, and a limit switch. We connected those to a 2-axis gantry that was obtained from a 3D printer. We started off researching several stepper motor libraries to test basic code to control the stepper motors. After a week of research and testing, we noticed that the stepper motors weren’t running, and the stepper drivers were getting extremely hot to the point of smoking.</p>
+									<p>We figured out that the stepper drivers were burning out. We also discovered that some of the capacitors on the CNC shield that connected to the stepper drivers were broken, so we had to switch to another board. The limit switches were also reading inconsistently and inaccurately, which we later found out was because they were wired incorrectly.</p>
+								</div>
+								<div id="increasing">
+									<h2>INCREASING ELECTRICAL SCOPE</h2>
+									<p>After diagnosing these issues, we were able to get 2 stepper motors running on the 2-axis gantry. We then increased the scope of the electrical aspect of the project by increasing the number of stepper motors to 4 (one for x-axis, two for y-axis, one for z-axis). We then decided to include another stepper motor for the tilting mechanism instead of using a servo that was connected to a GPIO pin on the shield, so we planned to get five stepper motors in total running. The current library we were utilizing didn’t support moving five stepper motors simultaneously, so we researched other alternative libraries.</p>
+									<p>We first started with a SyncDriver library, which worked well for running two motors simultaneously, but both motors had to be the same speed so we were unable to draw curved lines. We switched to the MultiDriver library, which allowed us to run the motors in a hockey shape motion by moving only one motor or moving both motors at the same speed. Being able to move only one motor is an important feature, since if the motor steps are small enough, the motors can create curved lines. The MultiDriver library could only run three stepper motors at the same time, but we edited the library so that we could run five simultaneously.</p>
+									<p>The CNC shield we were using could only hold four stepper drivers when we needed five. Additionally, only one driver spot was functioning on the CNC shield, which meant we could only run one motor. This motivated us to transition to the Arduino Mega Ramps 1.4 shield. The Ramps 1.4 shield has a total of five spots to run the stepper motors since it is designed for 3D printers, three for a 3-axis gantry and two for the extruders. We used all five spots for the stepper motors.</p>
+								</div>
+								<div id="testing">
+									<h2>TESTING ADDITIONAL ELECTRONICS</h2>
+									<p>We also started testing the Time-of-Flight sensor, which was meant to measure the height of the liquid to prevent the cup from overflowing. We found that the sensor performed quite well with liquids regardless of color when we tested it with a coffee base then added milk to change the color. However, the values would fluctuate within a range of ~5mm.</p>
+									<p>We learned that the stepper drivers had adjustable potentiometers that helped prevent them from burning out by limiting the amount of current that ran through them, so we adjusted them accordingly such that each stepper motor would only run at 1A. We encountered an issue with the Ramps 1.4 shield, where the steppers wouldn’t move when we ran code for them. They would stay stuck in place and wouldn’t rotate freely, but once we added jumper connectors to the shield, the stepper motors were able to function since power was running properly through them.</p>
+									<p>Next, we tested the solenoid valve. The valve is bidirectional, meaning that though it has a positive and negative side for the wiring, it ultimately doesn't matter which one connects to what. A diode and mosfet were added to facilitate controlling it.</p>
+								</div>
+								<div id="final">
+									<h2>FINAL ASSEMBLY</h2>
+									<p>We then set up everything on the motor shield in an organized way. The X-axis motor was connected to the X pins, one of the Y-axis motors was connected to the Y pins, the second Y-axis motor was connected to the E0 pins, and the Z-axis motor was connected to the Z pins. We then connected the X-axis limit switch on X-min pin, the Y-axis limit switch on Y-max pin, and the Z-axis limit switch on Z-min pin. The solenoid valve was then connected to the corresponding GPIO pin on the shield.</p>
+									<p>Our Time-of-Flight sensor went missing over the break, and though we were able to find a replacement, it was not accurate enough to perform sufficiently enough for our code and ultimately, we decided to scrap it since the fluctuation of 5mm didn’t provide much precision, nor did it add much value to the project at its current state.</p>
+									<p>We then organized the wires by placing cable sleeves over the stepper motor wires, then placing the Arduino Mega with the Ramps 1.4 shield in a box.</p>
+								</div>
+								
 							</section>
 
 					</div>

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Alpha by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="landing is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li>
+						<a href="#" class="icon solid fa-angle-down">Technical</a>
+						<ul>
+							<li><a href="software.html">Firmware</a></li>
+							<li><a href="electrical.html">Electrical</a></li>
+							<li><a href="mechanical.html">Mechanical</a></li>
+						</ul>
+					</li>
+					<li><a href="financials.html">Financials</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Banner -->
+		<section id="banner">
+			<h2>M-O</h2>
+			<p>A remote controlled recreation of the robot M-O from the movie WALL-E</p>
+		</section>
+
+		<!-- Main -->
+		<section id="main" class="container">
+
+			<section class="box special">
+				<header class="major">
+					<h2>Overall Goal
+					</h2>
+					<p>Create a robot which resembles and moves around like M-O from WALL-E. <br><br></p>
+				</header>
+				<img src=" images/MOFinalMovmes.gif" width="36.8%" />
+				<img src=" images/M-OBanner.jpg" width="62.5%" style="float:left" />
+			</section>
+		</section>
+
+	</div>
+
+	</section>
+
+	<section class="box">
+		<div class="row">
+			<div class="row-6 ros-12-mobilep">
+				<h3>MVP</h3>
+				<ul>
+					<li>Resemble M-O</li>
+					<li>Fully functional remote control</li>
+					<li>Functional LED screen with eyes</li>
+				</ul>
+				<h3>Stretch Goals</h3>
+				<ul>
+					<li><mark>Movement - Arms, Head L & R</mark>, Head Up & Down</li>
+					<li><mark>Emoted animations</mark></li>
+					<li>Speaker for M-O noises</li>
+					<li>Collision prevention - lights/screen affected by proximity to objects</li>
+				</ul>
+				<p>*Highlighted sections in the strech goals were completed successfully.</p>
+			</div>
+	</section>
+
+	<section class="box special">
+		<header class="major">
+			<h2>System</h2>
+			<p>The robot's motions and actions are determined via input from a remote controller, which is then
+				sent to a motor shield and RGB Matrix Shield.
+			</p>
+		</header>
+		<span class="image featured"><img src="images/Architecture.png" alt="Architecture" /></span>
+	</section>
+
+	<section class="box special features">
+		<div class="features-row">
+			<section>
+
+				<span class="icon solid major fa-cloud accent1"></span>
+				<h3>Sprint 1 - "Box That Moves"</h3>
+				<p style="text-align:left;">Mechanical Goals:
+				<ul style="text-align:left;">
+					<li>Box with wheels</li>
+					<li>Generally matches dimensions of M-O</li>
+				</ul>
+				<p style="text-align:left;">Electrical Goals:</p>
+				<ul style="text-align:left;">
+					<li>No external power source for the robot</li>
+					<li>Generally matches dimensions of M-O</li>
+				</ul>
+				<p style="text-align:left;">Software Goals:</p>
+				<ul style="text-align:left;">
+					<li>Basic movement</li>
+					<li>Wireless remote control</li>
+				</ul>
+			</section>
+
+			<section>
+				<span class="image center"><img src="images/SPrint2.jpg" width=100 alt="" /></span>
+				<h3>Sprint 2 - "Fancier Box That Moves"</h3>
+				<p style="text-align:left;">Mechanical Goals:
+				<ul style="text-align:left;">
+					<li>Laser cut version of M-O</li>
+					<li>Head added on top of main body</li>
+					<li>Simple arms added to sides</li>
+					<li>Design remote controller</li>
+				</ul>
+				<p style="text-align:left;">Electrical Goals:</p>
+				<ul style="text-align:left;">
+					<li>Finalize all electronics used & start determining layout</li>
+					<li>Determine component configuration for remote controller</li>
+
+				</ul>
+				<p style="text-align:left;">Software Goals:</p>
+				<ul style="text-align:left;">
+					<li>16x32 Matrix - eyes blinking</li>
+					<li>Tune wireless remote control</li>
+				</ul>
+			</section>
+		</div>
+		<div class="features-row">
+			<section>
+				<span class="image center"><img src="images/Sprint3.jpg" width=100 alt="" /></span>
+				<h3>Sprint 3 - "It's a M-O"</h3>
+				<p style="text-align:left;">Mechanical Goals:
+				<ul style="text-align:left;">
+					<li>Skeleton laser-cut M-O</li>
+					<li>New head and neck design that support movement</li>
+					<li>Servo mounts for head and arms</li>
+				</ul>
+				<p style="text-align:left;">Electrical Goals:</p>
+				<ul style="text-align:left;">
+					<li>Integrate new components into electric layout</li>
+					<li>Wire remote controller</li>
+				</ul>
+				<p style="text-align:left;">Software Goals:</p>
+				<ul style="text-align:left;">
+					<li>Animate different expressions for M-O's eyes</li>
+					<li>Integrate previous wireless control into new remote controller</li>
+				</ul>
+
+			</section>
+			<section>
+				<span class="image center"><img src="images/Demo.jpg" width=100 alt="" /></span>
+				<h3>Demo - "Holy S-M-O-Kes"</h3>
+				<p style="text-align:left;">Mechanical Goals:
+				<ul style="text-align:left;">
+					<li>Exterior shell around M-O skeleton</li>
+					<li>Rounded out arms</li>
+					<li>Painting M-O shell</li>
+					<li>Adding roller between arms</li>
+				</ul>
+				<p style="text-align:left;">Electrical Goals:</p>
+				<ul style="text-align:left;">
+					<li>Clean up wiring in M-O body and controller</li>
+				</ul>
+				<p style="text-align:left;">Software Goals:</p>
+				<ul style="text-align:left;">
+					<li>Refactor code into clean libraries</li>
+					<li>Ensure radio chip integration all-around is functional</li>
+				</ul>
+			</section>
+		</div>
+	</section>
+
+	<div class="row">
+		<div class="col-6 col-12-narrower">
+			<section class="box special">
+				<h3>Firmware</h3>
+				<p style="text-align:left;">The software challenges involved writing code for various electrical
+					components, including
+					radio chips, joysticks, buttons, motor controllers, dc motors, servos, and an LED
+					Matrix.<br> <br>
+				</p>
+				<ul class="actions special">
+					<li><a href="software.html" class="button alt">Learn More</a></li>
+				</ul>
+			</section>
+		</div>
+
+		<div class="col-6 col-12-narrower">
+			<section class="box special">
+				<h3>Electrical</h3>
+				<p style="text-align:left;">The electircal challenges involved determining a chargable battery
+					to run M-O unteathered,
+					finding components for all of the implemented features M-O has in the movie, and ensuring
+					clean wiring. <br> <br></p>
+				<ul class="actions special">
+					<li><a href="electrical.html" class="button alt">Learn More</a></li>
+				</ul>
+			</section>
+		</div>
+
+		<div class="col-6 col-12-narrower">
+			<section class="box special">
+				<h3>Mechanical</h3>
+				<p style="text-align:left;">The mechanical challenges involved designing M-O's body and head in
+					order to match the movie
+					as closely as possible and
+					providing fixtures for electrical systems. <br> <br></p>
+				<ul class="actions special">
+					<li><a href="mechanical.html" class="button alt">Learn More</a></li>
+				</ul>
+			</section>
+		</div>
+
+		<div class="col-6 col-12-narrower">
+			<section class="box special">
+				<h3>Financials</h3>
+				<p style="text-align:left;">Financial information for the features that were present in the
+					final version of M-O. Parts that were acquired free of cost were included with approximated prices.
+					<br><br>
+				</p>
+				<ul class="actions special">
+					<li><a href="financials.html" class="button alt">View Budget Allocation</a></li>
+				</ul>
+			</section>
+		</div>
+
+
+		</section>
+
+
+
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

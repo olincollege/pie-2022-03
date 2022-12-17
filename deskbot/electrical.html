@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>DeskBot</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">DeskBot</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="demo.html" >Demo</a></li>
+						<li><a href="systemOverview.html" >System Overview</a></li>
+						<li><a href="mechanical.html" >Mechanical</a></li>
+						<li><a href="electrical.html"  class = "active">Electrical</a></li>
+						<li><a href="software.html" >Software and Firmware</a></li>
+						<li><a href="budget.html">Budget</a></li>
+						<li><a href="timeline.html">Timeline</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Electrical Subsystem</h1>
+							<p><b>DeskBot can be divided into 2 main subsystems that are controlled by circuits: H-Bot Gantry Circuit and Gripper and Z Axis Gantry Circuit </b></p>
+							<h2>H-Bot Gantry Circuit</h2>
+							<span class="image fit"><img src="images/xyelectrical.png" alt="" /></span>	
+	
+						<h3>H-Bot Gantry Component Details</h3>	
+						<ul>
+							<li><b>Arduino: </b>This is the microcontroller used to control the inputs and outputs of the electrical system.</li>
+
+<li><b>Stepper Motor (x2):</b> We used NEMA 17 stepper motors with a holding torque of approximately 0.33 Nm and rated current of 1A. The holding torque of the stepper motors for this system must be around or above 0.33Nm, otherwise they cannot properly drive the system. They are driven and controlled by A4988 Stepper Motor Drivers. </li>
+
+<li><b>A4988 Stepper Motor Drivers (x2):</b> The A4988 Stepper Motor Driver allows us to control the direction and steps of each stepper motor through an Arduino. The drivers can supply up to 2A of current to the stepper motor driver, thus to protect the stepper motors we adjusted them to output 0.875A, which runs the stepper motors at approximately 87.5% of its total force. </li>
+
+<li><b>Limit Switches (x4): </b>These limit switches are put on each end of the H-Bot system (-x, +x, -y, +y) to detect collisions and stop the stepper motors from moving. Having the C pin grounded, NO pin connected to a digital pin on the Arduino and the NC pin not connected, sets the limit switch to high when untouched and low when touched.</li>
+
+<li><b>Power Supply:</b> We used a 12V barrel jack power supply, however any power supply from the range of 8-35V may be used to drive this system, although the A4988 drivers may need to be re-adjusted. </li>
+</ul>
+<h2>Gripper and Z Axis Gantry Circuit</h2>
+<span class="image fit"><img src="images/zgripperElectrical.png" alt="" /></span>	
+
+<h3>Gripper and Z Axis Gantry Component Details</h3>	
+<ul>
+<li><b>Arduino: </b>This is the microcontroller used to control the inputs and outputs of the electrical system. This Arduino is different from the one used in the H-Bot Gantry System.</li>
+
+<li><b>Stepper Motor with Lead Screw:</b> This NEMA 17 stepper motor has a lead screw attached allowing for the gripper to be moved up and down. The rated current for this motor is greater, at 1.5A, than the other stepper motors in DeskBot.</li>
+
+<li><b>A4988 Stepper Motor Drivers:</b> We use the same type of chip as in the H-Bot. However, instead of calibrating it to 0.875A, we adjusted the driver to 1.2A. This provides the lead screw enough current to move the gripper up and down significantly, while still protecting it from voltage spikes.</li>
+
+<li><b>Servo: </b> The servo is attached to the gripper and allows it to open and close with significant force.</li>
+
+<li><b>IR Beam Break: </b> The beam break sensors are placed on the inside of the gripper to determine if the gripper is going to grab an object.</li>
+
+<li><b>Power Supply:</b> We used the same 12V barrel jack power supply used in the H-Bot Circuit</li>
+</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy;DeskBot.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
