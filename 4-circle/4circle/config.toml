@@ -1,4 +1,4 @@
-baseURL = "https://olincollege.github.io/pie-2022-03/4-circle/"
+baseURL = "/"
 languageCode = "en-us"
 title = "4Circle"
 themesDir = "themes"

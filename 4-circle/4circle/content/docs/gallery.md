@@ -16,6 +16,6 @@ toc = true
 
 ![Final Project Winning Move](/images/win.jpg)
 
-![Stepper Motor Close Up](/images/stepperCloseup.jpg)
+![Stepper Motor Close Up](/images/StepperCloseup.jpg)
 
 {{< youtube 2qGTjEIBQPw >}}
