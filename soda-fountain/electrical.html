@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<!-- CHANGE THE NAME OF THIS FILE TO SOFTWARE-->>
+<html>
+	<head>
+		<title>Electrical System</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="right-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1>ELECTRICAL</h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Overview</a></li>
+								<li><a href="mechanical.html">Mechanical</a></li>
+								<li><a href="software.html">Software</a></li>
+                                <li><a href="electrical.html">Electrical</a></li>
+								<li><a href="budget.html">Budget</a></li>
+							</ul>
+						</nav>
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper style1">
+					<div class="container">
+						<div class="row gtr-200">
+								<article id="main">
+                                    <p>
+                                        For this project, the Electrical Team focused on finding a way to power all four peristaltic pumps and interface the pumps 
+                                        with the Arduino. 
+                                    </p>
+									<!-- <a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a> -->
+									<header>
+										<h3>Powering the Pumps</h3>
+                                        <h4>12V Power Converter & Relays</h4>
+									</header>
+									<p>
+										The peristaltic pumps that we used required 12V of power to run. 
+                                        We chose to use a 12V power converter to run the power from the wall to the pumps. 
+                                        We were initially worried about powering all four pumps at the same time, but we realized that, 
+                                        since we were turning the pumps on one-by-one, all four of the pumps could pull from the 12V. 
+									</p>
+                                    <p>
+                                        In order to interface the pumps with the Arduino, we utilized an 8-relay power shield. 
+                                        We used four of these relays. Once the Arduino received the pump and amount information, it would 
+                                        activate the respective relay using 5V of power, which would then close the circuit to power the pump with 12V. 
+                                        Using the Arduino, we can continuously send 5V to the relay to keep the circuit closed and pumps open if necessary. 
+                                        This allowed us to decide how long to power the relay to dispense the proper amount of liquid. Furthermore, based 
+                                        on which PWM digital pin we supply power to on the Arduino, we can activate each of the four pumps individually. 
+                                    </p>
+                                    <style>
+                                        img {
+                                            float: right;
+                                            margin: 5px;
+                                          }
+                                        </style>
+                                        <div style="width: 400px; height: 200px;">
+                                            <img src="sf website images/singlerelay.JPG" style="width: inherit" />
+                                            <br></br>
+                                        </div>
+                                        <p><small><em>Hand-drawn circuit diagram for a single relay</em></small></p>
+                                        <style>
+											img {
+												float: right;
+												margin: 5px;
+											  }
+											</style>
+											<div style="width: 400px; height: 200px;">
+												<img src="sf website images/fullelectrical.JPG" style="width: inherit" />
+												<br></br>
+											</div>
+											<p><small><em>Hand-drawn circuit diagram of the entire electrical system</em></small></p>
+								</article>
+						</div>
+						<hr />
+					</div>
+				</div>
+		</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
