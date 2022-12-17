@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>Generic - Hyperspace by HTML5 UP</title>
+    <title>WALL-E - Firmware</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -20,7 +20,7 @@
 
     <!-- Header -->
     <header id="header">
-        <a href="index.html" class="title">Hyperspace</a>
+        <a href="index.html" class="title">WALL-E</a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -38,24 +38,47 @@
 
                 <h3>Overview</h3>
                 <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Write overview - talk about general logic system. </p>
+                <p>The firmware in this projected consisted of the Arduino controlling the 4 DC
+                    motors and the stepper motor.
+                </p>
 
-                <h3>Blynk</h3>
+                <h3>DC Motors</h3>
                 <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about incorporating blynk - links to documentation</p>
+                <p>The DC Motors give us the ability to control the wheels and therefore the direction and velocity
+                    of Wall-E. The Arduino sketch recieves messages through its input pins as signals. The signals
+                    recieved
+                    are from the ESP32. The signals are sent in the form of a 4 bit string, generating a usable message.
+                    The possible codes are
+                    1000,0100,0010, and 0001. Each message represents a different direction: forward, back, left, and
+                    right.
+                    The script constantly checks which signal it is receiving and updates the velocity of the wheels
+                    to match the message.
+                    1000, or forward, informs the wheels to have a positive velocity in the forward direction.
+                    0100, or backward, informs the wheels to have a positive velocity in the backward direction.
+                    0010, or left, informs the wheels on the right side to have a positive velocity in the forward
+                    direction
+                    and the wheels on the left have a positive velocity in the backward direction.
+                    0001, or right, informs the wheels on the left side to have a positive velocity in the forward
+                    direction
+                    and the wheels on the right have a positive velocity in the backward direction.
+                    With these four codes, we have complete control over the direction and velocity
+                    of the car, thanks to our firmware.
+                </p>
 
-                <h3>esp32</h3>
+                <h3>Servo Motor</h3>
                 <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about the code for the esp32. how the diagram works to read where teh joystick is - how it send
-                    information to arduino</p>
-
-                <h3>Drive and Neck</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about driving logic and neck control - both in same script</p>
-
-                <h3>Face</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about face code</p>
+                <p>The Servo Motor gives us the ability to control the direction the camera is pointed in.
+                    It utilizes the same signals as the DC motors. The code for the firmware of the stepper motor
+                    is integrated within the code of the DC motors. This was a design choice so the running time
+                    was lower and the actions were more in sync. Each time the script detects a left(0010) or
+                    right(0001)
+                    direction,
+                    the script sends a signal to the servo motor. Once the signal is recieved, the servo
+                    motor rotates 35 or -35 degrees. The servo is centered at 90 degrees. With a left signal,
+                    it rotates -35 degrees, stopping at 55 degrees. When a right signal is recieved, it rotates
+                    35 degrees, stopping at 125 degrees. When neither is detected it rotates back to 90 degrees,
+                    which is pointing straight forward.
+                </p>
             </div>
         </section>
 
