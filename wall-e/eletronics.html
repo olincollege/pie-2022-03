@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <title>Generic - Hyperspace by HTML5 UP</title>
+    <title>WALL-E - Electronics</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -20,7 +20,7 @@
 
     <!-- Header -->
     <header id="header">
-        <a href="index.html" class="title">Hyperspace</a>
+        <a href="index.html" class="title">WALL-E</a>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -32,31 +32,175 @@
     <div id="wrapper">
 
         <!-- Main -->
-        <section id="main" class="wrapper">
-            <div class="inner">
-                <h1 class="major">Electrical</h1>
+        <section id="main" class="container">
 
-                <h3>Overview</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Write overview - talk about general logic system. </p>
+            <section class="box special">
+                <header class="major">
+                    <h2>Overview for electronic integration.
+                        <br />
+                    </h2>
+                    <p>Intelligent, speedy and powerful, electronic part is the heart of WALL-E. We equipped Wall-e with
+                        two powerful dual-core esp32 processors as well as an arduino for body movement control. All
+                        movements of WALL-E could be controlled by virtual controller integrated in user's smart phone
+                        application, you may
+                        drive it around the building and gain high quility real-time video streaming send back from
+                        WALL-E remotely. For a better vision, you may also adjust horizontal angle of WALL-E's neck by
+                        smart phone controller.
 
-                <h3>Battery</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about battery</p>
+                    </p>
+                </header>
+                <video width="720" height="480" controls>
+                    <source src="images/IMG_4918.mp4" type="video/mp4">
 
-                <h3>esp32</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>talk about hardware of esp32</p>
+                    Your browser does not support the video tag.
+                </video>
+            </section>
 
-                <h3>Arduino</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about driving logic and neck control - both in same script</p>
+            <div class="row">
+                <div class="col-6 col-12-narrower">
 
-                <h3>Motorshield</h3>
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <p>Talk about face code</p>
+                    <section class="box special">
+                        <span class="image featured"><img src="images/cam.png" width="500" height="280" alt="" /></span>
+                        <h3>WIFI live streaming eyes with face recognition.</h3>
+                        <p>WELL-E's eyes are implemented based ESP32-CAM module. Program inside is developed based on
+                            the code for a web server. Once
+                            you logged into the IP for ESP32-CAM, you could adjust parameters and even enroll human's
+                            faces.
+                        </p>
+                        <ul class="actions special">
+                            <li><a href="https://github.com/Dowling7/PIE_wall-e/tree/main/CameraWebServer"
+                                    class="button alt">Learn More about the code</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="col-6 col-12-narrower">
+
+
+                    <section class="box special">
+                        <span class="image featured"><img src="images/IMG_4920.jpg" width="500" height="280"
+                                alt="" /></span>
+                        <h3>Flexible neck for a better vision</h3>
+                        <p>Our WALL-E's neck reused pan-tilt structure in mp2, it could rotate 180 degress horizontally
+                            to capture human's face.</p>
+
+                    </section>
+                </div>
             </div>
-        </section>
+
+            <div class="row">
+                <div class="col-6 col-12-narrower">
+
+                    <section class="box special">
+                        <video width="500" height="280" controls>
+                            <source src="images/IMG_4845.mp4" type="video/mp4">
+
+                            Your browser does not support the video tag.
+                        </video>
+                        <h3>Vivid facial expression while turning the head</h3>
+                        <p>The face of WALL-E could display multiple vivid expression, include look around, blink,
+                            astonished and closed eyes.
+                            It has been developed based on ssd1306 display, to present the
+                        </p>
+                        <ul class="actions special">
+                            <li><a href="face.html" class="button alt">See how we developed it</a></li>
+                        </ul>
+                        <ul class="actions special">
+                            <li><a href="https://github.com/Dowling7/PIE_wall-e/tree/main/EYES" class="button alt">Learn
+                                    More about the code</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="col-6 col-12-narrower">
+
+                    <section class="box special">
+                        <span class="image featured"><img src="images/bbd.png" width="400" height="280" alt="" /></span>
+                        <h3>Highly integrated compact body and control logic behind it</h3>
+                        <p>There's a mini world inside the body of WALL-E. A 3D printed 3-layer stack is inside this
+                            little guy's tummy. The top layer has two esp32,
+                            one is the ESP32-CAM shooting live video and send back, the other one is used as a receiver
+                            to connect user interface with body-control arduino. On the middle layer,
+                            we have the 4 usb port battery to provide power for whole structure, two ESP32 and arduino
+                            are directly plugged in the power bank.
+                            While the ssd1306 display is powered and controlled by receiver ESP32, and servo connecterd
+                            and powered by arduino. At the bottom layer,
+                            there's an arduino stacked with a adafruit motorshield, receiving data from receiver esp32
+                            and control all movements.
+                        </p>
+
+                    </section>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-12-narrower">
+
+                    <section class="box special">
+                        <span class="image featured"><img src="images/chas.jpeg" width="400" height="280"
+                                alt="" /></span>
+                        <h3>Powerful 4WD chassis </h3>
+                        <p>Atheletic and speedy, our WALL-E is 4 wheels driving sporty robot, 4 motors provide WALL-E
+                            with bettery control and 3.2kg.cm torque. It could also do
+                            drifting at full speed.
+                        </p>
+
+                    </section>
+                </div>
+
+                <div class="col-6 col-12-narrower">
+
+                    <section class="box special">
+                        <span class="image featured"><img src="images/powerbank.jpeg" width="400" height="280"
+                                alt="" /></span>
+                        <h3>Extra long endurance</h3>
+                        <p>38800mAh extra endurant battery with 5V stable output. Ensure WALL-E could exploring more
+                            than 30hr for exploration. </p>
+                        <ul class="actions special">
+                            <li><a href="battery.html" class="button alt">Learn More</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-12-narrower">
+
+                    <section class="box special">
+                        <span class="image featured"><img src="images/joy.jpg" width="300" height="280" alt="" /></span>
+                        <h3>Easy control with well-defined geometry</h3>
+                        <p>Click the button below to check out controller geometry.</p>
+                        <ul class="actions special">
+                            <li><a href="joystick.html" class="button alt">Learn More</a></li>
+                        </ul>
+                    </section>
+
+                </div>
+                <div class="col-6 col-12-narrower">
+                    <section class="box special">
+                        <video width="500" height="280" controls>
+                            <source src="images/IMG_4917.mp4" type="video/mp4">
+
+                            Your browser does not support the video tag.
+                        </video>
+                        <h3>Heavy duty with WALL-E XL</h3>
+                        <p>Thanks to our meche crew, they have made a XL body and chassis for WALL-E. This version of
+                            WALL-E XL could explore more complex
+                            environment, and more stable. Due to the high power consumption of the large body, it cannot
+                            work wirelessly, and could only work with 12V power adapter right now.
+                        </p>
+
+                    </section>
+                </div>
+            </div>
+
+
+
+
+
+
+
 
     </div>
 

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Generic - Solid State by HTML5 UP</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="index.html">Solid State</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="mechanical.html">Mechanical</a></li>
+					<li><a href="electrical.html">Electrical</a></li>
+					<li><a href="software.html">Software</a></li>
+					<li><a href="materials.html">Bill of Materials</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+					<h2>Computer Vision</h2>
+					<div class="wrapper">
+						<div class="inner">
+							<ul class="actions">
+								<li><a href="https://github.com/lhwitten/Art-Robot" class="button" target="_blank">Our
+										GitHUb
+										Repo</a></li>
+							</ul>
+							<p>All source code can be found here</a> for detailed functions and implementation.</p>
+
+						</div>
+			</header>
+
+			<!-- Content -->
+			<div class="wrapper">
+				<div class="inner">
+
+					<h3 class="major">How to run</h3>
+					<p>Here is the sketchy <a
+							href=https://github.com/lhwitten/Art-Robot/blob/main/CV/edge_detection.ipynb>ipython
+							notebook</a> for exploration of different parameter and cv functions. </p>
+					<p>To implement the edge detection script automatically, run python <a
+							href="https://github.com/lhwitten/Art-Robot/blob/main/CV/edge_detection.py">edge_detection.py</a>
+						[image_file_path] in terminal. The file path is optional: If no file path given, the script
+						would start the camera system and ask the user to take a picture with space key.</p>
+
+					<p>To convert the generated edges to G-code convertible commands, run python <a
+							href="https://github.com/lhwitten/Art-Robot/blob/main/CV/generate_command.py">generate_command.py</a>
+						[binary_image_path] in terminal.</p>
+
+					<h3 class="major">Techniques In Image Processing</h3>
+					<p>There are several techniques utilized in the cv process, especially for a low-resolution image.
+						One issue with low resolution/ poor lighting image is the uneven background. Here is an example:
+						<img src="images/group_original.png" alt="original group photo" class="center">
+
+					</p>
+
+					<p>To deal with that, we could first increase the brightness: The bgr image (opencv default image
+						channel) is first converted to hsv color space, then we could increase the v (value) channel
+						then convert back to bgr to increase the brightness:
+						<img src="images/group_bright.png" alt="brighter group photo" class="center">
+					</p>
+
+					<p>Then we need to turn the image to grayscale, grayscale is required for a majority of openCV
+						operations.
+					</p>
+
+					<p>Now we can see the noises in the background and the points would look disconnected. There is a
+						built in function called Canny in openCV which is an edge detection algorithm based on change in
+						contrast. If we just use Canny:
+						<img src="images/canny.png" alt="brighter group photo" class="center">
+						Well, it doesn't look so right, does it?
+					</p>
+
+					<p>So we continue with our customized edge detection process:
+					<ul>
+						<li> First we need to dilate the image: Dilation is a morphological transformation used to
+							increase the size or thickness of the foreground object in an image. In most cases, dilation
+							is used to connect two broken objects of an image. Which is just the use case in our case if
+							we look at the edges from Canny.
+						</li>
+						<li>We save the difference between dilated and the original gray image – we only save what’s in
+							the front.
+						</li>
+						<li>Then we need to deal with the noisy background! We could apply a gaussian filter where it
+							blurs the image and therefore make the difference due to lighting innoticable and not
+							detected.
+						</li>
+						<li>Next we could find the difference between the product of blurring and the dilated image.
+						</li>
+						<li>Finally we normalize the image to increase the contrast of the output edge image:
+						</li>
+						<img src="images/final.png" alt="brighter group photo" class="center">
+					</ul>
+					It looks so much better now! We could also explore with different openCV functions and its
+					parameters (like kernel sizes) in the jupyter notebook.
+					</p>
+
+
+					<h3 class="major"> Edges to G-code</h3>
+					<p>Now we have the binary image which contains the edges, how can we convert lines to motor
+						movements?
+					</p>
+					<ul>
+						<li>We first need to convert the binary image into a list of pixel coordinates in x and y. This
+							can be achieved by numpy.where, because a binary image is a matrix of x * y where mat[x][y]
+							represents if pixel point (x,y) is black or white.</li>
+						<li>Once we have all the coordinates that should be drawn, we scale them so that the image does
+							not exceed the boundary of the drawing bot. We find the largest difference in x and y and
+							choose one axis as boundary to be scaled (depends on how we could keep the most of our
+							image)
+						</li>
+						<li>Then we group all the coordinates into groups of lines where all the coordinates in one list
+							would be on the same line/ curve. This is done by setting arbitrary thresholds: if 2 points
+							are 10 units apart in both axises, they do not belong to the same line.
+						</li>
+						<li>Next we find the bezier curve for each of the line, because the parsing SVG to G-code
+							functions take straight lines and bezier curves. This is done by a series of line fitting
+							and transformation functions (math).
+						</li>
+						<li>Now we could save the commands in a file to be converted to G-code!
+						</li>
+					</ul>
+
+
+
+				</div>
+
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.scrollex.min.js"></script>
+				<script src="assets/js/browser.min.js"></script>
+				<script src="assets/js/breakpoints.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

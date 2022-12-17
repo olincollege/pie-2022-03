@@ -46,18 +46,29 @@
         <section id="main" class="container">
             <header>
                 <h2>Firmware</h2>
-                <p>Firmware and code for M-O. Check out our <a href="https://github.com/olincollege/mo">Git Repo to view the full source code!</a></p>
+                <p>Firmware and code for M-O. Check out our <a href="https://github.com/olincollege/mo">Git Repo to view
+                        the full source code!</a></p>
             </header>
             <div class="box">
                 <div class="row">
                     <div class="row-6 ros-12-mobilep">
                         <h3>Overall Firmware Architecture</h3>
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform aln-center">
+                                <div class="col-4"><span class="image fit"><img src="images/Software-1.jpg"
+                                            alt="" /></span></div>
+                                <div class="col-4"><span class="image fit"><img src="images/Software-2.jpg"
+                                            alt="" /></span></div>
+                            </div>
+                        </div>
+
                         <p>We created an Arduino library, Mo_Lib, to hold all of our code. This library contained two
                             main classes: Robot and Controller. These hold all of the variables and functions for the
                             robot and controller respectively. The robot class contains functions for receiving radio
                             messages as well as functions for controlling both the body and head of the robot. The
                             controller class contains functions for reading the input from the joystick and buttons then
                             sending this info via radio to the robot.
+                            <br><br>
                         </p>
                     </div>
                 </div>
@@ -75,6 +86,7 @@
                             calcMotorSpeeds() that converts the joystick value into a speed for each of the motors to
                             drive at, which can be positive or negative based on the direction. Finally,
                             setMotorSpeeds() tells the four motors to drive at the calculated speeds.
+                            <br><br>
                         </p>
 
 
@@ -82,11 +94,13 @@
                         <p>The code for moving the head is split between a few functions. It reads data from the right
                             joystick in the controller and sends it via the same method that the drivebase motion is
                             sent.
+                            <br><br>
                         </p>
                         <p>However, instead of affecting the speed of the head - which is a relatively top heavy object
                             - the X input to the joystick's direction is taken and the head is moved in that direction
                             for the duration that the joystick sends input in that direction. This is done by calling
                             the step_left() and step_right() functions depending on the joystick reading.
+                            <br><br>
                         </p>
 
                         <h4>Arm</h4>
@@ -95,9 +109,11 @@
                             controlled by two buttons - one to move it down and one to move it up. Data from all six
                             buttons on the robot are sent as a bitstring and the first two of these represent whether
                             the “arm up” and the “arm down” buttons are being pressed.
+                            <br><br>
                         </p>
                         <p>Based on the direction, the arm movement is then completed by calling the same functions as
                             the head to step the arm, with it moving up/down as opposed to left/right.
+                            <br><br>
                         </p>
                     </div>
                 </div>
@@ -110,6 +126,7 @@
                         <h4>LED Matrix</h4>
                         <p>The LED matrix is used to represent M-O's face and displays his various different
                             expressions.
+                            <br><br>
                         </p>
                         <p>When initially exploring what to use for M-O's face panel, we looked at various types of
                             Neopixel and LED screens where we found that either the price, quality, or size were not
@@ -124,6 +141,7 @@
                         </ul>
                         <p>Based on this criteria, we settled on a 16x32 pixel LED Matrix with the RGB Matrix Shield
                             from Adafruit.
+                            <br><br>
                         </p>
                         <span class="image fit"><img src="images/Matrix-1.png" alt="Matrix 1" /></span>
                         <p>We started by coding the following functions to display basic expressions on the RGB Matrix:
@@ -137,35 +155,53 @@
                             <li>angry_eyes() - Angled eyes that appear mad</li>
                         </ul>
                         <p> All of the expressions were based off clips from the movie itself:
+                            <br><br>
                         </p>
-                        <div class="row">
-                            <div class="column">
-                                <img src="Matrix-2.png" alt="Matrix-2" style="width:100%">
-                            </div>
-                            <div class="column">
-                                <img src="Matrix-3.png" alt="Matrix-3" style="width:100%">
+
+
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform aln-center">
+                                <div class="col-7"><span class="image fit"><img src="images/Matrix-2.png"
+                                            alt="" /></span></div>
+                                <div class="col-7"><span class="image fit"><img src="images/Matrix-3.png"
+                                            alt="" /></span></div>
                             </div>
                         </div>
 
                         <p>Since we wanted to make two animations for M-O - one happy and one angry - we wrote two
                             functions happy_animation() and angry_animation() that cycle through some of the expressions
-                            at varying rates. </p>
-                        <div class="row">
-                            <div class="column">
-                                <img src="Matrix-5.gif" alt="Matrix-5" style="width:100%">
-                            </div>
-                            <div class="column">
-                                <img src="Matrix-4.gif" alt="Matrix-4" style="width:100%">
+                            at varying rates. <br><br> </p>
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform aln-center">
+                                <div class="col-7"><span class="image fit"><img src="images/Matrix-5.gif"
+                                            alt="" /></span></div>
+                                <div class="col-7"><span class="image fit"><img src="images/Matrix-4.gif"
+                                            alt="" /></span></div>
                             </div>
                         </div>
 
                         <p>Finally, we connected the radio chip to the matrix shield and used inputs from the controller
                             to call the various expressions and animations.
+                            <br><br>
                         </p>
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform aln-center">
+                                <div class="col-7"><span class="image fit"><img src="images/Matrix-6.gif"
+                                            alt="" /></span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://github.com/olincollege/mo" class="icon brands fa-github"><span
+                                class="label">Github</span></a></li>
+                </ul>
+            </footer>
         </section>
 
     </div>
