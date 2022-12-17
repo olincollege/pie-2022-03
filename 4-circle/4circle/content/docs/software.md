@@ -26,7 +26,7 @@ However, raw Negamax is a fairly inefficient algorithm that repeats many calcula
 ### Alpha Beta Pruning
 Alpha beta pruning is one of the classic optimizations made to the Minimax/Negamax algorithm that seeks to decrease the number of nodes explored. It does this by not exploring, or "pruning" parts of the game tree that wouldn't have been relevant to the final path because one player already had a better move available.
 
-![Alpha Beta Pruning Example](/images/pruned.png)
+![Alpha Beta Pruning Example](pie-2022-03/4-circle/4circle/public/images/pruned.png)
 
 This example tree shows pruned nodes in green; looking at the left side on the second level, we can see that if the blue opponent, which is seeking to minimize our score, picks its left child, we can force a score of 5. As we explore its right child, we see we can force an 8. At this point, the algorithm realizes that the blue player would never choose this right path - it is guaranteed a 5 if it goes down the other path, where as it now knows that this one will always be 8 or higher. 
 

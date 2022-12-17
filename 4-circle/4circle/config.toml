@@ -29,7 +29,7 @@ summaryLength = 30
 
 [params]
   google_analytics_id=""
-  homepage_button_link = '/docs'
+  homepage_button_link = '/docs/pie-2022-03/4-circle/4circle/public'
   homepage_button_text = 'Learn More'
   homepage_intro = '4Circle is a Connect 4 Player built with Go and Arduino that can play against a human player on a physical board'
   homepage_image = '/images/cover.png'
