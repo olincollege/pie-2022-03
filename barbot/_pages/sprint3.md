@@ -6,8 +6,14 @@ permalink: /implementation/sprint3/
 Since the parasaltic pumps were still not fully implemented, getting the pumps working properly was pretty high on our priority. At the same time, we recognized that the breadboard implementation of the motor driver board was very space inefficient - therefore, we decided to create a solution that would reduce the amount of space taken by the motor drivers and their respective wires. We also attempted to refactor the code to reduce the need for the large hardcoded chunks that control the drink choices; however, we were unable to do so successfully within the time frame.
 
 ## Mechanical: 
- 
-_pump design and case integration_
+
+ [![Barbot video](https://img.youtube.com/vi/G8sWiNPnhAg/0.jpg)](https://www.youtube.com/shorts/G8sWiNPnhAg)
+
+This sprint we completely redesigned the pumps from the ground up out of materials that don’t run the risk melting from the temperatures of the motors. Our electrical team utilized the enable / disable pin to further minimize heating on the motors. By redesigning we were able to easily change parts in our modular pump design through the use of rapid prototyping on the laser cutter. We resolved motor shaft engagement by purchasing a machined part that allowed us to connect our central hub to the entire shaft. Furthermore, increased tolerances allowed for more effective use of our ball bearings, further reducing friction. This design allowed us to better pump water through our system.
+
+![Pumps Rev 2](/pie-2022-03/barbot/images/pump_rev2.png)
+
+_Figure 1: Image of the redesigned pump._
 
 ## Electrical: 
 

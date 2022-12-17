@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>DeskBot</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">DeskBot</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="demo.html" >Demo</a></li>
+						<li><a href="systemOverview.html" >System Overview</a></li>
+						<li><a href="mechanical.html" class = "active">Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="software.html" >Software and Firmware</a></li>
+						<li><a href="budget.html">Budget</a></li>
+						<li><a href="timeline.html">Timeline</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">DeskBot</h1>
+							<h2>XY H-Bot</h2>
+							<iframe src="https://sketchfab.com/models/987be64de52947d0b28fee0f7af6c9ea/embed" width="100%" height="400" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>
+							<h3>How does it work?</h3>
+
+							<main class='main' style=" display: flex; justify-content: center; align-items: center;">
+
+								<section class='left section' style="width: 1000px">
+							  
+									<p>Unlike an ordinary XY gantry in which each axis is controlled independently by two motors, an H-Bot gantry design incorporates both motors into the motion of the carriage. This means that, by altering the magnitude and direction of torque on the motors, the carriage can be moved in any direction within the XY plane. When the two motors run in opposite directions at the same speed, the carriage will translate linearly towards/away from the motors. When the motors are run in the same direction, the carriage will translate linearly from side to side. </p>
+							  
+								</section>
+								<section class='right section'>
+									<video controls muted   style="width: 50%;
+									height: 56.25%; margin-left: 20.875%;">  
+										<source src="images/diagonal.MOV" type="video/mp4">  
+									</video>
+								</section>
+								</main>
+					
+					<h3>How is it better?</h3>
+					<p>In the case of a traditional gantry system, one of the motors must be driven by the other. This leads to disproportionate load on one of the motors and can lead to imbalances that require secondary motors to run in parallel to support movement. Oppositely, the H-Bot motors split all loads evenly which prevents uneven wear and misalignment of motors. </p>
+					<h3>Design and Material Choices</h3>
+					<p>As the name suggests, the H-Bot design uses one continuous belt that is shaped into an “H”. Our deskbot dimensions were fabricated to 750mm x 750mm, which meant that approximately 4500mm of continuous belt was required. This necessitated some careful design considerations in order to prevent friction from building and stalling the motors. The two main ways in which we reduced this friction were pulleys and a belt tensioner. Every bend of the belt is held by a pulley: this includes two driven pulleys on the motors and six idler pulleys on the rest of the bends within the system. Once we had manually tightened the belt, we also made use of a belt tightener on one of our pulleys that would extend the belt length incrementally in order to maintain a taught belt. </p>
+					<p>Our main material usage for the gantry was aluminum and plastic filament. We made use of aluminum v-slot 20x20 extrusion for the frame of the gantry, which both provided us with strong axial support and also gave us a linear groove that our gantry carriage used to roll in both dimensions. The cavity within the v-slot extrusion also allowed us to hide the belt within the channel along the lengths of the bar underneath the wheels. This allowed us to mount the motor and exterior pulley mounts direction off of the v-slot extrusion and have the belt wrap around both sides. The majority of remaining pieces required for the gantry system had to accomplish two objectives: minimize added weight since the carriage, gripper, and lead screw motor will already be a heavy payload to move around, and be able to organically connect rail, wheels, and pulleys. It became clear that, given our limited budget and specific requirements, 3D printing would offer us the best performance and results. </p>
+					<h3>Setbacks and Limitations</h3>	
+					<div style="float: right; margin: 0 30px 0 15px;">
+						<span class="image fit"><img src="images/wobble.gif" alt="" style="width: 14vw; min-width: 100px;"/></span>	</div>
+					<p>Despite the general success of our H-Bot gantry system, there were several setbacks and limitations that we discovered as we attempted to fabricate and test our system. One important difficulty that plagues nearly all H-Bot style gantry systems is stabilizing lateral motion. More specifically, the tolerances on the wheels on the rail had to be extremely precise (±0.1mm). If the riding wheels were slightly too close together on the rail, the compression forces between the rail, wheels, and the wheel's internal bearings would lead to increased friction that would introduce sliding friction. This would greatly inhibit the motion capabilities of our gantry and, given the total area coverage of our gantry, likely stall our motors. On the other hand, if the wheels were too far apart, the rail would run extremely smoothly through the wheels but would shift between the two sets and would become unconstrained rotationally, allowing for a certain degree of wobble within the system. For up and down motion of the center bar, this provided no issues as the belt simply provided a balanced, single directional force in the direction of motion. However, lateral motion in H-Bot systems requires the belt to move in opposite directions below and above the carriage bar. Simply put, this means that the force of the belt on the diagonal pulleys within the central carriage base yields both a lateral translational motion and also a net torque. If the wheelbase tolerances are not extremely precise, significant wobble within the beam can occur, leading to less-than-ideal slanted motion. 
+					</p>
+					<h3>Potential Iterations</h3>
+					<p>Given a larger budget or more time, there are several iterative improvements that we wish we could’ve made. One of the major improvements is replacing roller motion with linear bearing sliders. These would introduce two significant improvements: firstly, rolling resistance on linear bearing sliders is far lower than on wheel rollers. This would produce a far smoother motion with lower total friction along the entirety of the gantry. Secondly, due to the nature of linear sliders sitting within a notch in the rail as opposed to on the surface like with wheels, issues of wobble would be significantly reduced because the bar could not rotate about the wheelbase. Another major improvement deals with the ways in which the pulleys (and wheels) are constrained. Currently, they are just held between two plates of material with a screw going through the center of both. This means that, upon rotation, friction is created on both bearing faces. We attempted to use washers to overcome this issue, but the diameter of the washers was greater than that of the internal bearing, and so friction still continued. If we were given more time, we could’ve fabricated smaller washers that could minimize the friction generated on these faces and on the belt in general. 
+					</p>
+					<h2>Gripper</h2>
+					<iframe src="https://sketchfab.com/models/e557c208524140b4823a71b232c1ddca/embed" width="100%" height="400" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>
+
+										<h3>Carriage System (Z Motion)</h3>
+										<p>The carriage uses wheels to move the gripper along the x-axis. Also attached to it is a clamp that fastens down onto the belt. This accomplishes two things: it keeps the tension of the belt on the h-bot, and it pulls the entire carriage along the x-axis.</p>
+					<p>The gripper mechanism is able to move along the z-axis using a threaded nut attached to a lead screw on a stepper motor. Due to our limited budget, we only purchased one lead screw. We did not want it to screw through the center of the gripper, but offsetting it would cause the system to rotate about the z-axis. We solved this issue by adding a support bar that limited gripper movement in the x and y directions. The edges of the holes are rounded to limit friction between the bar and the support piece. Both the lead screw/stepper and the support bar fasten to the bottom of the carriage.</p>
+					<iframe src="https://sketchfab.com/models/718c4deac8b247faabe1a87361e56c8a/embed" width="100%" height="400" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>
+
+					<h3>Gripping Mechanism</h3>
+					<iframe src="https://sketchfab.com/models/aae69f6d9af340b18c6d5357377bf392/embed" width="100%" height="400" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>
+
+					<p>The gripping mechanism consists of a linkage system and the grippers slide along carbon fiber rods. The middle linkage (a custom servo horn) translates rotational motion of the servo into linear motion of the grippers. </p>
+					<p>One issue we ran into was that as the servo horn rotated, it moved the other linkages outside of the frame - so a large section of the frame had to be removed for the grippers to close. As a result, our frame was more flimsy since there was a greater force being applied over a smaller cross-sectional area. To fix this, we added a bar that was clear of the way of the linkage system while supporting weight on the frame. </p>
+					<p>At the bottom of the grippers, foam is attached so that they could slightly form around the object they are picking up. There is also an indented section at the bottom for the beam break sensors to fit into without hitting objects being picked up.</p>
+					<h3>Camera Mount</h3>
+					<iframe src="https://sketchfab.com/models/13b071a3cf2c4313ad029f2bd117ef52/embed" width="100%" height="400" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0"></iframe>
+
+					<p>The camera is centered above and in front of the frame of the gripping mechanism.
+					</p>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
