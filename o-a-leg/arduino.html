@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>ArtBot</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="index.html">ArtBot</a></h1>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <div class="inner">
+                <h2>Menu</h2>
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mechanical.html">Mechanical</a></li>
+                    <li><a href="electrical.html">Electrical</a></li>
+                    <li><a href="software.html">Software</a></li>
+                    <li><a href="materials.html">Bill of Materials</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </nav>
+
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header>
+                <div class="inner">
+                    <h2>Arduino Firmware</h2>
+                    <!-- <p>Phasellus non pulvinar erat. Fusce tincidunt nisl eget ipsum.</p> -->
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+                    <ul class="actions">
+                        <li><a href="https://github.com/lhwitten/Art-Robot" class="button" target="_blank">Our GitHUb
+                                Repo</a></li>
+                    </ul>
+
+                    <p>The Arduino Uno receives generated G-code commands from the Python script through a serial
+                        connection with the python package pyserial. The commands are sent one character at a time and
+                        stored in a string. Once the Arduino detects that it has received the end of the message, it
+                        parses through the message to separate all the commands it contains, and then acts on those
+                        commands.This is what a few lines of G-Code look like:</p>
+                    <ul class="alt">
+                        <li>Z0;</li>
+                        <li>G3;</li>
+                        <li>G1 X100 Y50 Z1;</li>
+                        <li>G0 X400 Y250;</li>
+                    </ul>
+
+                    <!-- <div class="row"> -->
+                    <!-- <div class="col-6 col-12-medium"> -->
+                    <h4>How does the Arduino interpret these commands?</h4>
+                    <ul>
+                        <li>G1 and G0 - These commands tell the Arduino that it needs to move in a straight
+                            line to the coordinates that follow it in the message.</li>
+                        <li>X and Y - The numbers after X and Y are the coordinates that the marker needs to
+                            move to. The motors always move the carriage in a straight line using
+                            Bresenham's line algorithm. For curves, ArtBot simply separates the curve into
+                            many small segments.
+                        </li>
+                        <li>Z - The Z command controls the height of the pen. Z0 lifts both markers, Z1
+                            lowers the left marker, and Z2 lowers the right marker.</li>
+                        <li>G3 - This command “homes” the marker. This means that it resets the marker to
+                            the position (0,0) by moving it in the x-direction until it hits a limit switch
+                            on the end of the x-axis, and then moving it in the y-direction until it hits a
+                            limit switch at the end of the y-axis. The pen will end up in the top rightmost
+                            corner of the paper. This command allows us to keep track of the current
+                            position of the markers and to scale drawings to fit in the drawing area.
+                        </li>
+                        <li>; - A semi-colon tells the Arduino that the message is over. This is very
+                            important because the Arduino can only store up to 64 bytes of information in
+                            its serial buffer, so if does not clear the string that contains the previous
+                            message after every time it processes the commands it would run out of space
+                            very quickly and would not be able to receive or process any new messages.</li>
+                    </ul>
+
+                    <!-- </div> -->
+
+                    <p> After the Arduino has processed the message and ran all the corresponding commands, it
+                        notifies
+                        the Python script that it is ready to receive another message. This is necessary because
+                        otherwise the Python script would keep sending the Arduino messages while it is still
+                        running
+                        previous commands and before it has cleared its serial buffer. This double-ended
+                        communication
+                        allows ArtBot to run without needing any delays, which results in a fast drawing
+                        process!</p>
+
+
+                    <p>Pictured below is the main loop in the Arduino code, which is where the Arduino receives new
+                        messages and acts on them. Our complete and fully documented Arduino code can be found in our
+                        GitHub repository.</p>
+                    <div class="box alt">
+                        <div class="row gtr-uniform">
+                            <div class="col-7"><span class="image fit"><img src="images/loop.jpg" alt="" /></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <section id="footer">
+                        <div class="inner">
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Scripts -->
+                <script src="assets/js/jquery.min.js"></script>
+                <script src="assets/js/jquery.scrollex.min.js"></script>
+                <script src="assets/js/browser.min.js"></script>
+                <script src="assets/js/breakpoints.min.js"></script>
+                <script src="assets/js/util.js"></script>
+                <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

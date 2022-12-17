@@ -3,6 +3,7 @@ title = "Electrical Design"
 description = "How was our system electrical designed and controlled?"
 date = 2022-12-16T01:00:56-05:00
 toc = true
++++
 ## Breakdown
 Our electrical system consisted of: 
 * A4988 Stepper motor driver
@@ -21,7 +22,7 @@ For our processing units the main power we used came from the raspberry pi AC/DC
 
 ## Electrical Diagram
 
-![Electrical Diagram](/static/images/4circle_eschematic)
+![Electrical Diagram](/images/4circle_eschematic.png)
 
 ## The Math and Code Behind the System
 As with many things in order to contructed our system we had to heavily rely on math.
@@ -30,7 +31,7 @@ As with many things in order to contructed our system we had to heavily rely on 
 Stepper motors are called stepper motors because they are designed to move in discrete steps that allows for postion control and speed control. In order to know how many steps we had to move from column to column we had to find the distance the stepper motor moved our dispensing tower each step. In order to do this we gave the stepper motor a random amount of steps to sweep through and then we measured the distance it traveled. Since we knew the distance we just had to divide this distance by the random stepper number to find the inches per step. Once knowing this we measured the distance between the center of each column. Now we could divide the: (inches per column)/(inches per step) to find the steps per column. 
 We indexed our columns at 1 to represent the column 1 as the most left and column 7 as the most right.
 
-![Numbered Columns](/static/images/numbered_col.png)
+![Numbered Columns](/images/numbered_col.png)
 
 To move to any column, in our arduino code we would take in the column number that the algorithm would tell us and subtract that from our current column number to get the difference. If the difference was positive that would mean that given column is farther right on the board and we would have to move CW. If the difference was negative, would know that the column was further to the left so we would have to rotate the stepper motor counter clockwise. By multipying the difference with the steps per column, our stepper motor would be able to move to any column given by the algorithm.
 
