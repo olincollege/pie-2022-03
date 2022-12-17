@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+	<head>
+		<title>Software System</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="right-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1>SOFTWARE</h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Overview</a></li>
+								<li><a href="mechanical.html">Mechanical</a></li>
+								<li><a href="software.html">Software</a></li>
+								<li><a href="electrical.html">Electrical</a></li>
+								<li><a href="budget.html">Budget</a></li>
+							</ul>
+						</nav>
+				</div>
+
+			<!-- Main -->
+				<div class="wrapper style1">
+					<div class="container">
+						<div class="row gtr-200">
+							<!-- <div class="col-8 col-12-mobile" id="content"> -->
+								<article id="main">
+									<p>
+										The software team focused on creating the graphical user interface (GUI) and the Arduino code to control the pumps. 
+									</p>
+									<p>
+										For both the Python GUI code and Arduino valve control code, go to <a href="https://github.com/nsacks2905/PIE2022/tree/main/SodaMachine">this Github folder.</a>
+									</p>
+									<style>
+										img {
+											float: right;
+											margin: 5px;
+										}
+									</style>
+									<div style="width: 600px; height: 500px;">
+										<a href="#" class="image featured"><img src="sf website images/gui.JPG" alt="" style="width: inherit"/></a>
+									</div>
+									<p><small><em>Our GUI, ran from a Python script</em></small></p>
+									<header>
+										<h3>Creating the User Interface</h3>
+										<h4>Liquid Crystal Display (LCD)</h4>
+									</header>
+									<p>The software portion of this project consisted largely of creating the graphical user interface.</p>
+									<p>
+										From the start, the group knew that we wanted to utilize a user interface (UI) from which the user could 
+										decide what drinks and how much to pour. Since our software team wanted to learn how to work with Raspberry 
+										Pi during this project, we initially decided to display the UI on a 4.5 inch LCD, which was plugged into the 
+										Raspberry Pi. In this manner, the GUI could be coded in Python using the Raspberry 
+										Pi and displayed compactly. However, our software team ran into issues with troubleshooting and getting the LCD 
+										to work as intended. For the sake of time and sanity, we decided to switch over to displaying the GUI using 
+										a laptop.
+									</p>
+									<section>
+										<header>
+											<h4>Python's Tkinter Library</h4>
+										</header>
+										<p>
+											To create the GUI, we used Python's Tkinter library. This library makes building a GUI much simpler and 
+											includes helpful methods for displaying and coding the effect of buttons, dropdown menus, and much more. 
+											With the help of Tkinter, we were able to create a GUI that could be run from the laptop's terminal. 
+											This GUI provides the user with the ability to choose from four drinks and to choose how much of each 
+											drink to be dispensed. It also includes a RESTART button and textbox that displays what has been selected so far. 
+										</p>
+										<p>
+											Since our software team felt that controlling the peristaltic pumps through the Arduino IDE would be simpler, 
+											they decided to send the information—the pump and amount to dispense—to the Serial port from the GUI. 
+											The Arduino could then read from the Serial port and extract the desired information. 
+										</p>
+									</section>
+									<section>
+										<header>
+											<h3>Controlling the Pumps with Arduino</h3>
+										</header>
+										<p>
+											The Arduino directly controlled the four peristaltic pumps by sending low or high power to the respective PWM digital pin. 
+											The code split up the information received from the Serial port into a more manageable manner and made note of which 
+											information corresponded to the pump number and the amount to dispense. 
+										</p>
+										<p>
+											Inside of the Arduino code, there were calculations to determine the length of time to open the valve for. 
+											In prior tests, we measured the flow rate of the pumps and accounted for that in our calibration equation. 
+											Once the Arduino separated the data, it opens one pump after another. 
+										</p>
+										<style>
+										img {
+											float: left;
+											margin: 5px;
+										  }
+										</style>
+										<div style="width: 400px; height: 300px;">
+											<img src="sf website images/arduino code.JPG" style="width: inherit" />
+											<!-- <br></br> -->
+										</div>
+										<p><small><em>Snippet of Arduino code that reads the data from the Serial port and separates it into groups.</em></small></p>
+									</section>
+								</article>
+						</div>
+						<hr />
+					</div>
+				</div>
+		</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
