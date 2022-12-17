@@ -58,22 +58,15 @@
             <div class="wrapper">
                 <div class="inner">
 
-                    <h3 class="major">Lorem ipsum dolor</h3>
-                    <p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean
-                        tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex
-                        tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas
-                        sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt
-                        bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo.
-                        Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-                        Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+                    <h3 class="major">Introduction</h3>
+                    <p>Our team successfully built up an interactive software system to convert images to stepper motor movements. </p>
 
-                    <p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem.
-                        Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu
-                        faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec
-                        commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit.
-                        Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec
-                        felis elementum varius.</p>
+                    <p>The computer vision algorithm would convert any given image, or what it sees from the camera, to a binary image consists of only edges. Then such binary files would be converted to commands that is convertible to G-code commands.</p>
 
+                    <p>There is a python script that turns the commands generated from computer vision, and any SVG image, to a G-code files which could tell the motors where to go and pen lifting. It also supports auto and customized scaling for SVG </p>
+
+                    <p>A bilateral serial communication is built between the python code and arduino which sends G-code commands only after the previous one is completed.</p>
+                    <p>The arduino firmware would take in the strings of G-code command and interprates it to stepper movements: servo movements to lift and lower the pen, resetting pen to origin, and move to any position as commanded.</p>
                     <h3 class="major">Software Dependencies</h3>
                     <ul>
                         <li>
