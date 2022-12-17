@@ -50,8 +50,14 @@
 			<header>
 				<div class="inner">
 					<h2>Computer Vision</h2>
-					<p>All source code can be found <a href="https://github.com/lhwitten/Art-Robot/tree/main/CV">
-							here</a> for detailed functions and implementation.
+                    <div class="wrapper">
+                        <div class="inner">
+                            <ul class="actions">
+                                <li><a href="https://github.com/lhwitten/Art-Robot" class="button" target="_blank">Our GitHUb
+                                        Repo</a></li>
+                            </ul>
+					<p>All source code can be found here</a> for detailed functions and implementation.</p>
+                    
 				</div>
 			</header>
 
@@ -60,93 +66,65 @@
 				<div class="inner">
 
 					<h3 class="major">How to run</h3>
-					<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean
-						tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex
-						tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas
-						sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt
-						bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo.
-						Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-						Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+					<p>Here is the sketchy <a href = https://github.com/lhwitten/Art-Robot/blob/main/CV/edge_detection.ipynb>ipython notebook</a> for exploration of different parameter and cv functions.  </p>
+                    <p>To implement the edge detection script automatically, run python <a href="https://github.com/lhwitten/Art-Robot/blob/main/CV/edge_detection.py">edge_detection.py</a> [image_file_path] in terminal. The file path is optional: If no file path given, the script would start the camera system and ask the user to take a picture with space key.</p>
 
-					<p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem.
-						Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu
-						faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec
-						commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit.
-						Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec
-						felis elementum varius.</p>
+					<p>To convert the generated edges to G-code convertible commands, run python <a href="https://github.com/lhwitten/Art-Robot/blob/main/CV/generate_command.py">generate_command.py</a> [binary_image_path] in terminal.</p>
 
-					<h3 class="major">Vitae phasellus</h3>
-					<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat.
-						Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem
-						lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+					<h3 class="major">Techniques In Image Processing</h3>
+					<p>There are several techniques utilized in the cv process, especially for a low-resolution image.
+                        One issue with low resolution/ poor lighting image is the uneven background. Here is an example: 
+                        <img src="images/group_original.png" alt="original group photo" class="center">
+    
+                    </p>
 
-					<section class="features">
-						<article>
-							<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-							<h3 class="major">Sed feugiat lorem</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus
-								ultrices.</p>
-							<a href="#" class="special">Learn more</a>
-						</article>
-						<article>
-							<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-							<h3 class="major">Nisl placerat</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus
-								ultrices.</p>
-							<a href="#" class="special">Learn more</a>
-						</article>
-					</section>
+                    <p>To deal with that, we could first increase the brightness: The bgr image (opencv default image channel) is first converted to hsv color space, then we could increase the v (value) channel then convert back to bgr to increase the brightness:
+                        <img src="images/group_bright.png" alt="brighter group photo" class="center">
+                    </p>
 
-				</div>
-			</div>
+                    <p>Then we need to turn the image to grayscale, grayscale is required for a majority of openCV operations.
+                    </p>
 
-		</section>
+                    <p>Now we can see the noises in the background and the points would look disconnected. There is a built in function called Canny in openCV which is an edge detection algorithm based on change in contrast. If we just use Canny:
+                        <img src="images/canny.png" alt="brighter group photo" class="center">
+                        Well, it doesn't look so right, does it?
+                    </p>
 
-		<!-- Footer -->
-		<section id="footer">
-			<div class="inner">
-				<h2 class="major">Get in touch</h2>
-				<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce
-					tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in
-					tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-				<form method="post" action="#">
-					<div class="fields">
-						<div class="field">
-							<label for="name">Name</label>
-							<input type="text" name="name" id="name" />
-						</div>
-						<div class="field">
-							<label for="email">Email</label>
-							<input type="email" name="email" id="email" />
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="4"></textarea>
-						</div>
-					</div>
-					<ul class="actions">
-						<li><input type="submit" value="Send Message" /></li>
-					</ul>
-				</form>
-				<ul class="contact">
-					<li class="icon solid fa-home">
-						Untitled Inc<br />
-						1234 Somewhere Road Suite #2894<br />
-						Nashville, TN 00000-0000
-					</li>
-					<li class="icon solid fa-phone">(000) 000-0000</li>
-					<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-					<li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-					<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
-					<li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled Inc. All rights reserved.</li>
-					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-		</section>
+                    <p>So we continue with our customized edge detection process:
+                        <ul>
+                            <li>  First we need to dilate the image: Dilation is a morphological transformation used to increase the size or thickness of the foreground object in an image. In most cases, dilation is used to connect two broken objects of an image. Which is just the use case in our case if we look at the edges from Canny.
+                            </li>
+                            <li>We save the difference between dilated and the original gray image – we only save what’s in the front.
+                            </li>
+                            <li>Then we need to deal with the noisy background! We could apply a gaussian filter where it blurs the image and therefore make the difference due to lighting innoticable and not detected.
+                            </li>
+                            <li>Next we could find the difference between the product of blurring and the dilated image.
+                            </li>
+                            <li>Finally we normalize the image to increase the contrast of the output edge image:
+                            </li>
+                            <img src="images/final.png" alt="brighter group photo" class="center">
+                        </ul>
+                        It looks so much better now! We could also explore with different openCV functions and its parameters (like kernel sizes) in the jupyter notebook.
+                    </p>
 
+
+                    <h3 class="major"> Edges to G-code</h3>
+					<p>Now we have the binary image which contains the edges, how can we convert lines to motor movements? 
+                    </p>
+                    <ul>
+                        <li>We first need to convert the binary image into a list of pixel coordinates in x and y. This can be achieved by numpy.where, because a binary image is a matrix of x * y where mat[x][y] represents if pixel point (x,y) is black or white.</li>
+                        <li>Once we have all the coordinates that should be drawn, we scale them so that the image does not exceed the boundary of the drawing bot. We find the largest difference in x and y and choose one axis as boundary to be scaled (depends on how we could keep the most of our image)
+                        </li>
+                        <li>Then we group all the coordinates into groups of lines where all the coordinates in one list would be on the same line/ curve. This is done by setting arbitrary thresholds: if 2 points are 10 units apart in both axises, they do not belong to the same line.
+                        </li>
+                        <li>Next we find the bezier curve for each of the line, because the parsing SVG to G-code functions take straight lines and bezier curves. This is done by a series of line fitting and transformation functions (math).
+                        </li>
+                        <li>Now we could save the commands in a file to be converted to G-code!
+                        </li>
+                    </ul>
+
+		
+        
 	</div>
 
 	<!-- Scripts -->
