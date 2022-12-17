@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Big Knit</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"></span><span class="title">Big Knit</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="product.html">The Product</a></li>
+						<li><a href="sprints.html">Our Process</a></li>
+						<li><a href="mechanical.html">Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="firmware.html">Firmware</a></li>
+						<li><a href="how-to-knit.html">How to Knit</a></li>
+						<li><a href="bom.html">Materials and Budget</a></li>
+						<li><a href="team.html">The Team</a></li>
+					</ul>
+				</nav>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>How to Knit</h1>
+							<p>We don't expect everyone to know how to knit. To better understand this project, here's a run through of what the knitting process does.</p>
+
+							<!-- Section 1 -->
+							<section>
+								<h3>Casting On</h3>
+								<p>Casting on is the first row of a knit piece. Its goal is to serve as a starting point for a piece, and prevent each subsequent row from unraveling. There are several different techniques for casting on, but for our machine we chose to use a simple method of starting with a slip knot, then knitting a stitch on every other needle. This would be easy to automate in a future iteration of this project compared to other established techniques, but results in a less neat final product</p>
+
+								<span class="image main"><img src="images/casting-on-bed.png" alt="" height="auto"/></span>
+							</section>
+
+							<!-- Section 2 -->
+							<section>
+								<h3>Knitting a Stitch</h3>
+								<span class="image left"><img src="images/tension-row.png" alt="" height="200"/></span>
+								<p>Once a piece has been started, knitting a stitch essentially consists of making a loop out of yarn, then sliding an existing loop onto that loop. Here’s what that looks like for our machine:
+								Start out with a set of needles that have already been cast onto. This photo has a few stitches already knit, for clarity.
+								</p>
+
+								<p>As the linear cam moves, each needle is pushed out of its slot. This causes the existing loop to slide back, opening a latch on the hook and making space for a new piece of yarn.</p>
+
+								<span class="image main"><img src="images/first-stiches.png" alt="" height="auto"/></span>
+
+								<p>
+									While this is happening, the forward-sliding hook grabs onto the new yarn, which is positioned in place by the linear slide itself.
+								</p>
+
+								<span class="image left"><img src="images/open-hook-stitch.png" alt="" height="auto"/></span>
+
+								<p>
+									With this done, the cam begins pulling the needle back into its slot. As this happens the latch on the hook closed over the new yarn, and the existing loop slides off. Congrats, you’ve knit a single stitch!
+								</p>
+
+								<span class="image left"><img src="images/quartet-stitch.png" alt="" height="auto"/></span>
+
+								<p>
+									As the cam slides this process repeats for each needle on the machine. Now, you’ve knit a row.
+									This process repeats as the cam slides back and forth along its track, adding a row each time.Eventually, once enough rows have been added, the piece is finished. But before you can take it off the needles, you need to cast off.
+								</p>
+
+								<span class="image left"><img src="images/knit-hang.png" alt="" height="auto"/></span>
+							</section>
+
+							<section>
+								<h3>Casting Off</h3>
+								<p>Casting off is the opposite of casting on. It serves the same purpose of preventing the piece from unraveling, but requires a slightly more  hands-on method for doing so.
+								Start out with a finished piece, and transfer the first loop over towards the center.
+								</p>
+
+								<span class="image main"><img src="images/latch-dyptich.png" alt="" height="auto"/></span>
+
+								<p>Knit a stitch as usual, treating the two loops as you would the usual individual loop.
+								</p>
+
+								<span class="image main"><img src="images/hooks-trio.png" alt="" height="auto"/></span>
+
+								<span class="image left"><img src="images/open-closed.png" alt="" height="250"/></span>
+
+								<p>Now, transfer this loop onto the next hook to the side, and repeat the knitting process again for a single stitch.</p>
+								
+								<p>Continue until you reach the very last hook, and have a single stitch left.</p>
+
+								<span class="image left"><img src="images/single-hooked.png" alt="" height="250"/></span>
+
+								<p>Knit one more stitch, then cut the yarn. On this last loop, you can simply pull the tail end of the yarn all the way through, creating a knot and finishing your piece. Now, you have a knit item that won’t unravel. Enjoy!</p>
+
+								<span class="image main"><img src="images/cast-off.png" alt="" height="auto"/></span>
+
+
+							</section>
+						</div>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer"></footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

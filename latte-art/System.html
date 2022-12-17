@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Systems</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">BaristaBot</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">BaristaBot</a></li>
+							<li class="active"><a href="System.html">System</a></li>
+							<li><a href="Mechanical.html">-Mechanical</a></li>
+							<li><a href="Electrical.html">-Electrical</a></li>
+							<li><a href="Firmware.html">-Firmware</a></li>
+							<li><a href="Software.html">-Software</a></li>
+							<li><a href="Materials.html">-Materials</a></li>
+
+						</ul>
+						<ul class="icons">
+							<li><a href="https://github.com/angrocki/Latte-Art-Robot" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>System</h1>
+								</header>
+								<p>In order to facilitate integration, we decided to draw out a Systems Map to visualize how each separate aspect of the project interacts with each other.</p>
+								<div class="image main"><img src="images/systems/system.png" alt="" /></div>
+								<h2>OVERALL SYSTEM</h2>
+								<p> The process begins with the user, who inputs milk and a cup of espresso into the machine, and turns on the power. Power turns on the stepper motors, and when the user activates the software through the GUI, the motors are able to move to the proper positions. Depending on the user’s choices, the GUI will send Python’s G-Code through serial communication to the Arduino, which will control the motors accordingly. Milk begins to pour from the valve/extruder into the cup, and a pattern is drawn as the G-Code moves the motors in a specific pattern. Once the pattern is done, the user can remove their cup and enjoy their drink.</p>
+								<h2>LIQUID SYSTEM: HOW WE ACCOUNT FOR FOOD SAFETY</h2>
+								<span class="image fit"><img src="images/systems/LiquidSystem.png" alt="" /></span>
+								<p>Going into this project, one of the biggest risks that we had to be continually aware of throughout the design process was food safety; anything and everything that interacts with either the espresso or milk must be made out of some sort of material that would preserve the quality of the food and the safety of the drinker. With this in mind, we decided to map out how each system interacts with the liquid.</p>
+								<p>The first interaction with liquid starts with the user, who must input milk into the machine, as well as place a cup of espresso into the cupholder. The input milk is initially stored in the funnel, nylon tubing, and solenoid valve, all of which are made using food-safe materials. When the machine is turned on and the valve is enabled, the liquid will pour through the extruder piece attached to the bottom of the valve, which is made of stainless steel. From there, the milk flows into the cup with the espresso, and after the design is done, the user may remove the cup and enjoy their drink.</p>
+								<p>In general, liquid interactions are kept to a minimum with this system, as any liquid in the machine is enclosed in only 3 parts. To further ensure liquids do not interact with the non-safe aspects of our machine, we have made the design choice to harness all electrical components to the back end of the robot, opposite of where the liquids flow.</p>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

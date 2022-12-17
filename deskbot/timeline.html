@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>DeskBot</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">DeskBot</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="demo.html" >Demo</a></li>
+						<li><a href="systemOverview.html" >System Overview</a></li>
+						<li><a href="mechanical.html" >Mechanical</a></li>
+						<li><a href="electrical.html">Electrical</a></li>
+						<li><a href="software.html" >Software and Firmware</a></li>
+						<li><a href="budget.html">Budget</a></li>
+						<li><a href="timeline.html" class = "active">Timeline</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Timeline</h1>
+							<p>Our project timeline was divided into 3 separate sprints.</p>
+							<h2>Sprint 1</h2>
+							<h3>Mechanical</h3>
+							<div style="float: right; margin: 0 0 15px 15px;">
+								<span class="image fit"><img src="images/gripperSprint1.jpg" alt="" style="width: 8vw; min-width: 100px;"/></span>	
+							</div>		
+							<p>During this sprint we worked on creating a gantry system that moves along one axis and create an arm that is able to grab objects using a rack and pinion system. The gripper CAD is shown on the right.</p>
+
+							<h3>Electrical</h3>
+							<p>For the electrical system, we initially decided on using and ultrasonic sensor to detect how far away objects were from the gripper. Below is the circuit diagram for the ultrasonic sensor circuit, that relies on a series of filters and amplifications through operational amplifiers to output an accurate signal.</p>
+							<span class="image fit"><img src="images/ultrasonic sensor.png" alt="" style="width: 50vw; min-width: 100px;" /></span>	
+							<h3>Software</h3>
+							<p>For the software system, we began implementing a script that sends motor speeds to an arduino, while trying to follow a red object. Below shows the mask that filters out non red objects and the terminal is showing the motor speeds that were being set. </p>
+							<span class="image fit"><img src="images/maskingSprint1.gif" alt="" /></span>	
+								<div style="float: left; margin: 0 30px 0 15px;">
+								<span class="image fit"><img src="images/sprint1Final.gif" alt="" style="width: 8vw; min-width: 100px;"/></span>	</div>
+								<h3>Sprint 1 Final Product</h3>
+								<p>At the end of the sprint we achieved a one dimensional gantry system that is able to follow a red object as shown on the left. </p>
+								<p>The progress on this sprint help us establish a python controller that would be able to send inputs to a motor based on a camera input. Furthermore, it also began the process of creating the belt system that would eventually be an important foundation for future mechanical design.</p>
+
+								<br>
+							<h2>Sprint 2</h2>
+							<h3>Electrical</h3>
+							<p>In this sprint, we began to pivot towards a two Arduino control system and using the Adafruit Motorshields to power the stepper motors for the xy movement on the gantry. We also began exploring and using the A4988, specifically for a stepper motor that turns a lead screw. We also began using the IR Beam Break Sensors to integrate into the gripper. A picture of the electrical system during the sprint is shown below.</p>
+							<span class="image fit"><img src="images/electricalSprint2.png" alt="" style="width: 20vw; min-width: 200px;"/></span>
+							<h3>Mechanical</h3>
+
+							<main class='main' style=" display: flex; justify-content: center; align-items: center;">
+
+								<section class='left section' style="width: 1000px">
+							  
+									<h4>H-Bot Gantry</h4>
+									<main class='main' style="  display: flex;
+									justify-content: center;
+									align-items: center;">
+																	
+										<section class='right section'>
+									  
+											<span class="image fit" style="margin-right: 30.875%;"><img src="images/sprint2HBot.gif" alt="" style="width: 10vw; min-width: 100px; float: right;"/></span>
+									  
+										</section>
+										<section class='left section'>
+									  
+											<p style="margin-left: 5.875%;">During this iteration, we began shifting towards an H-Bot gantry system that would allow robust xy movement with two stepper motors. Below is the progress made on the H-Bot gantry system</p>
+									  
+										</section>
+		
+									  
+									  </main>
+							  
+								</section>
+								<section class='right section' style="width: 1000px;margin-left: 5.875%;"">
+									<h4>Gripper</h4>
+							
+									<main class='main' style="  display: flex;
+									justify-content: center;
+									align-items: center;">
+																	<section class='left section'>
+									  
+																		<p>In this sprint, we also began iterating the design of the gripper. We added slots for the IR Beam Break sensor. To the right is the gripper closing when it detects an object inside of the arms. </p>
+																  
+																	</section>
+										<section class='right section'>
+									  
+											<span class="image fit" style="margin-left: 21.875%;"><img src="images/sprint2GripperClose.gif" alt="" style="width: 10vw; min-width: 100px; float: right;"/></span>
+									  
+										</section>
+		
+		
+									  
+									  </main>
+								</section>
+								</main>
+							
+							<br>
+							
+							
+							
+							
+						
+							  <br>
+							  <div style="float: left; margin: 0 30px 0 15px;">
+								<span class="image fit"><img src="images/perfectionShapeDetection.gif" alt="" style="width: 20vw; min-width: 200px;"/></span></div>
+							<h3>Software</h3>
+							
+							<p>For this sprint, we developed more code that enabled detection of different objects without using color. Specifically, we wanted to solve the game perfection, which is a shape matching game for children. As shown on the left, as a shape is rotated the python script tries to match it to one of the shapes inside the perfection game. Although we did not develop on this more in the future for the gantry movement, this code lays the foundation for placing and creating a gantry system that can play Perfection. </p>
+<br>
+							<h2>Sprint 3</h2>
+							<h3>Electrical</h3>
+							<p>In this sprint, we simplified the entire system down to just 2 Arduino controllers to control the entire gantry by moving all the stepper motor control to A4988 drivers. This change also allowed us to move to higher torque stepper motors allowing for better gantry movement. We also worked on integrating the limit switches into the system.</p>
+							<h3>Software and Firmware</h3>
+							<p>A majority of the work in this sprint was done in firmware. We created the controller that controls all the movements of the gantry system and the gripper. We also added the states for when the limit switches are hit. </p>
+							<h3>Mechanical</h3>
+							
+							<h4>Gripper</h4>
+							<p>In this sprint the gripper was slightly redesigned to allow for more stable gripper movement as show below.</p>
+							<div class="row">
+								<div class="column">
+								  <img src="images/sprint3gripper.gif" alt="Snow" style="width:100%">
+								</div>
+							  </div>
+							  <br>
+							  <h4>H-Bot Gantry</h4>
+							<p>A majority of our progress was made in fabricating the rest of the H-Bot system. We designed the frame of the gantry and and fabricated the H-Bot system that would go on top.</p>
+							<div class="row" sytle = "  float: right;
+							width: 33.33%;
+							padding: 5px;">
+								<div class="column">
+								  <img src="images/frame.png" alt="Snow" style="width:30%">
+								</div>
+							  </div>
+							  <br>
+							  <h3>Sprint 3 Deliverable</h3>
+							  <p>Putting the controller and the gantry together gives us the movement that allows us to start organizing our desks.</p>
+							  <span class="image fit"><img src="images/sprint3gantrymovement.gif" alt="" style="width: 20vw; min-width: 200px;"/></span>
+							  <p><b>From here we began working on our final system.</b></p>
+							  <a href="index.html#two" class="button">Click Here to learn about our final system</a>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy;DeskBot.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

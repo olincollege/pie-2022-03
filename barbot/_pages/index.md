@@ -5,6 +5,6 @@ permalink: /
 
 ## Revolutionizing Mixology One Drink At A Time
 
-_TODO: Create a more stylish page advertizing the BarBot and its features_
+At the beginning, four friends came together with one shared dream: to revolutionize personal mixology. Today, this dream has come to fruition. No longer is personal mixology only for the wealthy elite who can afford it; now, it is for everyone...
 
-_Likely a carousel_
+[![Barbot video](https://img.youtube.com/vi/NeJ8eXqiHQ0/0.jpg)](https://www.youtube.com/watch?v=NeJ8eXqiHQ0)
