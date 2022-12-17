@@ -59,14 +59,64 @@
 
 							<!-- Section 1 -->
 							<section>
-								<h3>Electrical Topic 1</h3>
-								<p>Example text talking about something electrical</p>
+								<h3>Electrical System</h3>
+								<p>In order to robotically knit, we needed a few actuators and sensors. To move the knitting cam precisely, 
+									we needed a stepper motor. To find a reference position, we needed limit switches. to add advanced knitting
+									functionality, we needed an unknown amount of servos, placed on the gantry. and of course, everything needs
+									stable power sources.
+								</p>
+								<p>Here is our complete Electrical System Diagram:</p>
+								<span class="image main"><img src="images/bigknit-circuit diagram.png" alt="" height="auto"/></span>
+
+							</section>
+
+							<section>
+								<h3>Electrical construction</h3>
+								<span class="image left"><img src="images/limit switch.jpg" alt="" height="350" width="auto" /></span>
+								<span class="image left"><img src="images/hiden-wiring.jpg" alt="" height="350" width="auto" /></span>
+								<p>Initially, we decided to go with a fully soldered breadboard shield for the arduino, with 90 degree dupont connectors for
+									all connections. however, it proved to be a very tight fit for all the various connections, and it has hard 
+									to debug any electrical issues. We switched to breadboards, but used robust plugabble screw terminals to
+									connect to motors and sensors. To make long wires neater and easier to handle, we twisted them in pairs.
+									This has a side benefit of potentially helping signal integrity on the 12C lines going to the servo motor 
+									controller board. To make sure the wires moving out to the gantry were not pinched or caught in the linear
+									slide, we used a cable drag chain, with zip-ties at the start to secure tension on the wires.
+								</p>
 							</section>
 
 							<!-- Section 2 -->
 							<section>
-								<h3>Electrical Topic 2</h3>
-								<p>Example text talking about something electrical</p>
+								<h3>Stepper Motor Control</h3>
+								<span class="image right"><img src="images/tmc2208.bmp" alt="" height="300" width="auto" /></span>
+								<p> To control stepper motors, we used the 
+									<a href="https://wiki.fysetc.com/TMC2208/" target="_blank" rel="noopener noreferrer">TMC 2208</a>
+									stepper Motor Driver. This driver was selected because it produces a higher quality sine wave output when driving stepper 
+									motors, allowing a more silent and vibration free operations. it also features thermal monitoring and shutdown,
+									as well as better micro stepping resolution, while still being compatible with simple arduino stepper motor libraries
+									such as accel stepper.
+								</p>
+								<p>The chip is powered by the arduino's 5v output, but the motor has a separate 12v power supply. We set
+									the driver's max current using a small potentiometer on the back of the driver module, using the formula linked
+									in the guide above. for our motor, 1.1 amps of current was optimal for temperature and load.</p>
+							</section>
+							<!-- Section 2 -->
+							<section>
+								<h3>Servo Motor Control</h3>
+								<p>We knew we wanted the ability to add servo motor control of various knitting functions on the gantry, but did not
+									want to have excessive moving wiiring. using the
+									<a href="https://www.adafruit.com/product/815" target="_blank" rel="noopener noreferrer">PCA9685 12C PWM/Servo driver board</a>
+									allowed us to use the arduino's I2C communication bus, only 2 wires, to control up to 16 servos. The board
+									also requires 2 power inputs, one for the pwm driver chip, and one for the servos.
+								</p>
+								<span class="image main"><iframe src="https://drive.google.com/file/d/1I-lDHfiVjr5edqW9lZs82VUn43drM2KW/preview" height="800" width="1422"  allow="autoplay"></iframe></span>
+							</section>
+
+							<section>
+								<h3>Power</h3>
+								<p>
+									To power the stepper motors, we used a separate AC to 12v DC power supply. The servo motors are powered by an ISIM
+									Breadboard Power supply, using a 5v USB brick. The Ardunio is powered and controlled via a laptop usb.
+								</p>
 							</section>
 						</div>
 					</div>
@@ -83,5 +133,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+	</body>
+</html>
 	</body>
 </html>
