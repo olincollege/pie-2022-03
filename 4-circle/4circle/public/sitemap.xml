@@ -2,32 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/docs/highlevel/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/software/</loc>
     <lastmod>2022-12-16T00:39:49-05:00</lastmod>
   </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/docs/electrical/</loc>
-    <lastmod>2022-12-16T01:00:56-05:00</lastmod>
-  </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/docs/software/</loc>
-    <lastmod>2022-12-16T00:39:49-05:00</lastmod>
-  </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/docs/mechanical/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/mechanical/</loc>
     <lastmod>2022-12-16T01:00:51-05:00</lastmod>
   </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/docs/firmware/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/firmware/</loc>
     <lastmod>2022-12-16T00:39:49-05:00</lastmod>
   </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/docs/bom/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/bom/</loc>
     <lastmod>2022-12-16T00:39:49-05:00</lastmod>
   </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/highlevel/</loc>
+    <lastmod>2022-12-16T00:39:49-05:00</lastmod>
+  </url><url>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/gallery/</loc>
+    <lastmod>2022-12-16T00:39:49-05:00</lastmod>
+  </url><url>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/</loc>
     <lastmod>2022-12-16T01:00:56-05:00</lastmod>
   </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/docs/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/</loc>
     <lastmod>2022-12-16T01:00:56-05:00</lastmod>
   </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/categories/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/docs/electrical/</loc>
+    <lastmod>2022-12-16T01:00:56-05:00</lastmod>
   </url><url>
-    <loc>https://olincollege.github.io/pie-2022-03/4-circle/tags/</loc>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/categories/</loc>
+  </url><url>
+    <loc>https://olincollege.github.io/pie-2022-03/4-circle/4circle/public/tags/</loc>
   </url>
 </urlset>
