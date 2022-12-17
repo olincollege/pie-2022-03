@@ -38,6 +38,9 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Software and Firmware</h1>
+							<a href="https://github.com/raiyansiddique/Gantry_Desk_Organizer/tree/main/final" class="button">Click Here to view our source code</a>
+							<br>
+							<br>
 							<h2>Firmware</h2>
 							<p>In our system we use two Arduinos to control the two big components of our gantry: the H-Bot and the Gripper.</p>
 							<h3>H-Bot Gantry Control</h3>
@@ -127,8 +130,10 @@
 							<p>This computer vision also starts with creating a binary image based on the color of the Perfection pieces. Since all the pieces are yellow, which made it simpler than multiple color detection. </p>
 							<p>The complexity of this application comes when determining the orientation of the game piece. First, images of each Perfection piece were taken and stored in a directory to be compared to the game piece in the live video feed. When a piece is in the frame of the camera and color detection is applied to it, a still image is captured and a contour of the white space of the binary image is calculated. This contour is then compared to each of the game piece reference images. If the game piece is similar in shape to one of the reference images, that shape becomes our prediction. The unclassified game piece’s contour is then rotated and compared to the contour of the predicted reference image. If the contours are similar within a defined threshold, then we know what piece is being detected and its rotation. If the contours are not similar enough, we compare the contour of the Perfection piece to the next closest prediction and repeat the process.</p>
 							<span class="image fit"><img src="images/perfectionShapeDetection.gif" alt="" /></span>
+		
 							</div>
-
+							<br>
+							
 					</section>
 
 			</div>
@@ -137,7 +142,7 @@
 			<footer id="footer" class="wrapper alt">
 				<div class="inner">
 					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy;DeskBot.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</div>
 			</footer>
