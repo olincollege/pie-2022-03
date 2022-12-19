@@ -10,7 +10,7 @@ They are listed in reverse-alphabetical order.
 
 [Wall-e](https://olincollege.github.io/pie-2022-03/wall-e)
 
-[Untitled.png](https://olincollege.github.io/pie-2022-03/untitled-png)
+[Untiled.png](https://olincollege.github.io/pie-2022-03/untiled-png)
 
 [Soda Fountain](https://olincollege.github.io/pie-2022-03/soda-fountain)
 
@@ -44,4 +44,4 @@ They are listed in reverse-alphabetical order.
 
 [BarBot](https://olincollege.github.io/pie-2022-03/barbot)
 
-[4 Circle](https://olincollege.github.io/pie-2022-03/4-circle)
+[4 Circle](https://olincollege.github.io/pie-2022-03/4-circle/public)
